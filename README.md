@@ -2,6 +2,8 @@
 
 **0.0.1-alpha — Windows source release.** Save and share locations, record mining scans, and receive on-screen navigation and scan-reference guidance from visible game pixels.
 
+**Tested game build: Star Citizen 4.10.2-LIVE.12913470.** Other builds have not been validated; changes to debug text, HUD layout, or scanning values may affect results.
+
 **Fully independent project:** SC Bookmarks was developed independently by DrDronez. Cloud Imperium Games (CIG), Roberts Space Industries (RSI), and their affiliates had no involvement in this project's development. They do not sponsor, endorse, publish, or support this application. Star Citizen and related names and trademarks belong to their respective owners and are used solely to identify compatibility. No official artwork or logos are included.
 
 ## Observe and overlay only
