@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.3-alpha � 2026-10-23
+## 0.0.3-alpha — 2026-10-23
 
 - Add a map interface with orbit, pan, zoom, system/route framing, and route profile.
 - Select bookmarks and inspect clickable QT-point labels on the map.
@@ -15,7 +15,7 @@ Map views and cached rendering were smoke-tested; all 31 automated tests pass.
 Tested game build remains 4.10.2-LIVE.12913470.
 
 
-## 0.0.2-alpha — 2026-10-23
+## 0.0.2-alpha â€” 2026-10-23
 
 - Show suggested QT marker pairs beside bookmarks, without adding overlay clutter.
 - Show a single planet or moon when a bookmark falls within its cataloged ROI.
@@ -29,7 +29,7 @@ positions use container centers, ROI uses container radii, and live QT availabil
 is not checked. Catalog snapshot: 2026-10-21, Wiki build 4.10.2-LIVE.12881860.
 Tested game build remains 4.10.2-LIVE.12913470. All 31 automated tests pass.
 
-## 0.0.1-alpha — 2026-10-18
+## 0.0.1-alpha â€” 2026-10-18
 
 Initial public source prerelease: screen-capture/OCR bookmarks, manual and asteroid entry, mining metadata and filters, sharing via scbm URIs, navigation overlays and QT alerts, scanning reference tables and RS overlays, saved overlay presets, and independent-project documentation.
 
