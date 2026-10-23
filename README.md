@@ -1,10 +1,28 @@
 # SC Bookmarks
 
-**0.0.1-alpha — Windows source release.** Save and share locations, record mining scans, and receive on-screen navigation and scan-reference guidance from visible game pixels.
+**0.0.2-alpha — Windows source release.** Save and share locations, record mining scans, and receive on-screen navigation and scan-reference guidance from visible game pixels.
 
 **Tested game build: Star Citizen 4.10.2-LIVE.12913470.** Other builds have not been validated; changes to debug text, HUD layout, or scanning values may affect results.
 
 **Fully independent project:** SC Bookmarks was developed independently by DrDronez. Cloud Imperium Games (CIG), Roberts Space Industries (RSI), and their affiliates had no involvement in this project's development. They do not sponsor, endorse, publish, or support this application. Star Citizen and related names and trademarks belong to their respective owners and are used solely to identify compatibility. No official artwork or logos are included.
+
+## Suggested QT routes
+
+Each bookmark row shows two suggested QT markers. If the bookmark lies inside
+a cataloged planet or moon's region, only that celestial is shown. The interface
+shows marker names only, without distance or uncertainty figures. This does not
+add anything to the flight overlay or control the ship.
+The calculation compares all marker pairs in the bookmark's system using a
+bundled 70-marker community catalog. It uses finite segments and QT arrival
+radii, and rejects segments intersecting cataloged bodies. It does not check
+live routing restrictions, fuel, or obstacles absent from the catalog.
+
+Some stations are represented by their container centers because their local
+orientation has not been verified. ROI uses the source container radius, with
+the physical body radius as a minimum when the source radius is inconsistent.
+Body centers are not actual ship departure positions. Suggestions are estimates
+for manual route selection, not guaranteed optimal in-game routes. The catalog
+snapshot is dated 2026-10-21 and uses Wiki build 4.10.2-LIVE.12881860.
 
 ## Observe and overlay only
 
@@ -23,7 +41,7 @@ These are descriptions of the implementation, not claims of approval or guarante
 Requirements: **64-bit Windows**, **64-bit Python 3.14 with Tcl/Tk and pip**, and an internet connection for the initial dependency installation. Development testing used Windows 11. Other Python versions and Windows configurations have not been validated. This release is Python source, not a standalone executable. Tesseract is not required.
 
 1. Install Python from [python.org](https://www.python.org/downloads/windows/), including the Python launcher, pip, and Tcl/Tk.
-2. Download `sc-bookmarks-0.0.1-alpha.zip` from Releases and extract it into a writable folder. Do not run it inside the ZIP or put it in the game's installation directory.
+2. Download `sc-bookmarks-0.0.2-alpha.zip` from Releases and extract it into a writable folder. Do not run it inside the ZIP or put it in the game's installation directory.
 3. Run **Setup.cmd**. It creates a local `.venv` and installs the packages listed in `requirements.txt` from PyPI.
 4. Run **Start SC Bookmarks.cmd**. Setup is only needed once per installation or when dependencies change.
 

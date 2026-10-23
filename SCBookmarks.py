@@ -337,6 +337,7 @@ class Navigator:
         self.applied_ore='';self.applied_quality=None
         self.shard_text=tk.StringVar(value='Current shard: checking…')
         self.bookmark_details=tk.StringVar(value='')
+        self.route_suggestion=tk.StringVar(value='Select a bookmark to see a suggested QT route.')
         self.overlay_enabled=tk.BooleanVar(value=True);self.motion_angle=None
         self.status=tk.StringVar(value='Stopped. Start capture while the game overlay is visible.')
         self.pos_text=tk.StringVar(value='Root XYZ km:\nWaiting for game coordinates…'); self.nav_text=tk.StringVar(value='Choose a bookmark to navigate.')
@@ -399,6 +400,8 @@ class Navigator:
             if b.get('category')=='Mining':
                 quality=best_quality(b,self.applied_ore)
                 if quality>=0:label+=f" | {self.applied_ore or 'Best'} Q{quality:g}"
+            from quantum_routes import route_line
+            label+='    |    '+route_line(b)
             self.list.insert('end',label)
             if b is selected:self.list.selection_set(i)
         self.category_box.configure(values=['All categories']+self.categories)
@@ -530,6 +533,8 @@ class Navigator:
             except OSError:
                 bookmark.clear();bookmark.update(original);raise
             self.refresh_bookmarks(bookmark)
+            from quantum_routes import route_text
+            self.route_suggestion.set(route_text(bookmark))
             self.bookmark_details.set('Saved '+bookmark['name']+(' — '+bookmark['notes'][:180] if bookmark.get('notes') else ''))
             if bookmark is self.target:self.alerted=False;self.qt_seen_ahead=False
         BookmarkEditor(self.root,bookmark,self.categories,save_edit)
@@ -848,6 +853,8 @@ class Navigator:
             target=self.visible_bookmarks[selected[0]]
             from navigator_ui import bookmark_summary
             self.bookmark_details.set(bookmark_summary(target))
+            from quantum_routes import route_text
+            self.route_suggestion.set(route_text(target))
             if target is self.target:return
             self.target=target;self.armed=False;self.alerted=False;self.qt_seen_ahead=False;self.clear_cal();self.course.reset();self.motion_angle=None
     def rename_bookmark(self):
@@ -886,6 +893,7 @@ class Navigator:
         self.status.set('Deleted bookmark: '+bookmark['name'])
 
     def clear_target(self):
+        self.route_suggestion.set('Select a bookmark to see a suggested QT route.')
         self.target=None;self.armed=False;self.alerted=False;self.list.selection_clear(0,'end')
         self.nav_text.set('Choose a bookmark to navigate.');self.course.reset();self.overlay.hide()
     def arm(self):

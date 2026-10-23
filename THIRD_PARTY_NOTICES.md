@@ -14,3 +14,12 @@ Direct dependencies are installed from PyPI by Setup:
 Consult each installed distribution's license files for full terms, including bundled components and transitive dependencies. Python and Tcl/Tk are separately installed runtimes with their own licenses.
 
 Ore names were checked against the [SCMiner mineral directory](https://scminer.rocks/data/mineral-directory); only names are included. The bundled scan tables are reference data, not official game documentation or a guarantee of current in-game results.
+# Route catalog
+
+The offline route catalog contains community coordinate and QT metadata from
+[starmap.space](https://starmap.space/) and the
+[Star Citizen Wiki API](https://api.star-citizen.wiki/), retrieved 2026-10-21.
+Per-marker source URLs and coordinate approximation methods are retained in
+`route-data/quantum-markers.json`. These sources are not affiliated with this
+project. The project's code license does not override third-party data rights.
+

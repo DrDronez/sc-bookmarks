@@ -1,0 +1,1145 @@
+{
+  "snapshot": "2026-10-21",
+  "version": "4.10.2-LIVE.12881860",
+  "attribution": "Community data: starmap.space and Star Citizen Wiki API. Not live-verified.",
+  "skipped": [],
+  "markers": [
+    {
+      "name": "Transit Point Glaciem Alpha",
+      "system": "Nyx",
+      "xyz_km": [
+        -13592383.232413,
+        6338233.6212031,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 0,
+      "arrival_km": 30.0,
+      "coordinate_method": "Source system-frame coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/296dd332-13da-485a-b6c2-7ab09b60ec36?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Transit Point Glaciem Bravo",
+      "system": "Nyx",
+      "xyz_km": [
+        9640228.7838848,
+        -11488779.774456,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 0,
+      "arrival_km": 30.0,
+      "coordinate_method": "Source system-frame coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/dcdafcd8-df76-447d-a10e-63373052545e?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Transit Point Glaciem Charlie",
+      "system": "Nyx",
+      "xyz_km": [
+        9640231.3861308,
+        11488779.851098,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 0,
+      "arrival_km": 30.0,
+      "coordinate_method": "Source system-frame coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/fff3fb38-bcbf-44b4-907c-b2e584372249?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Delamar",
+      "system": "Nyx",
+      "xyz_km": [
+        -9641675.714700216,
+        -11490740.30080168,
+        -113.9720625
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 65.0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/0c39de63-bb45-496e-8029-0ed91580c84a?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 700.0,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 700.0
+    },
+    {
+      "name": "People's Service Station Alpha",
+      "system": "Nyx",
+      "xyz_km": [
+        -45804334.38895,
+        -14351323.863111999,
+        6.7627049999999995
+      ],
+      "position_error_km": 38.649679822766,
+      "body_radius_km": 0,
+      "arrival_km": 30.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/8ef8417d-2d3c-4172-8030-63f63b95eed4?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "People's Service Station Delta",
+      "system": "Nyx",
+      "xyz_km": [
+        -6432482.102845,
+        -47567013.484966,
+        6.7627049999999995
+      ],
+      "position_error_km": 25.711347918729953,
+      "body_radius_km": 0,
+      "arrival_km": 30.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/4939d2da-c098-4d4c-9272-ead91cbb5fa4?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "People's Service Station Lambda",
+      "system": "Nyx",
+      "xyz_km": [
+        43327745.191997,
+        20656821.621462002,
+        6.7627049999999995
+      ],
+      "position_error_km": 24.761054455185395,
+      "body_radius_km": 0,
+      "arrival_km": 30.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/6eb6d82c-637d-4dd6-bf74-d2282983f676?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "People's Service Station Theta",
+      "system": "Nyx",
+      "xyz_km": [
+        40472669.373793,
+        -25806235.238169,
+        6.7627049999999995
+      ],
+      "position_error_km": 46.504352352275625,
+      "body_radius_km": 0,
+      "arrival_km": 30.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/1af3f93e-3ef9-442d-9cb6-a633463a24e5?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Adir",
+      "system": "Pyro",
+      "xyz_km": [
+        -3815641.3114,
+        -42729093.564,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 431.0,
+      "arrival_km": 602.55,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/d8935d2e-1b10-4b50-b188-80e35dd0876a?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 862.0,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 862.0
+    },
+    {
+      "name": "Fairo",
+      "system": "Pyro",
+      "xyz_km": [
+        -3946435.0469,
+        -42879838.720199995,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 392.24,
+      "arrival_km": 561.852,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/73733370-d920-4056-9326-8c1f8b5a8a04?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 784.48,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 784.48
+    },
+    {
+      "name": "Fuego",
+      "system": "Pyro",
+      "xyz_km": [
+        -3780112.3701,
+        -42827196.0649,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 465.67,
+      "arrival_km": 638.9504000000001,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/5a680a01-11c3-40f9-a200-42832cf8707a?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 931.334,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 931.334
+    },
+    {
+      "name": "Ignis",
+      "system": "Pyro",
+      "xyz_km": [
+        -3965335.4047,
+        -42774798.7449,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 393.17,
+      "arrival_km": 562.8254000000001,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/88c11b95-0d17-4d48-ad6f-2bbaad4a472f?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 786.334,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 786.334
+    },
+    {
+      "name": "Vatra",
+      "system": "Pyro",
+      "xyz_km": [
+        -3889837.1944,
+        -42688068.4121,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 365.81,
+      "arrival_km": 534.0953000000001,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/baccdeb5-1960-487e-beab-d7b51f1871d1?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 731.61,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 731.61
+    },
+    {
+      "name": "Vuur",
+      "system": "Pyro",
+      "xyz_km": [
+        -4049992.2634,
+        -42648947.302300006,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 452.83,
+      "arrival_km": 625.4746,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/b5240b3a-ee0e-4c3f-b93c-f7aaadc81b2e?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 905.666,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 905.666
+    },
+    {
+      "name": "Bloom",
+      "system": "Pyro",
+      "xyz_km": [
+        -16103894.5796,
+        7587938.7988,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 413.9,
+      "arrival_km": 584.595,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/59637d5a-c67a-47eb-96dc-b648298f0023?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 1127.8,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 1127.8
+    },
+    {
+      "name": "Monox",
+      "system": "Pyro",
+      "xyz_km": [
+        6057267.1681,
+        -8724931.116600001,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 529.5,
+      "arrival_km": 705.975,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/ee842006-2374-4fe9-939d-8f02ac8cd4f3?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 1359.0,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 1359.0
+    },
+    {
+      "name": "Pyro I",
+      "system": "Pyro",
+      "xyz_km": [
+        -7920920.853,
+        -2386976.4764,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 411.7,
+      "arrival_km": 582.285,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/bd473b11-e20d-415f-bac3-e9e8099582b2?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 1123.4,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 1123.4
+    },
+    {
+      "name": "Pyro IV",
+      "system": "Pyro",
+      "xyz_km": [
+        -3704137.5437,
+        -43071659.3109,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 321.4,
+      "arrival_km": 487.47,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/ac826dfb-7142-4a15-bcdd-8e15d337ad1f?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 942.8,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 942.8
+    },
+    {
+      "name": "Pyro V",
+      "system": "Pyro",
+      "xyz_km": [
+        -3912426.7345,
+        -42758732.5976,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 7812.3,
+      "arrival_km": 8422.615,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/c8cd0adb-d75e-483e-aa5c-027495c83cdc?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 7812.3,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 1000.0
+    },
+    {
+      "name": "Terminus",
+      "system": "Pyro",
+      "xyz_km": [
+        -48118273.944400005,
+        48503131.7708,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 285.0,
+      "arrival_km": 449.25,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/8c462714-a82e-4d91-8d13-33b325a8efa5?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 870.0,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 870.0
+    },
+    {
+      "name": "Checkmate",
+      "system": "Pyro",
+      "xyz_km": [
+        10577229.334369995,
+        -968166.324911032,
+        0.0
+      ],
+      "position_error_km": 27937.045561009087,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/07463f54-4ecd-4323-8a28-fb65b8a4ebca?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Dudley & Daughters",
+      "system": "Pyro",
+      "xyz_km": [
+        -62036440.80645678,
+        -28625942.535941005,
+        0.0
+      ],
+      "position_error_km": 36549.690389125644,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/a88ae72e-15e9-43da-8a20-c14cc851d2da?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Endgame",
+      "system": "Pyro",
+      "xyz_km": [
+        52161403.64224197,
+        -44126491.1356201,
+        0.0
+      ],
+      "position_error_km": 24312.79223034578,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/b6771617-3965-4663-bb53-5f595ab1c761?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Gaslight",
+      "system": "Pyro",
+      "xyz_km": [
+        -4305013.180344072,
+        -47034474.32937001,
+        0.0
+      ],
+      "position_error_km": 28048.117199603785,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/beaadc7f-9f3c-4a2d-8dd6-f56d57de1c60?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Megumi Refueling",
+      "system": "Pyro",
+      "xyz_km": [
+        29122470.164338723,
+        61804895.10140972,
+        0.0
+      ],
+      "position_error_km": 30949.73083125331,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/82a8afd8-cd0a-4f5b-b448-35fa1214684e?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Nyx Gateway",
+      "system": "Pyro",
+      "xyz_km": [
+        -35275861.98297,
+        -36052313.852533,
+        0.0
+      ],
+      "position_error_km": 42.94729774750005,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/2cc61d92-b7bc-4533-9b97-6a32482a28f1?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Patch City",
+      "system": "Pyro",
+      "xyz_km": [
+        14541573.612661485,
+        -10269333.167882817,
+        0.0
+      ],
+      "position_error_km": 15320.387899029833,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/430316d5-f330-4e6c-93b8-823a062689db?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Rat's Nest",
+      "system": "Pyro",
+      "xyz_km": [
+        -42314565.58359934,
+        -7286465.628469063,
+        0.0
+      ],
+      "position_error_km": 22100.075347209226,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/5e241629-e58f-4c15-b938-acc2cc287cd4?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Rod's Fuel 'N Supplies",
+      "system": "Pyro",
+      "xyz_km": [
+        41429351.31330984,
+        -11279333.42532618,
+        0.0
+      ],
+      "position_error_km": 24937.456964775356,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/1711f3cc-59ef-4b08-a762-19d8691ae268?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Stanton Gateway",
+      "system": "Pyro",
+      "xyz_km": [
+        34178643.379001,
+        40591998.389459,
+        0.0
+      ],
+      "position_error_km": 42.94729774750005,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/a1b8a311-6465-45dc-873d-e8d06d4372df?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Starlight Service Station",
+      "system": "Pyro",
+      "xyz_km": [
+        -14610506.64339,
+        6575346.217757,
+        0.0
+      ],
+      "position_error_km": 11782.772932463331,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/a8b1ec44-6287-4687-9a56-476663db591a?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Wikelo Emporium Dasi Station",
+      "system": "Stanton",
+      "xyz_km": [
+        14333387.186509,
+        2001161.588504,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 0,
+      "arrival_km": 18.0,
+      "coordinate_method": "Source system-frame coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/02069d4a-e37a-474c-9229-691ce013bdc1?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Wikelo Emporium Kinga Station",
+      "system": "Stanton",
+      "xyz_km": [
+        23761435.428584,
+        39225377.300445,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 0,
+      "arrival_km": 18.0,
+      "coordinate_method": "Source system-frame coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/67ae7907-1fd9-4e84-a83f-2b7e96b2bf60?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Wikelo Emporium Selo Station",
+      "system": "Stanton",
+      "xyz_km": [
+        -20156591.640625,
+        -1263139.6642805,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 0,
+      "arrival_km": 18.0,
+      "coordinate_method": "Source system-frame coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/920f7536-09dc-483e-9d87-2557a3425559?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Aberdeen",
+      "system": "Stanton",
+      "xyz_km": [
+        12905757.636,
+        40955.55,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 274.0,
+      "arrival_km": 437.7,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/f8f07f5b-1c0e-47c9-aa50-46963065bf18?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 548.0,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 548.0
+    },
+    {
+      "name": "Arial",
+      "system": "Stanton",
+      "xyz_km": [
+        12892673.308,
+        -31476.128,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 344.5,
+      "arrival_km": 511.725,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/f3fa9d13-3fdc-41f3-b5e5-25f0b74c0728?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 689.0,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 689.0
+    },
+    {
+      "name": "Calliope",
+      "system": "Stanton",
+      "xyz_km": [
+        22398369.308,
+        37168840.679,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 240.0,
+      "arrival_km": 402.35,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/3304263b-f133-41f8-85e7-79693e5bb2de?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 480.666,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 480.666
+    },
+    {
+      "name": "Cellin",
+      "system": "Stanton",
+      "xyz_km": [
+        -18987611.119,
+        -2709009.661,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 260.0,
+      "arrival_km": 423.3497,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/b41a1bc9-5bca-489b-8273-de90f18ec60d?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 520.666,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 520.666
+    },
+    {
+      "name": "Clio",
+      "system": "Stanton",
+      "xyz_km": [
+        22476728.221,
+        37091020.074,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 337.17,
+      "arrival_km": 504.025,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/2a21d86f-ebf0-4052-a134-c414c9998592?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 674.334,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 674.334
+    },
+    {
+      "name": "Daymar",
+      "system": "Stanton",
+      "xyz_km": [
+        -18930539.54,
+        -2610158.765,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 295.0,
+      "arrival_km": 459.75,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/e658b2b1-fae7-4945-89b8-b332f235d59b?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 590.0,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 590.0
+    },
+    {
+      "name": "Euterpe",
+      "system": "Stanton",
+      "xyz_km": [
+        22488109.736,
+        37081123.565,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 213.0,
+      "arrival_km": 373.475,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/732dedf3-9530-4972-98ab-2fcae64669db?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 425.666,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 425.666
+    },
+    {
+      "name": "Ita",
+      "system": "Stanton",
+      "xyz_km": [
+        12830194.716,
+        114913.608,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 325.0,
+      "arrival_km": 491.25,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/11368ee6-a2de-4948-a9b0-608ce565f3e3?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 650.0,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 650.0
+    },
+    {
+      "name": "Lyria",
+      "system": "Stanton",
+      "xyz_km": [
+        18703607.17,
+        -22121650.134,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 223.0,
+      "arrival_km": 384.15,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/452de0e6-e31d-4e2c-b249-1c4244cb713b?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 446.0,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 446.0
+    },
+    {
+      "name": "Magda",
+      "system": "Stanton",
+      "xyz_km": [
+        12792686.359,
+        -74464.581,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 340.83,
+      "arrival_km": 507.8747,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/6f22b292-38d6-4429-b504-99b39514a2f8?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 681.666,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 681.666
+    },
+    {
+      "name": "Wala",
+      "system": "Stanton",
+      "xyz_km": [
+        18379649.31,
+        -22000466.768,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 283.0,
+      "arrival_km": 447.3075,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/d6f1ccd9-fbfb-4086-9608-8466ef2c1c93?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 566.3,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 566.3
+    },
+    {
+      "name": "Yela",
+      "system": "Stanton",
+      "xyz_km": [
+        -19022916.799,
+        -2613996.152,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 313.0,
+      "arrival_km": 478.65,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/ee63a520-43df-4e1c-8af7-8b8df06b3dd2?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 1016.0,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 1016.0
+    },
+    {
+      "name": "ArcCorp",
+      "system": "Stanton",
+      "xyz_km": [
+        18587664.74,
+        -22151916.92,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 800.0,
+      "arrival_km": 880.0,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/35a9f8f5-8f80-4796-83db-7d7362baeb9a?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 1900.0,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 1900.0
+    },
+    {
+      "name": "Crusader",
+      "system": "Stanton",
+      "xyz_km": [
+        -18962176.0,
+        -2664960.0,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 7450.0,
+      "arrival_km": 7972.5,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/c15033ab-2eb3-4d6d-b882-0cb336e67ed8?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 15000.0,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 15000.0
+    },
+    {
+      "name": "Hurston",
+      "system": "Stanton",
+      "xyz_km": [
+        12850457.093,
+        0.0,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 1000.0,
+      "arrival_km": 1050.0,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/551af60b-7727-4936-acc7-763d25d7a1de?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 2000.0,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 2000.0
+    },
+    {
+      "name": "microTech",
+      "system": "Stanton",
+      "xyz_km": [
+        22462085.252,
+        37185744.964,
+        0.0
+      ],
+      "position_error_km": 0,
+      "body_radius_km": 1000.0,
+      "arrival_km": 1050.0,
+      "coordinate_method": "Body center in system coordinates",
+      "coordinate_source": "https://starmap.space/api/v3/oc/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/5a529db7-1a4e-45b0-bdcb-a5a0c7a7fc57?version=4.10.2-LIVE.12881860",
+      "roi_radius_km": 2300.0,
+      "roi_basis": "Source GRIDRadius (metres to km), floored at physical body radius",
+      "source_grid_radius_km": 2300.0
+    },
+    {
+      "name": "ARC-L1 Wide Forest Station",
+      "system": "Stanton",
+      "xyz_km": [
+        16729134.637,
+        -19937006.925,
+        8.076625
+      ],
+      "position_error_km": 5513.804276618818,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/59485d8c-7947-4e00-871c-d35f6451aab8?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "ARC-L2 Lively Pathway Station",
+      "system": "Stanton",
+      "xyz_km": [
+        20446718.5033901,
+        -24367450.990706,
+        8.076625
+      ],
+      "position_error_km": 4340.050298778613,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/45b909df-7b0c-40c9-ab83-a7cd7d3a980f?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "ARC-L3 Modern Express Station",
+      "system": "Stanton",
+      "xyz_km": [
+        -25043446.8835029,
+        14458841.787628,
+        8.076625
+      ],
+      "position_error_km": 5235.6737117030225,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/3a43118d-b1b7-4822-8fb2-13f7abe6ac8b?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "ARC-L4 Faint Glen Station",
+      "system": "Stanton",
+      "xyz_km": [
+        28478354.915655702,
+        5021502.48291174,
+        8.076625
+      ],
+      "position_error_km": 3544.289976888068,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/2dbccd4e-81de-45fa-a24c-cd32d29a8ec4?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "ARC-L5 Yellow Core Station",
+      "system": "Stanton",
+      "xyz_km": [
+        -9890422.516169671,
+        -27173732.225139998,
+        8.076625
+      ],
+      "position_error_km": 5585.0245786254345,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/137c093d-a3fd-47ce-bd78-94772ce8f46e?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "CRU-L1 Ambitious Dream Station",
+      "system": "Stanton",
+      "xyz_km": [
+        -17065957.376,
+        -2398464.0,
+        0.0
+      ],
+      "position_error_km": 2976.042490521573,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/75e777cf-a055-4bc3-8ca7-602eb38be4f3?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "CRU-L4 Shallow Fields Station",
+      "system": "Stanton",
+      "xyz_km": [
+        -7173168.64,
+        -17754204.16,
+        0.0
+      ],
+      "position_error_km": 4721.486206847605,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/8f23301d-0711-47ec-9efb-76a6d8d1c9e6?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "CRU-L5 Beautiful Glen Station",
+      "system": "Stanton",
+      "xyz_km": [
+        -11789008.988,
+        15089246.106763799,
+        0.0
+      ],
+      "position_error_km": 5268.114161515339,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/5905eecd-258a-4046-ad08-90571c41b03c?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "HUR-L1 Green Glade Station",
+      "system": "Stanton",
+      "xyz_km": [
+        11565411.328,
+        0.0,
+        0.0
+      ],
+      "position_error_km": 4036.6024180847376,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/689ff011-e2e9-4f6e-b5a3-7cea4bbc86c7?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "HUR-L2 Faithful Dream Station",
+      "system": "Stanton",
+      "xyz_km": [
+        14135502.848,
+        0.0,
+        0.0
+      ],
+      "position_error_km": 4607.4121849301055,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/81e3150a-9c12-4715-85d4-afd6da69b8f0?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "HUR-L3 Thundering Express Station",
+      "system": "Stanton",
+      "xyz_km": [
+        -12850457.6,
+        -1.1234227289999998,
+        0.0
+      ],
+      "position_error_km": 6070.034530215423,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/de5f2d1d-78e5-4273-8028-c06690c03685?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "HUR-L4 Melodic Fields Station",
+      "system": "Stanton",
+      "xyz_km": [
+        6425228.288,
+        11128823.808,
+        0.0
+      ],
+      "position_error_km": 4760.207416643808,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/6e99473c-8446-4c5a-81cb-039a53c1960d?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "HUR-L5 High Course Station",
+      "system": "Stanton",
+      "xyz_km": [
+        6425227.776,
+        -11128823.808,
+        0.0
+      ],
+      "position_error_km": 1080.4761663289223,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/8e83f4da-c85d-4f00-b98d-bc734a07c5d4?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "MIC-L1 Shallow Frontier Station",
+      "system": "Stanton",
+      "xyz_km": [
+        20215824.238,
+        33467065.007,
+        0.0
+      ],
+      "position_error_km": 5.515151493839915,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/f4b118f8-3102-4a5c-b8ca-ff013c2f674a?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "MIC-L2 Long Forest Station",
+      "system": "Stanton",
+      "xyz_km": [
+        24708827.153,
+        40905202.459,
+        -5.0088e-05
+      ],
+      "position_error_km": 14048.605167219994,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/f602528f-acf3-4564-960c-fc344269a7a9?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "MIC-L3 Endless Odyssey Station",
+      "system": "Stanton",
+      "xyz_km": [
+        -22457170.265,
+        -37187612.395,
+        0.0
+      ],
+      "position_error_km": 13993.058569167533,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/2800c56f-0123-4c31-95d6-bfcf73ba8485?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "MIC-L4 Red Crossroads Station",
+      "system": "Stanton",
+      "xyz_km": [
+        -20971933.23,
+        38045504.032,
+        0.0
+      ],
+      "position_error_km": 16153.552451002717,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/317b7505-e562-4caf-9691-1516ab639bbf?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "MIC-L5 Modern Icarus Station",
+      "system": "Stanton",
+      "xyz_km": [
+        43435204.2882185,
+        -851406.955908429,
+        0.0
+      ],
+      "position_error_km": 16712.139803760812,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/54ab7b59-e808-43c4-9e5b-fbfaa03eb3d5?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Pyro Gateway",
+      "system": "Stanton",
+      "xyz_km": [
+        3310491.639802189,
+        -27979408.22145688,
+        -2676285.679
+      ],
+      "position_error_km": 39.16599970163711,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/59b22155-405f-4785-9f73-d2028b46f5c3?version=4.10.2-LIVE.12881860"
+    },
+    {
+      "name": "Terra Gateway",
+      "system": "Stanton",
+      "xyz_km": [
+        51118221.61690332,
+        -5269981.303113817,
+        -4339551.619
+      ],
+      "position_error_km": 49.546578507832514,
+      "body_radius_km": 0,
+      "arrival_km": 24.0,
+      "coordinate_method": "Container-center approximation; error bound is local offset length",
+      "coordinate_source": "https://starmap.space/api/v3/pois/index.php",
+      "qt_source": "https://api.star-citizen.wiki/api/locations/a3a7fa73-42bd-40ff-958c-e5c0d300ddc8?version=4.10.2-LIVE.12881860"
+    }
+  ]
+}
