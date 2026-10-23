@@ -54,7 +54,7 @@ def theme(root):
 def build(app):
     root=app.root;theme(root)
     from responsive_ui import scroll_surface,fit_window
-    fit_window(root,1080,840)
+    fit_window(root,1380,940)
     viewport=scroll_surface(root)
     shell=ttk.Frame(viewport,style='Shell.TFrame',padding=20);shell.pack(fill='both',expand=True)
     head=ttk.Frame(shell,style='Shell.TFrame');head.pack(fill='x',pady=(0,16))
@@ -82,6 +82,8 @@ def build(app):
     main.columnconfigure(0,weight=1);main.columnconfigure(1,weight=0,minsize=290);main.rowconfigure(0,weight=1)
     tabs=ttk.Notebook(main);tabs.grid(row=0,column=0,sticky='nsew',padx=(0,14))
     library=ttk.Frame(tabs,padding=14);settings=ttk.Frame(tabs,padding=16)
+    from system_map import SystemMap
+    app.map_tab=SystemMap(tabs,app);tabs.add(app.map_tab,text='Map')
     tabs.add(library,text='Bookmark library')
     from scanning_reference import ScanningTab
     app.scanning_tab=ScanningTab(tabs);tabs.add(app.scanning_tab,text='Scanning')
@@ -168,7 +170,10 @@ def build(app):
     ttk.Label(settings,text='Keep the cockpit camera centered for guidance.\nFreelook changes the camera direction.',style='Muted.TLabel').pack(anchor='w',pady=6)
     def tab_changed(event):
         scanning=tabs.select()==str(app.scanning_tab)
-        if scanning:
+        mapping=tabs.select()==str(app.map_tab)
+        if mapping:capture.pack_forget()
+        else:capture.pack(fill='x',pady=(0,16),before=main)
+        if scanning or mapping:
             nav.grid_remove();main.columnconfigure(1,minsize=0);tabs.grid_configure(columnspan=2,padx=0)
         else:
             nav.grid();main.columnconfigure(1,minsize=290);tabs.grid_configure(columnspan=1,padx=(0,14))

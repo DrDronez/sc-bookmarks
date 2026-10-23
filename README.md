@@ -1,10 +1,29 @@
 # SC Bookmarks
 
-**0.0.2-alpha — Windows source release.** Save and share locations, record mining scans, and receive on-screen navigation and scan-reference guidance from visible game pixels.
+**0.0.3-alpha — Windows source release.** Save and share locations, record mining scans, and receive on-screen navigation and scan-reference guidance from visible game pixels.
 
 **Tested game build: Star Citizen 4.10.2-LIVE.12913470.** Other builds have not been validated; changes to debug text, HUD layout, or scanning values may affect results.
 
 **Fully independent project:** SC Bookmarks was developed independently by DrDronez. Cloud Imperium Games (CIG), Roberts Space Industries (RSI), and their affiliates had no involvement in this project's development. They do not sponsor, endorse, publish, or support this application. Star Citizen and related names and trademarks belong to their respective owners and are used solely to identify compatibility. No official artwork or logos are included.
+
+## System map
+
+The Map tab shows bookmarks, cataloged QT points, an approximate star reference,
+and the selected destination's suggested route. Click a bookmark to show its
+route; click a QT point to highlight its name. Drag to orbit, Shift-drag to pan,
+and use the mouse wheel to zoom. Top, Side, System, and Fit route frame the view.
+The bookmark library retains editing, organization, sharing, and guidance controls.
+
+Planet rings are static orientation guides centered on the system origin.
+Stanton has four primary-planet rings; Pyro has six. Nyx's current catalog lacks
+its primary planets, so no planet rings are drawn there. Stations and moons have
+no orbit rings. The visible Stanton star is offset from the system origin.
+
+Stanton's Aaron Halo has ten textured bands, independent visibility controls,
+and a band selector. Band labels gain detail with zoom. Boundaries use the
+Cornerstone 3.16.1 survey and are approximate, not validated in the current build.
+Asteroid texture is illustrative, not individual detected rocks. Layers are
+cached and redraw on view changes; the map adds no OCR sampling.
 
 ## Suggested QT routes
 
@@ -41,7 +60,7 @@ These are descriptions of the implementation, not claims of approval or guarante
 Requirements: **64-bit Windows**, **64-bit Python 3.14 with Tcl/Tk and pip**, and an internet connection for the initial dependency installation. Development testing used Windows 11. Other Python versions and Windows configurations have not been validated. This release is Python source, not a standalone executable. Tesseract is not required.
 
 1. Install Python from [python.org](https://www.python.org/downloads/windows/), including the Python launcher, pip, and Tcl/Tk.
-2. Download `sc-bookmarks-0.0.2-alpha.zip` from Releases and extract it into a writable folder. Do not run it inside the ZIP or put it in the game's installation directory.
+2. Download `sc-bookmarks-0.0.3-alpha.zip` from Releases and extract it into a writable folder. Do not run it inside the ZIP or put it in the game's installation directory.
 3. Run **Setup.cmd**. It creates a local `.venv` and installs the packages listed in `requirements.txt` from PyPI.
 4. Run **Start SC Bookmarks.cmd**. Setup is only needed once per installation or when dependencies change.
 

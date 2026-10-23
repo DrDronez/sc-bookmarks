@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.0.3-alpha — 2026-10-23
+
+- Add a map interface with orbit, pan, zoom, system/route framing, and route profile.
+- Select bookmarks and inspect clickable QT-point labels on the map.
+- Add a cached starfield, approximate star positions, and clearer route markers.
+- Add primary-planet rings for Stanton and Pyro, plus ten textured Aaron Halo
+  bands with visibility switches, band selection, and zoom-dependent labels.
+- Retain bookmark library, scan references, capture settings, and flight guidance.
+
+Nyx primary-planet rings are unavailable in the current catalog. Halo geometry
+uses an approximate Cornerstone 3.16.1 survey; texture represents no actual rocks.
+Map views and cached rendering were smoke-tested; all 31 automated tests pass.
+Tested game build remains 4.10.2-LIVE.12913470.
+
+
 ## 0.0.2-alpha â€” 2026-10-23
 
 - Show suggested QT marker pairs beside bookmarks, without adding overlay clutter.

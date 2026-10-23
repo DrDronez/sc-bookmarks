@@ -1,0 +1,29 @@
+{
+  "Stanton": {
+    "xyz_km": [
+      136049.87,
+      1294427.4,
+      2923345.368
+    ],
+    "source": "https://starmap.space/api/v3/oc/index.php",
+    "approximate": true
+  },
+  "Pyro": {
+    "xyz_km": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "source": "https://starmap.space/api/v3/oc/index.php",
+    "approximate": true
+  },
+  "Nyx": {
+    "xyz_km": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "source": "https://starmap.space/api/v3/oc/index.php",
+    "approximate": true
+  }
+}

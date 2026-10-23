@@ -1,0 +1,63 @@
+{
+  "origin_km": [
+    0,
+    0,
+    0
+  ],
+  "plane_z_km": 0,
+  "source": "https://cstone.space/resources/knowledge-base/65-aaron-halo-detailed-shape-and-density-survey",
+  "survey_version": "3.16.1-LIVE",
+  "approximate": true,
+  "bands": [
+    {
+      "number": 1,
+      "inner_km": 19673000,
+      "outer_km": 19715000
+    },
+    {
+      "number": 2,
+      "inner_km": 19815000,
+      "outer_km": 19914000
+    },
+    {
+      "number": 3,
+      "inner_km": 19914000,
+      "outer_km": 20071000
+    },
+    {
+      "number": 4,
+      "inner_km": 20129000,
+      "outer_km": 20230000
+    },
+    {
+      "number": 5,
+      "inner_km": 20230000,
+      "outer_km": 20407000
+    },
+    {
+      "number": 6,
+      "inner_km": 20407000,
+      "outer_km": 20540000
+    },
+    {
+      "number": 7,
+      "inner_km": 20540000,
+      "outer_km": 20750000
+    },
+    {
+      "number": 8,
+      "inner_km": 20793000,
+      "outer_km": 20968000
+    },
+    {
+      "number": 9,
+      "inner_km": 21046000,
+      "outer_km": 21132000
+    },
+    {
+      "number": 10,
+      "inner_km": 21159000,
+      "outer_km": 21299000
+    }
+  ]
+}
