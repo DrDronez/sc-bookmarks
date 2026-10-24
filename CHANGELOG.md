@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.0.12-alpha — 2026-10-24
+
+- Add an all-systems overview for Stanton, Pyro and Nyx with schematic jump connections and system detail navigation.
+- Add Nyx planet rings, additional asteroid-belt references and a major-stations map layer. Survey bands and illustrative widths remain reference estimates.
+- Reorganize overlay settings and capture controls. Clean setups default to Classic, centered placement, hidden capture border where Windows permits, and nearby/distant same-system 3D markers; existing preferences are preserved.
+- Add refinery comparison using bundled UEX ore-bonus and method data, optional public-data refresh, load entry, mining-bookmark prefill, range/system filtering, and map/navigation approaches.
+- Add refinery work orders with ore batches, fees, methods, UTC completion timestamps, local-time entry/display, persistent advance/completion reminders, snooze and collected status.
+- Add ready-for-pickup map/tab badges, terminal-quoted output, and explicitly labeled manual recovery estimates. Station bonuses are not presented as final yield.
+
+Reminders require the app running or minimized; missed reminders are delivered on reopening. Refinery data and map references may differ from live servers. Observe-and-overlay-only behavior is unchanged.
+
+
 ## 0.0.11-alpha — 2026-10-24
 
 - Preserve map zoom, pan and orientation during QT-route and moving-bookmark updates. Only system changes and manual controls reframe the map.

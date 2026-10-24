@@ -25,9 +25,9 @@ impl Default for Settings {
     fn default() -> Self {
         Self {
             position: [50.; 2],
-            bookmark_3d: false,
-            bookmark_3d_distant: false,
-            hide_capture_border: false,
+            bookmark_3d: true,
+            bookmark_3d_distant: true,
+            hide_capture_border: true,
             theme: Theme::default(),
             vertical_fov: default_fov(),
             hotkey: default_hotkey(),

@@ -1,0 +1,97 @@
+{
+  "source": "https://api.star-citizen.wiki/api/locations/positions?version=4.10.2-LIVE.12881860",
+  "units": "km",
+  "purpose": "Display only; does not expand the curated QT route catalog.",
+  "markers": [
+    {
+      "name": "Nyx Gateway",
+      "system": "Stanton",
+      "xyz_km": [
+        -62284323.87365362,
+        23467575.725722536,
+        20198379.369281646
+      ],
+      "body_radius_km": 0
+    },
+    {
+      "name": "Pyro Gateway",
+      "system": "Stanton",
+      "xyz_km": [
+        3310495.680018101,
+        -27979395.047870785,
+        -2676322.3410896477
+      ],
+      "body_radius_km": 0
+    },
+    {
+      "name": "Nyx Gateway",
+      "system": "Pyro",
+      "xyz_km": [
+        32993982.41874257,
+        -38151730.07259026,
+        6.727802807
+      ],
+      "body_radius_km": 0
+    },
+    {
+      "name": "Stanton Gateway",
+      "system": "Pyro",
+      "xyz_km": [
+        -37609223.45324672,
+        37435743.64238747,
+        6.727802807
+      ],
+      "body_radius_km": 0
+    },
+    {
+      "name": "Nyx I",
+      "system": "Nyx",
+      "xyz_km": [
+        6495194.198506323,
+        -3749995.4621987417,
+        0.0
+      ],
+      "body_radius_km": 1000
+    },
+    {
+      "name": "Nyx II",
+      "system": "Nyx",
+      "xyz_km": [
+        -3591210.930539283,
+        9866771.446595106,
+        0.0
+      ],
+      "body_radius_km": 1000
+    },
+    {
+      "name": "Nyx III",
+      "system": "Nyx",
+      "xyz_km": [
+        -29109694.335707393,
+        -24425930.756452218,
+        0.0
+      ],
+      "body_radius_km": 1000
+    },
+    {
+      "name": "Pyro Gateway",
+      "system": "Nyx",
+      "xyz_km": [
+        -12000044.529892806,
+        20784580.528598275,
+        -38.674228082999996
+      ],
+      "body_radius_km": 0
+    },
+    {
+      "name": "Stanton Gateway",
+      "system": "Nyx",
+      "xyz_km": [
+        -13499931.610233514,
+        -23382701.964218426,
+        -36.66208964799999
+      ],
+      "body_radius_km": 0
+    }
+  ]
+}

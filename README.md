@@ -1,6 +1,6 @@
 # SC Bookmarks
 
-**0.0.11-alpha — Rust portable for Windows x64.** Save and share locations, record mining scans, and receive on-screen navigation and scan-reference guidance from visible game pixels.
+**0.0.12-alpha — Rust portable for Windows x64.** Save and share locations, record mining scans, and receive on-screen navigation and scan-reference guidance from visible game pixels.
 
 **Tested game build: Star Citizen 4.10.2-LIVE.12913470.** Other builds have not been validated; changes to debug text, HUD layout, or scanning values may affect results.
 
@@ -8,7 +8,7 @@
 
 ## Download and run (recommended)
 
-Download **SC-Bookmarks-0.0.11-alpha-windows-x64.zip** from the [0.0.11-alpha release](https://github.com/DrDronez/sc-bookmarks/releases/tag/0.0.11-alpha). Extract all ZIP contents into a writable folder and run **SC-Bookmarks.exe**. No Python, Rust compiler, administrator access, or separate OCR download is needed. Keep the runtime and licenses folders alongside the executable. Requires Windows 10/11 x64, Windows Graphics Capture and an OpenGL-capable driver. Borderless/windowed mode is recommended; desktop overlays are not guaranteed in exclusive fullscreen.
+Download **SC-Bookmarks-0.0.12-alpha-windows-x64.zip** from the [0.0.12-alpha release](https://github.com/DrDronez/sc-bookmarks/releases/tag/0.0.12-alpha). Extract all ZIP contents into a writable folder and run **SC-Bookmarks.exe**. No Python, Rust compiler, administrator access, or separate OCR download is needed. Keep the runtime and licenses folders alongside the executable. Requires Windows 10/11 x64, Windows Graphics Capture and an OpenGL-capable driver. Borderless/windowed mode is recommended; desktop overlays are not guaranteed in exclusive fullscreen.
 
 Enable `r_displayinfo 3` in Star Citizen, capture starts automatically when the game window is available. Read [portable instructions](rust/PORTABLE.md) for migration, controls and limitations. Back up `navigator-data-rust` before updating; the portable download contains no personal bookmarks or settings.
 
@@ -141,3 +141,49 @@ Community destinations now support source system coordinates and supported conta
 ## Support development
 
 If SC Bookmarks is useful to you, you can [buy me a coffee](https://buymeacoffee.com/dronezchanj) to support continued development. Contributions are entirely optional. The app remains free for personal use under its existing PolyForm Noncommercial license.
+
+### Refinery comparison (local preview)
+
+The Refineries tab compares reported ore bonuses for a manually entered load or
+an estimated load from a mining bookmark. Use **Compare refineries** on a mining
+bookmark, or **Use selected mining bookmark** in Refineries. Duplicate quality
+batches stay separate; inert materials are excluded. A rock estimate is not a
+measurement of extracted cargo. Unknown bonus records are not treated as zero.
+
+Choose closest, best reported SCU-weighted bonus, or best bonus within a maximum
+straight-line distance. Same-system results are the default when an origin is
+known. Cross-system comparisons never calculate distances between unrelated
+coordinate frames. Map/navigation actions use named approach points; Levski,
+Orbituary and Ruin Station use Delamar, Bloom and Terminus respectively. Use the
+in-game starmap for final docking/landing. These comparisons are not profit,
+final-output or journey-time predictions.
+
+The bundled UEX snapshot works offline. **Refresh data** downloads only public
+bonus/method tables over HTTPS using Windows' built-in curl.exe; no coordinates,
+bookmarks or cargo are uploaded. Downloads run off the UI thread with time/size
+limits. A failed download leaves existing data usable. Preferences and the last
+valid cache are stored alongside other user data. No Python or account token is
+needed. Relative method ratings are community reports, not terminal job quotes.
+
+### Refinery work orders
+
+Choose **Add refinery job** on a refinery result. Enter actual ore quantities,
+method, optional fee, and either a duration or local completion date/time.
+Completion and snooze timestamps are stored as absolute UTC seconds in
+`navigator-data-rust/refinery-work-orders.json`. The local display follows your
+PC timezone. Ambiguous/nonexistent daylight-saving times are rejected; use a
+duration instead. Queue changes save immediately with a last-good `.json.bak`.
+A damaged queue blocks saving instead of overwriting it with an empty file.
+
+A lightweight background timer checks once per second while the app is running,
+including when minimized. Due jobs request taskbar attention, optionally sound,
+and appear in a grouped in-app reminder. Jobs completed while closed trigger a
+catch-up reminder on the next launch. Delivered reminder flags and 15-minute
+snoozes persist. The app cannot remind you while completely closed. Ready jobs
+stay visible until marked collected, which can be undone.
+
+Output is either unknown, a user-entered terminal quote per batch, or a **manual
+estimate** using a recovery percentage supplied by the user. No station bonus
+alone is interpreted as final yield. Saved raw batches, quality, output and
+recovery inputs are not changed by public refinery-data refreshes. No game
+terminal is read or operated by this work-order feature.

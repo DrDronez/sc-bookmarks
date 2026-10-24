@@ -11,6 +11,7 @@ pub struct OverlaySettingsView {
     error: String,
     blocked: bool,
     preview_size: [u32; 2],
+    tab: usize,
 }
 impl OverlaySettingsView {
     pub fn new(path: PathBuf) -> Self {
@@ -32,6 +33,7 @@ impl OverlaySettingsView {
             error,
             blocked,
             preview_size: [1920, 1080],
+            tab: 0,
         }
     }
     pub fn position(&self) -> [f64; 2] {
@@ -51,44 +53,48 @@ impl OverlaySettingsView {
         let mut open = true;
         let mut save = false;
         let mut cancel = false;
-        egui::Window::new("Settings — overlays")
+        egui::Window::new("Settings | Overlays")
             .open(&mut open)
-            .default_width(520.)
+            .default_width(610.)
+            .min_width(440.)
             .resizable(true)
-            .vscroll(true)
             .show(ctx, |ui| {
-                ui.checkbox(&mut draft.hide_capture_border,"Hide yellow capture border (if Windows allows)");
-                ui.weak("Applies on the next capture start. Capture falls back to a border if unsupported.");
-                ui.separator();
-                ui.heading("OVERLAY APPEARANCE");
-                egui::ComboBox::from_id_salt("overlay_theme").selected_text(draft.theme.label()).show_ui(ui, |ui| {
-                    for theme in overlay::Theme::ALL {ui.selectable_value(&mut draft.theme,theme,theme.label());}
+                ui.label("Make the overlay work for your cockpit.");
+                ui.horizontal_wrapped(|ui| {
+                    for (i,label) in ["Appearance","Placement","Ship presets","Capture & hotkey"].iter().enumerate() {
+                        if crate::theme::tab(ui,self.tab==i,label) {self.tab=i;}
+                    }
                 });
-                ui.weak("Independent manufacturer-inspired styling; no game artwork.");
-                ui.checkbox(&mut draft.bookmark_3d,"3D bookmark marker (experimental)");
-                if draft.bookmark_3d {
-                    ui.checkbox(&mut draft.bookmark_3d_distant,"Also show beyond 5 km (same system only)");
-                    ui.label("Experimental projected diamond. Uses camera direction; normal arrow remains for offscreen targets.");
-                    ui.add(egui::Slider::new(&mut draft.vertical_fov,30. ..=120.).text("Vertical FOV °"));
-                    ui.weak("Match the camera's vertical FOV (default 60°). Zoom/FOV changes require adjustment during this test.");
-                }
                 ui.separator();
-                ui.heading("OVERLAY HOTKEY");
-                ui.label(&self.runtime_status);
-                let mut enabled=draft.hotkey!=0;
-                if ui.checkbox(&mut enabled,"Enable global toggle").changed() {draft.hotkey=if enabled {0x79} else {0};}
-                if enabled {
-                    let mut key=draft.hotkey&0xffff;
-                    let mut modifiers=draft.hotkey>>16;
-                    ui.horizontal(|ui| {
-                        egui::ComboBox::from_id_salt("overlay_key").selected_text(format!("F{}",key-0x6f)).show_ui(ui,|ui|{for k in 0x75..=0x7b {ui.selectable_value(&mut key,k,format!("F{}",k-0x6f));}});
-                        for (bit,label) in [(2,"Ctrl"),(1,"Alt"),(4,"Shift")] {let mut on=modifiers&bit!=0;if ui.checkbox(&mut on,label).changed(){if on {modifiers|=bit;}else{modifiers&=!bit;}}}
-                    });
-                    draft.hotkey=key|(modifiers<<16);
-                }
-                ui.weak("Toggles all overlay visuals while the game is focused. Capture and alerts continue. Applied on Save; conflicts are reported.");
-                ui.separator();
-                ui.heading("OVERLAY POSITION");
+                egui::ScrollArea::vertical().id_salt("overlay_settings_page")
+                    .max_height((ctx.content_rect().height()-240.).clamp(220.,480.))
+                    .min_scrolled_height(310.)
+                    .show(ui, |ui| {
+                        ui.set_width(ui.available_width());
+                        match self.tab {
+                            0 => {
+                                crate::theme::eyebrow(ui,"COCKPIT STYLE");
+                                ui.horizontal(|ui| {
+                                    ui.label("Overlay theme");
+                                    egui::ComboBox::from_id_salt("overlay_theme").selected_text(draft.theme.label()).show_ui(ui,|ui| {
+                                        for theme in overlay::Theme::ALL {ui.selectable_value(&mut draft.theme,theme,theme.label());}
+                                    });
+                                });
+                                ui.weak("Original colors and shapes inspired by cockpit displays.");
+                                ui.add_space(10.);
+                                ui.separator();
+                                crate::theme::eyebrow(ui,"DESTINATION MARKER");
+                                ui.checkbox(&mut draft.bookmark_3d,"Show 3D bookmark marker (experimental)");
+                                ui.indent("marker_options",|ui| {
+                                    ui.add_enabled(draft.bookmark_3d,egui::Checkbox::new(&mut draft.bookmark_3d_distant,"Show beyond 5 km in the same system"));
+                                    ui.weak("Projects a diamond toward your destination. Hidden in QT or when readings are stale.");
+                                });
+                                ui.add_space(8.);
+                                ui.add_enabled(draft.bookmark_3d,egui::Slider::new(&mut draft.vertical_fov,30. ..=120.).text("Vertical FOV (degrees)"));
+                                ui.weak("Match your camera's vertical field of view. Adjust again after changing zoom or FOV.");
+                            }
+                            1 => {
+                crate::theme::eyebrow(ui,"POSITION IN GAME WINDOW");
                 ui.label(
                     "Drag the cyan box or use the sliders. Placement follows the game client area.",
                 );
@@ -115,7 +121,7 @@ impl OverlaySettingsView {
                         }
                     });
                 let (area, response) = ui.allocate_exact_size(
-                    egui::vec2(ui.available_width().min(520.), 220.),
+                    egui::vec2(ui.available_width().min(560.), 185.),
                     egui::Sense::click_and_drag(),
                 );
                 let scale = (area.width() / self.preview_size[0] as f32)
@@ -180,7 +186,11 @@ impl OverlaySettingsView {
                     draft.position = [50.; 2];
                 }
                 ui.separator();
-                ui.heading("SHIP / POSITION PRESETS");
+
+                            }
+                            2 => {
+                crate::theme::eyebrow(ui,"SHIP POSITION PRESETS");
+                ui.label("Save a placement for each ship. Select a preset to preview its position.");
                 egui::ComboBox::from_id_salt("overlay_preset")
                     .selected_text(if self.name.is_empty() {
                         "Select preset"
@@ -215,7 +225,7 @@ impl OverlaySettingsView {
                             self.error.clear();
                         }
                     }
-                    if ui.button("Delete preset").clicked()
+                    if ui.add_enabled(draft.presets.contains_key(&self.name), egui::Button::new("Delete preset")).clicked()
                         && draft.presets.contains_key(&self.name)
                     {
                         self.pending = Some((self.name.clone(), true));
@@ -241,16 +251,39 @@ impl OverlaySettingsView {
                         }
                     });
                 }
-                if !self.error.is_empty() {
-                    ui.colored_label(egui::Color32::LIGHT_RED, &self.error);
+
+                            }
+                            _ => {
+                                crate::theme::eyebrow(ui,"SCREEN CAPTURE");
+                                ui.checkbox(&mut draft.hide_capture_border,"Hide yellow capture border");
+                                ui.weak("Applies the next time capture starts. Windows may still require a border.");
+                                ui.add_space(12.);
+                                ui.separator();
+                crate::theme::eyebrow(ui,"QUICK OVERLAY TOGGLE");
+                ui.weak(&self.runtime_status);
+                let mut enabled=draft.hotkey!=0;
+                if ui.checkbox(&mut enabled,"Enable global toggle").changed() {draft.hotkey=if enabled {0x79} else {0};}
+                if enabled {
+                    let mut key=draft.hotkey&0xffff;
+                    let mut modifiers=draft.hotkey>>16;
+                    ui.horizontal(|ui| {
+                        egui::ComboBox::from_id_salt("overlay_key").selected_text(format!("F{}",key-0x6f)).show_ui(ui,|ui|{for k in 0x75..=0x7b {ui.selectable_value(&mut key,k,format!("F{}",k-0x6f));}});
+                        for (bit,label) in [(2,"Ctrl"),(1,"Alt"),(4,"Shift")] {let mut on=modifiers&bit!=0;if ui.checkbox(&mut on,label).changed(){if on {modifiers|=bit;}else{modifiers&=!bit;}}}
+                    });
+                    draft.hotkey=key|(modifiers<<16);
                 }
+                ui.weak("Toggles all overlay visuals while the game is focused. Capture and alerts continue. Applied on Save; conflicts are reported.");
                 ui.separator();
-                ui.label("Save settings keeps the position and presets for the next launch.");
+
+                            }
+                        }
+                    });
+                if !self.error.is_empty() {ui.colored_label(egui::Color32::LIGHT_RED,&self.error);}
+                ui.separator();
+                ui.weak("Placement previews live. Save applies all settings and keeps your presets.");
                 ui.horizontal(|ui| {
-                    save = ui
-                        .add_enabled(!self.blocked, egui::Button::new("Save settings"))
-                        .clicked();
-                    cancel = ui.button("Cancel").clicked();
+                    save=ui.add_enabled(!self.blocked,egui::Button::new(egui::RichText::new("Save settings").color(crate::theme::BG)).fill(crate::theme::CYAN)).clicked();
+                    cancel=ui.button("Cancel").clicked();
                 });
             });
         if save {

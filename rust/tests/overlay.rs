@@ -126,7 +126,18 @@ fn distant_projection_is_opt_in_and_handles_system_scale() {
         Some([960., 540.])
     );
     assert!(project_with_range([0., -10_000_000., 0.], angles, [1920, 1080], 60., true).is_none());
-    assert!(!Settings::default().bookmark_3d_distant);
+    assert!(Settings::default().bookmark_3d_distant);
     let old: Settings = serde_json::from_str(r#"{"position":[50,50],"bookmark_3d":true}"#).unwrap();
     assert!(!old.bookmark_3d_distant);
+}
+
+#[test]
+fn clean_setup_defaults_do_not_override_existing_preferences() {
+    let fresh = Settings::default();
+    assert!(fresh.hide_capture_border && fresh.bookmark_3d && fresh.bookmark_3d_distant);
+    assert_eq!(fresh.position, [50., 50.]);
+    assert_eq!(fresh.theme, Theme::Classic);
+    let saved:Settings=serde_json::from_str(r#"{"position":[20,70],"theme":"Drake","hide_capture_border":false,"bookmark_3d":false,"bookmark_3d_distant":false}"#).unwrap();
+    assert!(!saved.hide_capture_border && !saved.bookmark_3d && !saved.bookmark_3d_distant);
+    assert_eq!(saved.position, [20., 70.]);
 }

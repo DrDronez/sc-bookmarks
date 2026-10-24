@@ -1,0 +1,107 @@
+{
+  "source": "https://api.star-citizen.wiki/api/locations/positions?version=4.10.2-LIVE.12881860",
+  "note": "Stations are display references using parent-relative offsets, not new routing destinations. Nyx belt widths are illustrative around surveyed segment-center radii; Yela dimensions from wiki asteroid_ring data. Akiro omitted until current root coordinates are verified.",
+  "stations": [
+    {
+      "name": "Baijini Point",
+      "system": "Stanton",
+      "parent": "ArcCorp",
+      "offset_km": [
+        -771.9605625,
+        -321.34721875,
+        -359.50934375
+      ]
+    },
+    {
+      "name": "Everus Harbor",
+      "system": "Stanton",
+      "parent": "Hurston",
+      "offset_km": [
+        -507.7423125,
+        -903.4644375,
+        496.4890625
+      ]
+    },
+    {
+      "name": "Grim HEX",
+      "system": "Stanton",
+      "parent": "Yela",
+      "offset_km": [
+        -568.6586875,
+        383.56525,
+        -2.042
+      ]
+    },
+    {
+      "name": "Port Tressler",
+      "system": "Stanton",
+      "parent": "microTech",
+      "offset_km": [
+        561.4710461502075,
+        545.8530170288086,
+        808.831762531
+      ]
+    },
+    {
+      "name": "Seraphim Station",
+      "system": "Stanton",
+      "parent": "Crusader",
+      "offset_km": [
+        5876.0982017860415,
+        -1384.2067232742309,
+        5565.883231907
+      ]
+    },
+    {
+      "name": "Ruin Station",
+      "system": "Pyro",
+      "parent": "Terminus",
+      "offset_km": [
+        -315.34645221710207,
+        302.4090570678711,
+        -100.477857041
+      ]
+    }
+  ],
+  "belts": [
+    {
+      "name": "Glaciem Ring",
+      "system": "Nyx",
+      "parent": "",
+      "center_km": [
+        0,
+        0,
+        0
+      ],
+      "inner_km": 14850000,
+      "outer_km": 15150000,
+      "illustrative": true
+    },
+    {
+      "name": "Keeger Belt",
+      "system": "Nyx",
+      "parent": "",
+      "center_km": [
+        0,
+        0,
+        0
+      ],
+      "inner_km": 47600000,
+      "outer_km": 48400000,
+      "illustrative": true
+    },
+    {
+      "name": "Yela asteroid ring",
+      "system": "Stanton",
+      "parent": "Yela",
+      "center_km": [
+        0,
+        0,
+        0
+      ],
+      "inner_km": 482,
+      "outer_km": 782,
+      "illustrative": false
+    }
+  ]
+}

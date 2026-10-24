@@ -1,4 +1,4 @@
-# SC Bookmarks 0.0.11-alpha — portable Rust build
+# SC Bookmarks 0.0.12-alpha — portable Rust build
 
 Extract all ZIP contents into a writable folder, then open **SC-Bookmarks.exe**.
 No Python, pip, Rust compiler, model download, or administrator access is required.
@@ -78,3 +78,17 @@ Arrival ETA uses `hh:mm:ss`. With fresh current coordinates, the interface also 
 In Settings, enable **3D bookmark marker (experimental)** and **Also show beyond 5 km (same system only)** for a distant projected diamond. The extension defaults off. It requires a known matching system and fresh position/camera readings; it is hidden in QT, behind the camera and offscreen. Manual FOV alignment remains experimental. Distance labels switch from meters to kilometers at range.
 
 Community destinations now support source system coordinates and supported container-local positions. Container-local destinations use a clock-based rotation estimate, refreshed once per second; validate them in game because source data and clock accuracy affect alignment. Version-3 links preserve the container and local coordinates and require 0.0.10-alpha or newer. Copy and queue navigation without capture. Missing coordinates and unsupported tilted frames cannot provide valid destinations and display a reason. Editing XYZ of a container-relative bookmark converts it to a fixed system-coordinate bookmark.
+
+## Refineries and work orders
+
+Open Refineries / Find a refinery, enter your ore load or use a selected mining bookmark,
+and select a refinery name for its details. Compare reported bonuses and approach distances;
+confirm the actual quote in game. Refresh data downloads public UEX reference data only.
+
+Choose Add refinery job to record ore batches, method, fee and completion time.
+Use a duration or your PC's local date/time; completion is stored in UTC.
+Work orders supports advance/completion reminders, snooze and collected status.
+Keep the app running or minimized for alerts. After closing it, missed alerts appear on reopening.
+Terminal quote records your entered output; manual estimates use your supplied recovery percentage.
+Jobs are stored in navigator-data-rust/refinery-work-orders.json with a last-good backup.
+Refinery comparison does not submit or collect any in-game jobs.

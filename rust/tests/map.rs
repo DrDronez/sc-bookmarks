@@ -74,3 +74,32 @@ fn halo_particles_are_bounded_and_primary_rings_are_correct() {
     assert!(!is_primary("Nyx", "Delamar"));
     assert_ne!(data.stars["Stanton"].xyz_km, [0.; 3]);
 }
+
+#[test]
+fn new_belts_are_bounded_and_station_offsets_resolve() {
+    let data = Data::load().unwrap();
+    let catalog = routes::catalog().unwrap();
+    assert_eq!(data.features.belts.len(), 3);
+    assert_eq!(data.features.stations.len(), 6);
+    for belt in &data.features.belts {
+        assert_eq!(belt.particles.len(), 1200);
+        assert!(parent_position(&catalog, &belt.system, &belt.parent, belt.center_km).is_some());
+        for p in &belt.particles {
+            let r = p[0].hypot(p[1]);
+            assert!(r >= belt.inner_km && r <= belt.outer_km);
+        }
+    }
+    for s in &data.features.stations {
+        let p = parent_position(&catalog, &s.system, &s.parent, s.offset_km).unwrap();
+        assert!(p.iter().all(|x| x.is_finite()));
+        assert!(s.offset_km.iter().map(|x| x * x).sum::<f64>().sqrt() < 10000.);
+    }
+    let iv = catalog
+        .markers
+        .iter()
+        .find(|m| m.name == "Pyro IV")
+        .unwrap();
+    let v = catalog.markers.iter().find(|m| m.name == "Pyro V").unwrap();
+    assert_eq!(orbit_center(&catalog, iv), v.xyz_km);
+    assert_eq!(orbit_center(&catalog, v), [0.; 3]);
+}

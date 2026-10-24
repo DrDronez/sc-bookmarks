@@ -1,6 +1,8 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 mod clear_text;
 mod community_ui;
+mod refineries_ui;
+mod work_orders_ui;
 use eframe::egui;
 mod capture_ui;
 mod library_ui;
@@ -46,6 +48,8 @@ struct Desktop {
     capture: capture_ui::CaptureView,
     show_capture: bool,
     show_community: bool,
+    show_refineries: bool,
+    refineries: refineries_ui::Refineries,
     community: community_ui::Community,
     community_target: Option<Bookmark>,
     auto_capture_pending: bool,
@@ -108,6 +112,10 @@ impl Desktop {
             initial_size: true,
             overlay_diagnostic_at: std::time::Instant::now(),
             bookmarks,
+            refineries: refineries_ui::Refineries::new(
+                path.with_file_name("refinery-preferences.json"),
+            ),
+            show_refineries: false,
             path,
             selected: None,
             catalog: routes::catalog().expect("Embedded catalog"),
@@ -189,6 +197,24 @@ impl Desktop {
 }
 impl eframe::App for Desktop {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
+        if self.refineries.orders.tick(ctx) {
+            self.refineries.queue_tab = true;
+            self.show_refineries = true;
+            self.show_map = false;
+            self.show_capture = false;
+            self.show_scanning = false;
+            self.show_community = false;
+        }
+        self.refineries.orders.editor(
+            ctx,
+            &self
+                .refineries
+                .data
+                .refineries_methods
+                .iter()
+                .map(|m| m.name.clone())
+                .collect::<Vec<_>>(),
+        );
         if self.initial_size {
             if let Some(monitor) = ctx.input(|i| i.viewport().monitor_size) {
                 ctx.send_viewport_cmd(egui::ViewportCommand::InnerSize(egui::vec2(
@@ -384,6 +410,7 @@ impl eframe::App for Desktop {
                 ui.add_space(8.);
                 ui.horizontal_wrapped(|ui| {
                     if theme::tab(ui, self.show_map, "01  /  SYSTEM MAP") {
+                        self.show_refineries = false;
                         self.show_map = true;
                         self.show_scanning = false;
                         self.show_capture = false;
@@ -394,31 +421,54 @@ impl eframe::App for Desktop {
                         !self.show_scanning
                             && !self.show_map
                             && !self.show_capture
-                            && !self.show_community,
+                            && !self.show_community
+                            && !self.show_refineries,
                         "02  /  BOOKMARKS",
                     ) {
+                        self.show_refineries = false;
                         self.show_scanning = false;
                         self.show_map = false;
                         self.show_capture = false;
                         self.show_community = false;
                     }
                     if theme::tab(ui, self.show_scanning, "03  /  SCANNING") {
+                        self.show_refineries = false;
                         self.show_scanning = true;
                         self.show_map = false;
                         self.show_capture = false;
                         self.show_community = false;
                     }
                     if theme::tab(ui, self.show_capture, "04  /  CAPTURE") {
+                        self.show_refineries = false;
                         self.show_capture = true;
                         self.show_community = false;
                         self.show_map = false;
                         self.show_scanning = false;
                     }
                     if theme::tab(ui, self.show_community, "05 / COMMUNITY") {
+                        self.show_refineries = false;
                         self.show_community = true;
                         self.show_map = false;
                         self.show_scanning = false;
                         self.show_capture = false;
+                    }
+                    if theme::tab(
+                        ui,
+                        self.show_refineries,
+                        &format!(
+                            "06 / REFINERIES{}",
+                            if self.refineries.orders.ready() > 0 {
+                                format!(" ({})", self.refineries.orders.ready())
+                            } else {
+                                String::new()
+                            }
+                        ),
+                    ) {
+                        self.show_refineries = true;
+                        self.show_map = false;
+                        self.show_community = false;
+                        self.show_capture = false;
+                        self.show_scanning = false;
                     }
                 });
             });
@@ -448,28 +498,27 @@ impl eframe::App for Desktop {
                 egui::ScrollArea::vertical()
                     .id_salt("library_rail")
                     .show(ui, |ui| {
-                        theme::eyebrow(ui, "LOCATIONS / PERSONAL LIBRARY");
+                        ui.spacing_mut().item_spacing.y = 6.;
+                        theme::eyebrow(ui, "CREATE A BOOKMARK");
                         ui.add_space(5.);
                         if ui
-                            .add_sized(
-                                [ui.available_width(), 36.],
-                                egui::Button::new(
-                                    egui::RichText::new("+  ENTER COORDINATES").color(theme::CYAN),
-                                ),
+                            .add_enabled(
+                                !self.capture.running(),
+                                egui::Button::new(if self.capture.running() {
+                                    "Capture running"
+                                } else {
+                                    "Start capture"
+                                }),
                             )
                             .clicked()
                         {
-                            self.editing = None;
-                            self.editor = Some(Bookmark {
-                                name: "New space bookmark".into(),
-                                system: "Stanton".into(),
-                                xyz_km: [0.; 3],
-                                metadata: BTreeMap::new(),
-                            });
+                            self.capture.start();
                         }
+                        ui.label("Bookmark name");
                         ui.add(crate::clear_text::ClearText::singleline(
                             &mut self.capture_name,
                         ));
+                        ui.label("Save to category");
                         egui::ComboBox::from_id_salt("capture_category")
                             .selected_text(&self.capture_category)
                             .show_ui(ui, |ui| {
@@ -481,44 +530,48 @@ impl eframe::App for Desktop {
                                     );
                                 }
                             });
-                        if ui
-                            .add_enabled(
-                                !self.capture.running(),
-                                egui::Button::new("Start / resume capture"),
-                            )
-                            .clicked()
-                        {
-                            self.capture.start();
-                        }
-                        if ui
-                            .add_enabled(
-                                self.capture.running() && self.live.fresh(),
-                                egui::Button::new("Bookmark here"),
-                            )
-                            .clicked()
-                        {
-                            match self.live.bookmark() {
-                                Ok(mut b) => {
-                                    b.name = self.capture_name.clone();
-                                    b.metadata.insert(
-                                        "category".into(),
-                                        self.capture_category.clone().into(),
-                                    );
-                                    let mut all = self.bookmarks.clone();
-                                    all.push(b);
-                                    let i = all.len() - 1;
-                                    if self.persist(all) {
-                                        self.select(i);
+                        ui.horizontal_wrapped(|ui| {
+                            if ui
+                                .add_enabled(
+                                    self.capture.running() && self.live.fresh(),
+                                    egui::Button::new("Bookmark here"),
+                                )
+                                .clicked()
+                            {
+                                match self.live.bookmark() {
+                                    Ok(mut b) => {
+                                        b.name = self.capture_name.clone();
+                                        b.metadata.insert(
+                                            "category".into(),
+                                            self.capture_category.clone().into(),
+                                        );
+                                        let mut all = self.bookmarks.clone();
+                                        all.push(b);
+                                        let i = all.len() - 1;
+                                        if self.persist(all) {
+                                            self.select(i);
+                                        }
                                     }
+                                    Err(e) => self.status = e.into(),
                                 }
-                                Err(e) => self.status = e.into(),
                             }
-                        }
+                            if ui
+                                .add_enabled(
+                                    self.capture.running(),
+                                    egui::Button::new("Bookmark asteroid"),
+                                )
+                                .clicked()
+                            {
+                                self.capture
+                                    .request_scan(sc_bookmarks::scan_worker::Kind::Asteroid);
+                                self.status = "Reading asteroid scan…".into();
+                            }
+                        });
                         ui.horizontal(|ui| {
                             if ui
                                 .add_enabled(
                                     self.capture.running(),
-                                    egui::Button::new("Capture in 8s"),
+                                    egui::Button::new("Bookmark in 8s"),
                                 )
                                 .clicked()
                             {
@@ -533,16 +586,25 @@ impl eframe::App for Desktop {
                             }
                         });
                         if ui
-                            .add_enabled(
-                                self.capture.running(),
-                                egui::Button::new("Bookmark asteroid"),
+                            .add_sized(
+                                [ui.available_width(), 30.],
+                                egui::Button::new(
+                                    egui::RichText::new("Enter coordinates manually")
+                                        .color(theme::CYAN),
+                                ),
                             )
                             .clicked()
                         {
-                            self.capture
-                                .request_scan(sc_bookmarks::scan_worker::Kind::Asteroid);
-                            self.status = "Reading asteroid scan…".into();
+                            self.editing = None;
+                            self.editor = Some(Bookmark {
+                                name: "New space bookmark".into(),
+                                system: "Stanton".into(),
+                                xyz_km: [0.; 3],
+                                metadata: BTreeMap::new(),
+                            });
                         }
+                        ui.separator();
+                        theme::eyebrow(ui, "PERSONAL LIBRARY");
                         if (self.selected.is_some() || self.community_target.is_some())
                             && ui.button("Clear target / hide overlay").clicked()
                         {
@@ -748,6 +810,20 @@ impl eframe::App for Desktop {
                 self.capture.show(ui, &self.live.system, &self.live.shard);
                 return;
             }
+            if self.show_refineries {
+                let origin=self.live.ship().filter(|_| self.live.fresh() && ["Stanton","Pyro","Nyx"].contains(&self.live.system.as_str())).map(|xyz|Bookmark{name:"Current position".into(),system:self.live.system.clone(),xyz_km:xyz,metadata:Default::default()});
+                let selected=self.selected.and_then(|i|self.bookmarks.get(i));
+                if let Some((b,show_map))=self.refineries.show(ui,&self.catalog,origin,selected) {
+                    if show_map {
+                        self.map.focus_refinery(&b);self.show_refineries=false;self.show_map=true;
+                    } else {
+                        self.selected=None;self.live.alert.arm(false);self.current_route=None;
+                        self.route=routes::suggest(&b,&self.catalog.markers).ok().flatten().map(|r|r.label()).unwrap_or_default();
+                        self.community_target=Some(b);self.status="Refinery approach queued. Final docking uses the in-game starmap.".into();
+                    }
+                }
+                return;
+            }
             if self.show_community {
                 if let Some(b) = &self.community_target {
                     ui.label(format!("Navigating: {}", b.name));
@@ -788,6 +864,7 @@ impl eframe::App for Desktop {
                 } else {
                     self.selected
                 };
+                self.map.refinery_points=self.refineries.data.terminals().into_iter().filter_map(|t|sc_bookmarks::refineries::approach(t,&self.catalog).map(|b|{let ready=self.refineries.orders.ready_at(t.id_terminal);(if ready>0{format!("{} / {ready} READY",t.terminal_name)}else{t.terminal_name.clone()},b)})).collect();
                 let (pick, edit) = self.map.show(ui, &self.catalog, &displayed, map_selected);
                 if let Some(i) = pick.filter(|i| *i < self.bookmarks.len()) {
                     self.select(i);
@@ -801,6 +878,9 @@ impl eframe::App for Desktop {
             if let Some(i) = self.selected.filter(|i| *i < self.bookmarks.len()) {
                 let b = &self.bookmarks[i];
                 ui.heading(&b.name);
+                if b.metadata.contains_key("mining") && ui.button("Compare refineries").clicked() {
+                    self.refineries.prefill(b);self.show_refineries=true;
+                }
                 if !self.capture.running() {
                     ui.weak("Destination queued · start capture when ready. Copying is available now.");
                 }

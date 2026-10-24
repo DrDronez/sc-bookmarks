@@ -28,3 +28,10 @@ Cloud Imperium Games and Roberts Space Industries had no involvement in this
 project. They do not develop, fund, review, sponsor, or endorse it.
 
 Community container centers, rotation periods and phases: starmap.space API snapshot collected 2026-10-21, retained in route-data/community-containers.json. Rotation convention (hours per revolution, phase in degrees, reference 2020-01-01 UTC) cross-checked against https://github.com/Valalol/Star-Citizen-Navigation/blob/main/backend.py. Coordinate math is independently implemented; no source code or game assets are copied. These positions are estimates, not live-verified transforms.
+
+Refinery bonus/method reference data: UEX (https://uexcorp.space/), public
+refineries_yields and refineries_methods API snapshot retrieved 2026-10-24.
+Per-record report times remain in route-data/refineries-uex.json. Community data
+may differ from live servers; project licensing does not override third-party data rights.
+Additional map reference provenance, survey assumptions and illustrative belt widths
+are retained in route-data/map-features.json and map-reference-points.json.

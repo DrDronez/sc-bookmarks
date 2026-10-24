@@ -19,7 +19,54 @@ pub struct Halo {
     pub bands: Vec<Band>,
     pub survey_version: String,
 }
+#[derive(Deserialize)]
+pub struct Station {
+    pub name: String,
+    pub system: String,
+    pub parent: String,
+    pub offset_km: [f64; 3],
+}
+#[derive(Deserialize)]
+pub struct AsteroidBelt {
+    pub name: String,
+    pub system: String,
+    pub parent: String,
+    pub center_km: [f64; 3],
+    pub inner_km: f64,
+    pub outer_km: f64,
+    pub illustrative: bool,
+    #[serde(skip)]
+    pub particles: Vec<[f64; 3]>,
+}
+#[derive(Deserialize)]
+pub struct Features {
+    pub stations: Vec<Station>,
+    pub belts: Vec<AsteroidBelt>,
+}
+pub fn parent_position(
+    catalog: &crate::routes::Catalog,
+    system: &str,
+    parent: &str,
+    offset: [f64; 3],
+) -> Option<[f64; 3]> {
+    if parent.is_empty() {
+        return Some(offset);
+    }
+    catalog
+        .markers
+        .iter()
+        .find(|m| m.system == system && m.name == parent)
+        .map(|m| std::array::from_fn(|i| m.xyz_km[i] + offset[i]))
+}
+/// Pyro IV is a satellite of Pyro V; all other primary guides use system origin.
+pub fn orbit_center(catalog: &crate::routes::Catalog, marker: &crate::routes::Marker) -> [f64; 3] {
+    if marker.system == "Pyro" && marker.name == "Pyro IV" {
+        return parent_position(catalog, "Pyro", "Pyro V", [0.; 3]).unwrap_or([0.; 3]);
+    }
+    [0.; 3]
+}
 pub struct Data {
+    pub features: Features,
     pub stars: BTreeMap<String, Star>,
     pub halo: Halo,
     pub dust: Vec<(u32, [f64; 3])>,
@@ -36,6 +83,18 @@ impl Data {
         let stars = serde_json::from_str(include_str!("../../route-data/stars.json"))?;
         let halo: Halo = serde_json::from_str(include_str!("../../route-data/aaron-halo.json"))?;
         let mut seed = 31415;
+        let mut features: Features =
+            serde_json::from_str(include_str!("../../route-data/map-features.json"))?;
+        for belt in &mut features.belts {
+            for _ in 0..1200 {
+                let radius = (belt.inner_km.powi(2)
+                    + random(&mut seed) * (belt.outer_km.powi(2) - belt.inner_km.powi(2)))
+                .sqrt();
+                let a = random(&mut seed) * std::f64::consts::TAU;
+                belt.particles
+                    .push([radius * a.cos(), radius * a.sin(), 0.]);
+            }
+        }
         let mut dust = Vec::new();
         for b in &halo.bands {
             for _ in 0..if b.number == 5 { 440 } else { 240 } {
@@ -63,6 +122,7 @@ impl Data {
             })
             .collect();
         Ok(Self {
+            features,
             stars,
             halo,
             dust,
@@ -74,6 +134,7 @@ pub fn is_primary(system: &str, name: &str) -> bool {
     match system {
         "Stanton" => ["Hurston", "Crusader", "ArcCorp", "microTech"].contains(&name),
         "Pyro" => ["Pyro I", "Monox", "Bloom", "Pyro IV", "Pyro V", "Terminus"].contains(&name),
+        "Nyx" => ["Nyx I", "Nyx II", "Nyx III"].contains(&name),
         _ => false,
     }
 }
