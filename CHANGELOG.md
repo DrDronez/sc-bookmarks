@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.0.11-alpha — 2026-10-24
+
+- Preserve map zoom, pan and orientation during QT-route and moving-bookmark updates. Only system changes and manual controls reframe the map.
+- Add an original SC bookmark icon to the title bar and Windows executable.
+- Add optional Buy Me a Coffee support through GitHub funding configuration and the README.
+
+
 ## 0.0.10-alpha — 2026-10-24
 
 - Fix community actions being restricted to exact matches in the small QT catalog.

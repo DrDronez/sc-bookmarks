@@ -1,0 +1,1 @@
+Original SC Bookmarks application mark: geometric bookmark outline, custom SC strokes, cyan/amber palette. No game/manufacturer artwork, logos or fonts. SVG is the editable master; PNG is the runtime window icon; ICO includes Windows sizes 16–256. Covered by the project license.

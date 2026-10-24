@@ -1339,10 +1339,19 @@ fn main() -> eframe::Result {
             return Ok(());
         }
     };
+    let icon_image = image::load_from_memory(include_bytes!("../assets/sc-bookmarks.png"))
+        .expect("Bundled application icon")
+        .into_rgba8();
+    let icon = egui::IconData {
+        width: icon_image.width(),
+        height: icon_image.height(),
+        rgba: icon_image.into_raw(),
+    };
     eframe::run_native(
         concat!("SC Bookmarks — ", env!("CARGO_PKG_VERSION")),
         eframe::NativeOptions {
             viewport: egui::ViewportBuilder::default()
+                .with_icon(icon)
                 .with_inner_size([1440., 940.])
                 .with_min_inner_size([800., 540.]),
             ..Default::default()

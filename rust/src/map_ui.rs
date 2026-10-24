@@ -39,22 +39,23 @@ impl Default for MapView {
     }
 }
 impl MapView {
-    pub fn show(
-        &mut self,
-        ui: &mut egui::Ui,
-        catalog: &Catalog,
-        bookmarks: &[Bookmark],
-        selected: Option<usize>,
-    ) -> (Option<usize>, Option<usize>) {
-        let target = selected.and_then(|i| bookmarks.get(i));
+    fn update_route(&mut self, target: Option<&Bookmark>, catalog: &Catalog) {
         let key = target.map(|b| (b.system.clone(), b.xyz_km));
         if key != self.route_key {
             self.route_points.clear();
             self.route_names.clear();
             if let Some(b) = target {
-                self.system = b.system.clone();
-                self.marker = None;
-                self.fit = true;
+                // A moving/updated target must not reset the camera or undo a
+                // manually selected system. Only a change of target system can fit.
+                let target_system_changed = self
+                    .route_key
+                    .as_ref()
+                    .is_none_or(|(system, _)| !system.eq_ignore_ascii_case(&b.system));
+                if target_system_changed && !self.system.eq_ignore_ascii_case(&b.system) {
+                    self.system = b.system.clone();
+                    self.marker = None;
+                    self.fit = true;
+                }
                 if let Ok(Some(route)) = routes::suggest(b, &catalog.markers) {
                     self.route_names = route.names().into_iter().map(str::to_owned).collect();
                     match route {
@@ -68,6 +69,17 @@ impl MapView {
             }
             self.route_key = key;
         }
+    }
+
+    pub fn show(
+        &mut self,
+        ui: &mut egui::Ui,
+        catalog: &Catalog,
+        bookmarks: &[Bookmark],
+        selected: Option<usize>,
+    ) -> (Option<usize>, Option<usize>) {
+        let target = selected.and_then(|i| bookmarks.get(i));
+        self.update_route(target, catalog);
         crate::theme::eyebrow(ui, "STELLAR CARTOGRAPHY / ROOT COORDINATES");
         let old_system = self.system.clone();
         let mut fit_route = false;
@@ -565,4 +577,46 @@ fn label(
     }
     painter.rect_filled(bounds, 1., Color32::from_rgba_unmultiplied(7, 20, 29, 225));
     painter.galley(pos, galley, color);
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    fn target(system: &str, xyz_km: [f64; 3]) -> Bookmark {
+        Bookmark {
+            name: "Moving target".into(),
+            system: system.into(),
+            xyz_km,
+            metadata: Default::default(),
+        }
+    }
+    #[test]
+    fn route_updates_preserve_camera_and_manual_system_selection() {
+        let catalog = routes::catalog().unwrap();
+        let mut map = MapView::default();
+        map.fit = false;
+        map.camera.scale = 0.123;
+        map.camera.center = [12., 34., 56.];
+        map.camera.yaw = 0.7;
+        map.camera.tilt = 0.9;
+        map.marker = Some(3);
+        for i in 0..10 {
+            map.update_route(Some(&target("Stanton", [i as f64, 2., 3.])), &catalog);
+            assert!(!map.fit);
+            assert_eq!(map.camera.scale, 0.123);
+            assert_eq!(map.camera.center, [12., 34., 56.]);
+            assert_eq!(map.camera.yaw, 0.7);
+            assert_eq!(map.camera.tilt, 0.9);
+            assert_eq!(map.marker, Some(3));
+        }
+        map.system = "Pyro".into(); // user browses another system
+        map.update_route(Some(&target("Stanton", [20., 2., 3.])), &catalog);
+        assert_eq!(map.system, "Pyro");
+        assert!(!map.fit);
+        map.update_route(None, &catalog);
+        assert!(!map.fit);
+        map.update_route(Some(&target("Nyx", [1., 2., 3.])), &catalog);
+        assert_eq!(map.system, "Nyx");
+        assert!(map.fit);
+    }
 }
