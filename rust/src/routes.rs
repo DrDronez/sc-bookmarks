@@ -138,3 +138,70 @@ pub fn suggest<'a>(
     }
     Ok(best)
 }
+
+/// A finite leg from the ship toward a catalog marker, ending before its arrival zone.
+#[derive(Debug)]
+pub struct CurrentApproach<'a> {
+    pub marker: &'a Marker,
+    pub distance_km: f64,
+    pub travel_km: f64,
+    pub position: [f64; 3],
+}
+pub fn suggest_from_position<'a>(
+    bookmark: &Bookmark,
+    system: &str,
+    start: [f64; 3],
+    markers: &'a [Marker],
+) -> Option<CurrentApproach<'a>> {
+    if bookmark.validate().is_err()
+        || !system.eq_ignore_ascii_case(bookmark.system.trim())
+        || start.iter().any(|v| !v.is_finite())
+        || bookmark
+            .metadata
+            .get("frame")
+            .and_then(|v| v.as_str())
+            .is_some_and(|v| !v.eq_ignore_ascii_case("root"))
+    {
+        return None;
+    }
+    let current = distance(start, bookmark.xyz_km);
+    let candidates: Vec<_> = markers
+        .iter()
+        .filter(|m| m.system.eq_ignore_ascii_case(system))
+        .collect();
+    let mut best: Option<CurrentApproach> = None;
+    for m in &candidates {
+        let length = distance(start, m.xyz_km);
+        if !length.is_finite() || length <= m.arrival_km.max(0.) + 1. {
+            continue;
+        }
+        let high = 1. - m.arrival_km.max(0.) / length;
+        let Some((miss, fraction, position)) = closest(bookmark.xyz_km, start, m.xyz_km, 0., high)
+        else {
+            continue;
+        };
+        let travel = fraction * length;
+        // Ignore negligible gains and improvements smaller than catalog uncertainty.
+        if travel <= 1. || current - miss <= 1_f64.max(m.position_error_km) {
+            continue;
+        }
+        if candidates.iter().any(|body| {
+            body.body_radius_km > 0.
+                && closest(body.xyz_km, start, position, 0., 1.)
+                    .is_some_and(|r| r.0 < body.body_radius_km)
+        }) {
+            continue;
+        }
+        if best.as_ref().is_none_or(|old| {
+            (miss, travel, &m.name) < (old.distance_km, old.travel_km, &old.marker.name)
+        }) {
+            best = Some(CurrentApproach {
+                marker: m,
+                distance_km: miss,
+                travel_km: travel,
+                position,
+            });
+        }
+    }
+    best
+}

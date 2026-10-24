@@ -168,3 +168,17 @@ impl ExitAlert {
         }
     }
 }
+
+/// Arrival duration, retaining hours beyond 24 instead of wrapping at a day.
+pub fn arrival_eta(seconds: f64) -> String {
+    if !seconds.is_finite() || seconds < 0. {
+        return "—".into();
+    }
+    let seconds = seconds.floor() as u64;
+    format!(
+        "{:02}:{:02}:{:02}",
+        seconds / 3600,
+        (seconds / 60) % 60,
+        seconds % 60
+    )
+}

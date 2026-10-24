@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.0.9-alpha — 2026-10-24
+
+- Format arrival ETA as hours:minutes:seconds, including durations longer than 24 hours.
+- Add closest-approach suggestions from fresh current coordinates toward same-system QT markers, alongside the catalog route. Recalculate at most once per second.
+- Bound suggestions to the finite leg before the marker arrival zone, reject celestial intersections and negligible gains, and rank by closest approach then travel distance.
+- Show the application version in the title bar.
+- Add an opt-in distant 3D bookmark marker, restricted to the same known system, outside QT, with fresh location/camera readings. Nearby-only behavior remains the default.
+
+Current-position routes are geometric suggestions; actual game QT availability, spool-up and minimum jump distance are not known. The map continues to show the catalog route.
+
+
 ## 0.0.8-alpha — 2026-10-24
 
 - Label community and personal-library filters clearly, including their purpose when a value is selected.

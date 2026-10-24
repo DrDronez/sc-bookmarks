@@ -33,6 +33,8 @@ struct Desktop {
     show_import: bool,
     delete_pending: bool,
     route: String,
+    current_route: Option<String>,
+    route_checked: std::time::Instant,
     load_failed: bool,
     scanning: scanning_ui::ScanningView,
     show_scanning: bool,
@@ -115,6 +117,8 @@ impl Desktop {
             show_import: false,
             delete_pending: false,
             route: String::new(),
+            current_route: None,
+            route_checked: std::time::Instant::now() - std::time::Duration::from_secs(2),
             load_failed,
             scanning: Default::default(),
             show_scanning: false,
@@ -156,7 +160,18 @@ impl Desktop {
             }
         }
     }
+    fn route_label(&self) -> String {
+        match &self.current_route {
+            Some(v) => format!(
+                "Closest approach via {v} (from here) · Catalog: {}",
+                self.route
+            ),
+            None => self.route.clone(),
+        }
+    }
     fn select(&mut self, i: usize) {
+        self.current_route = None;
+        self.route_checked = std::time::Instant::now() - std::time::Duration::from_secs(2);
         self.community_target = None;
         self.live.alert.arm(false);
         self.selected = Some(i);
@@ -313,6 +328,26 @@ impl eframe::App for Desktop {
             self.library.invalidate();
         }
         self.map.ship = self.live.ship().map(|p| (self.live.system.clone(), p));
+        if !self.capture.running() || !self.live.fresh() {
+            self.current_route = None;
+        } else if self.route_checked.elapsed().as_secs_f64() >= 1. {
+            self.route_checked = std::time::Instant::now();
+            self.current_route = self
+                .selected
+                .and_then(|i| self.bookmarks.get(i))
+                .or(self.community_target.as_ref())
+                .and_then(|b| {
+                    self.live.ship().and_then(|p| {
+                        routes::suggest_from_position(
+                            b,
+                            &self.live.system,
+                            p,
+                            &self.catalog.markers,
+                        )
+                    })
+                })
+                .map(|r| r.marker.name.clone());
+        }
         egui::TopBottomPanel::top("header")
             .frame(egui::Frame::new().fill(theme::BG).inner_margin(18))
             .show(ctx, |ui| {
@@ -625,12 +660,12 @@ impl eframe::App for Desktop {
                             ui.separator();
                             ui.add(
                                 egui::Label::new(
-                                    egui::RichText::new(format!("QT: {}", self.route))
+                                    egui::RichText::new(format!("QT: {}", self.route_label()))
                                         .color(theme::CYAN),
                                 )
                                 .truncate(),
                             )
-                            .on_hover_text(&self.route);
+                            .on_hover_text(format!("{}\nGeometric suggestions only; game QT availability and minimum jump distance are not known.", self.route_label()));
                         });
                     } else if let Some(b) = &self.community_target {
                         ui.label(format!("Community destination: {} / {}", b.name, b.system));
@@ -640,7 +675,7 @@ impl eframe::App for Desktop {
                         );
                         ui.horizontal(|ui| {
                             ui.checkbox(&mut self.live.show_overlay, "Overlay");
-                            ui.label(format!("QT: {}", self.route));
+                            ui.label(format!("QT: {}", self.route_label()));
                         });
                     } else {
                         theme::eyebrow(ui, "DESTINATION / QUANTUM APPROACH");
@@ -713,6 +748,8 @@ impl eframe::App for Desktop {
                         .flatten()
                         .map(|r| r.label())
                         .unwrap_or_else(|| "No usable QT pair".into());
+                    self.current_route = None;
+                    self.route_checked = std::time::Instant::now() - std::time::Duration::from_secs(2);
                     self.community_target = Some(b);
                     if !self.capture.running() {
                         self.status = "Community destination queued; guidance starts when capture is running.".into();
@@ -759,7 +796,7 @@ impl eframe::App for Desktop {
                     "Root XYZ (km): {:.4}, {:.4}, {:.4}",
                     b.xyz_km[0], b.xyz_km[1], b.xyz_km[2]
                 ));
-                ui.label(format!("Suggested QT: {}", self.route));
+                ui.label(format!("Suggested QT: {}", self.route_label()));
                 ui.label(format!(
                     "Created on shard: {}",
                     b.metadata
@@ -1109,6 +1146,7 @@ impl eframe::App for Desktop {
                     b,
                     [game.width, game.height],
                     self.overlay_settings.saved.vertical_fov,
+                    self.overlay_settings.saved.bookmark_3d_distant,
                 ) {
                     let distance = self
                         .live
@@ -1129,7 +1167,13 @@ impl eframe::App for Desktop {
                             height: 66,
                         },
                         title: "3D bookmark test".into(),
-                        lines: format!("BM · {:.0} m", distance * 1000.),
+                        lines: if distance <= 5. {
+                            format!("BM · {:.0} m", distance * 1000.)
+                        } else if distance >= 1_000_000. {
+                            format!("BM · {:.2} M km", distance / 1_000_000.)
+                        } else {
+                            format!("BM · {:.1} km", distance)
+                        },
                         warning: false,
                         floating: true,
                         angles: None,
@@ -1277,7 +1321,7 @@ fn main() -> eframe::Result {
         }
     };
     eframe::run_native(
-        "SC Bookmarks",
+        concat!("SC Bookmarks — ", env!("CARGO_PKG_VERSION")),
         eframe::NativeOptions {
             viewport: egui::ViewportBuilder::default()
                 .with_inner_size([1440., 940.])

@@ -7,6 +7,8 @@ pub struct Settings {
     #[serde(default)]
     pub bookmark_3d: bool,
     #[serde(default)]
+    pub bookmark_3d_distant: bool,
+    #[serde(default)]
     pub hide_capture_border: bool,
     #[serde(default)]
     pub theme: Theme,
@@ -24,6 +26,7 @@ impl Default for Settings {
         Self {
             position: [50.; 2],
             bookmark_3d: false,
+            bookmark_3d_distant: false,
             hide_capture_border: false,
             theme: Theme::default(),
             vertical_fov: default_fov(),
@@ -168,6 +171,15 @@ impl Theme {
 /// Perspective projection with +Y forward and camera roll included. Returns client pixels.
 /// Behind-camera/offscreen targets remain the responsibility of the normal guidance arrow.
 pub fn project(delta: [f64; 3], angles: [f64; 3], size: [u32; 2], vfov: f64) -> Option<[f64; 2]> {
+    project_with_range(delta, angles, size, vfov, false)
+}
+pub fn project_with_range(
+    delta: [f64; 3],
+    angles: [f64; 3],
+    size: [u32; 2],
+    vfov: f64,
+    distant: bool,
+) -> Option<[f64; 2]> {
     if size.contains(&0)
         || !vfov.is_finite()
         || !(30. ..=120.).contains(&vfov)
@@ -176,7 +188,7 @@ pub fn project(delta: [f64; 3], angles: [f64; 3], size: [u32; 2], vfov: f64) -> 
         return None;
     }
     let distance = delta.iter().map(|v| v * v).sum::<f64>().sqrt();
-    if !(0.001..=5.).contains(&distance) {
+    if !distance.is_finite() || distance < 0.001 || (!distant && distance > 5.) {
         return None;
     }
     let (f, r, u) = crate::guidance::camera_basis(angles);

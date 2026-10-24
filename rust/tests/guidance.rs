@@ -66,3 +66,20 @@ fn qt_hysteresis_gaps_and_one_shot_alert() {
     assert!(a.update(true, true, Some(2.), 3.));
     assert!(!a.update(true, true, Some(1.), 3.));
 }
+
+#[test]
+fn arrival_eta_formats_hours_without_day_wrapping() {
+    use sc_bookmarks::guidance::arrival_eta;
+    for (seconds, expected) in [
+        (0., "00:00:00"),
+        (59.9, "00:00:59"),
+        (60., "00:01:00"),
+        (3599., "00:59:59"),
+        (3600., "01:00:00"),
+        (90061., "25:01:01"),
+    ] {
+        assert_eq!(arrival_eta(seconds), expected);
+    }
+    assert_eq!(arrival_eta(f64::INFINITY), "—");
+    assert_eq!(arrival_eta(-1.), "—");
+}

@@ -185,8 +185,17 @@ impl Live {
             t.elapsed().as_secs_f64() <= if self.motion.quantum { 2.5 } else { 6.0 }
         })
     }
-    pub fn projected(&self, target: &Bookmark, size: [u32; 2], fov: f64) -> Option<[f64; 2]> {
-        if !self.fresh() || self.motion.quantum || !self.system.eq_ignore_ascii_case(&target.system)
+    pub fn projected(
+        &self,
+        target: &Bookmark,
+        size: [u32; 2],
+        fov: f64,
+        distant: bool,
+    ) -> Option<[f64; 2]> {
+        if !self.fresh()
+            || self.motion.quantum
+            || self.system.trim().is_empty()
+            || !self.system.eq_ignore_ascii_case(&target.system)
         {
             return None;
         }
@@ -194,11 +203,12 @@ impl Live {
             .camera
             .filter(|(t, _)| t.elapsed().as_secs_f64() <= 2.5)?;
         let p = self.ship()?;
-        sc_bookmarks::overlay::project(
+        sc_bookmarks::overlay::project_with_range(
             std::array::from_fn(|i| target.xyz_km[i] - p[i]),
             camera,
             size,
             fov,
+            distant,
         )
     }
     pub fn marker_angles(&self, target: &Bookmark) -> Option<(f64, f64)> {
@@ -282,9 +292,8 @@ impl Live {
             if a.closing > 0.0001 {
                 let seconds = a.distance / a.closing;
                 text.push_str(&format!(
-                    "\nETA {:02}:{:02} at closing speed",
-                    (seconds / 60.) as u64,
-                    (seconds % 60.) as u64
+                    "\nETA {} at closing speed",
+                    sc_bookmarks::guidance::arrival_eta(seconds)
                 ));
             } else {
                 text.push_str("\nNot closing on destination");
@@ -465,5 +474,34 @@ mod tests {
         o.stamp += Duration::from_millis(1);
         live.ingest(&o);
         assert_eq!(live.shard, o.shard.unwrap());
+    }
+
+    #[test]
+    fn distant_marker_requires_matching_known_system_and_fresh_readings() {
+        let mut live = Live::default();
+        live.system = "Stanton".into();
+        live.position = Some((Instant::now(), [0.; 3]));
+        live.camera = Some((Instant::now(), [0.; 3]));
+        let b = Bookmark {
+            name: "Far".into(),
+            system: "Stanton".into(),
+            xyz_km: [0., 1_000_000., 0.],
+            metadata: BTreeMap::new(),
+        };
+        assert!(live.projected(&b, [1920, 1080], 60., true).is_some());
+        assert!(live.projected(&b, [1920, 1080], 60., false).is_none());
+        live.system = "Pyro".into();
+        assert!(live.projected(&b, [1920, 1080], 60., true).is_none());
+        live.system.clear();
+        assert!(live.projected(&b, [1920, 1080], 60., true).is_none());
+        live.system = "Stanton".into();
+        live.motion.quantum = true;
+        assert!(live.projected(&b, [1920, 1080], 60., true).is_none());
+        live.motion.quantum = false;
+        live.camera = Some((Instant::now() - Duration::from_secs(3), [0.; 3]));
+        assert!(live.projected(&b, [1920, 1080], 60., true).is_none());
+        live.camera = Some((Instant::now(), [0.; 3]));
+        live.position = Some((Instant::now() - Duration::from_secs(3), [0.; 3]));
+        assert!(live.projected(&b, [1920, 1080], 60., true).is_none());
     }
 }

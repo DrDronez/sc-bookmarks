@@ -1,4 +1,4 @@
-# SC Bookmarks 0.0.8-alpha — portable Rust build
+# SC Bookmarks 0.0.9-alpha — portable Rust build
 
 Extract all ZIP contents into a writable folder, then open **SC-Bookmarks.exe**.
 No Python, pip, Rust compiler, model download, or administrator access is required.
@@ -72,3 +72,7 @@ The Community tab contains 2,901 researched POIs, kept separate from your person
 Capture starts automatically when the game window becomes available. Capture-dependent buttons are disabled until usable. Settings offers **Hide yellow capture border (if Windows allows)**, applied on the next capture start; unsupported configurations fall back to normal capture.
 
 Portable ZIP layout: `SC-Bookmarks.exe`, runtime libraries, README and notices are at the archive root; `runtime/` and `licenses/` remain required support folders. Extract everything into your chosen application folder. GitHub-generated Source code archives retain GitHub's standard enclosing directory; use the Windows x64 release asset to run the app.
+
+Arrival ETA uses `hh:mm:ss`. With fresh current coordinates, the interface also shows **Closest approach via [QT marker] (from here)** when a finite jump leg improves the approach by more than 1 km and catalog uncertainty. The catalog route remains visible; the map shows that catalog route. Suggestions are geometric and do not verify game QT availability, spool-up or minimum jump distance. The title bar identifies the running application version.
+
+In Settings, enable **3D bookmark marker (experimental)** and **Also show beyond 5 km (same system only)** for a distant projected diamond. The extension defaults off. It requires a known matching system and fresh position/camera readings; it is hidden in QT, behind the camera and offscreen. Manual FOV alignment remains experimental. Distance labels switch from meters to kilometers at range.

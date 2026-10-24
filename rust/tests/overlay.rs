@@ -113,3 +113,20 @@ fn new_overlay_settings_default_off_and_validate_hotkey() {
     s.vertical_fov = f64::NAN;
     assert!(s.validate().is_err());
 }
+
+#[test]
+fn distant_projection_is_opt_in_and_handles_system_scale() {
+    use sc_bookmarks::overlay::{Settings, project, project_with_range};
+    let delta = [0., 10_000_000., 0.];
+    let angles = [0., 0., 0.];
+    // Camera forward at zero angles is +Y.
+    assert!(project(delta, angles, [1920, 1080], 60.).is_none());
+    assert_eq!(
+        project_with_range(delta, angles, [1920, 1080], 60., true),
+        Some([960., 540.])
+    );
+    assert!(project_with_range([0., -10_000_000., 0.], angles, [1920, 1080], 60., true).is_none());
+    assert!(!Settings::default().bookmark_3d_distant);
+    let old: Settings = serde_json::from_str(r#"{"position":[50,50],"bookmark_3d":true}"#).unwrap();
+    assert!(!old.bookmark_3d_distant);
+}

@@ -65,8 +65,9 @@ impl OverlaySettingsView {
                     for theme in overlay::Theme::ALL {ui.selectable_value(&mut draft.theme,theme,theme.label());}
                 });
                 ui.weak("Independent manufacturer-inspired styling; no game artwork.");
-                ui.checkbox(&mut draft.bookmark_3d,"3D bookmark test (within 5 km)");
+                ui.checkbox(&mut draft.bookmark_3d,"3D bookmark marker (experimental)");
                 if draft.bookmark_3d {
+                    ui.checkbox(&mut draft.bookmark_3d_distant,"Also show beyond 5 km (same system only)");
                     ui.label("Experimental projected diamond. Uses camera direction; normal arrow remains for offscreen targets.");
                     ui.add(egui::Slider::new(&mut draft.vertical_fov,30. ..=120.).text("Vertical FOV °"));
                     ui.weak("Match the camera's vertical FOV (default 60°). Zoom/FOV changes require adjustment during this test.");
