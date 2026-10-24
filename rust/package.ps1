@@ -28,3 +28,9 @@ Copy-Item (Join-Path $root 'THIRD_PARTY_NOTICES.md') $Destination
 $hashes=Get-ChildItem -LiteralPath $Destination -File -Recurse | Where-Object Name -ne 'SHA256SUMS.txt' | ForEach-Object {"$((Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash.ToLower())  $([IO.Path]::GetRelativePath($Destination,$_.FullName))"}
 $hashes | Set-Content -Encoding ascii (Join-Path $Destination 'SHA256SUMS.txt')
 Write-Output "Portable package: $Destination"
+
+# Archive the contents, not the staging directory: EXE is at the ZIP root.
+$archivePath = "$Destination.zip"
+Compress-Archive -Path (Join-Path $Destination '*') -DestinationPath $archivePath -Force
+"$((Get-FileHash -LiteralPath $archivePath -Algorithm SHA256).Hash.ToLower())  $([IO.Path]::GetFileName($archivePath))" | Set-Content -Encoding ascii "$Destination-SHA256SUMS.txt"
+Write-Output "Portable ZIP: $archivePath"

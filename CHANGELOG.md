@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.0.8-alpha — 2026-10-24
+
+- Label community and personal-library filters clearly, including their purpose when a value is selected.
+- Add community parent-container filtering and sorting, and show each entry's parent.
+- Add inline clear buttons to text inputs, including names, filters, notes, imports and preset names.
+- Add community Copy link and explicit queued-destination feedback without capture; planet-local reference entries still require compatible root coordinates for navigation/sharing.
+- Place the executable and support files directly at the portable ZIP root, without a wrapper folder.
+
+
 ## 0.0.7-alpha — 2026-10-24
 
 - Add a separate Community tab with 2,901 researched POIs, search, system/type filters, sorting and QT/navigable filters.

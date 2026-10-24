@@ -197,7 +197,7 @@ impl OverlaySettingsView {
                     });
                 ui.horizontal(|ui| {
                     ui.label("Preset name");
-                    if ui.text_edit_singleline(&mut self.name).changed() {
+                    if ui.add(crate::clear_text::ClearText::singleline(&mut self.name)).changed() {
                         self.pending = None;
                     }
                 });

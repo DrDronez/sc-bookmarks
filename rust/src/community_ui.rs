@@ -20,6 +20,7 @@ pub struct Community {
     query: String,
     system: String,
     kind: String,
+    parent: String,
     qt_only: bool,
     nav_only: bool,
     sort: usize,
@@ -35,6 +36,7 @@ impl Default for Community {
             query: String::new(),
             system: "All".into(),
             kind: "All".into(),
+            parent: "All".into(),
             qt_only: false,
             nav_only: false,
             sort: 0,
@@ -80,33 +82,54 @@ impl Community {
         ui.weak("Researched POI catalog · 2026-10-21 · separate from your personal library");
         ui.horizontal_wrapped(|ui| {
             ui.label("Search");
-            ui.text_edit_singleline(&mut self.query);
+            ui.add(crate::clear_text::ClearText::singleline(&mut self.query));
             egui::ComboBox::from_id_salt("community_system")
-                .selected_text(&self.system)
+                .selected_text(format!("System: {}", if self.system == "All" { "All systems" } else { &self.system }))
                 .show_ui(ui, |ui| {
                     for s in ["All", "Stanton", "Pyro", "Nyx"] {
-                        ui.selectable_value(&mut self.system, s.into(), s);
+                        ui.selectable_value(&mut self.system, s.into(), if s == "All" { "All systems" } else { s });
+                    }
+                });
+            let parents: std::collections::BTreeSet<_> = self
+                .entries
+                .iter()
+                .filter(|e| self.system == "All" || e.system == self.system)
+                .map(|e| e.parent.clone())
+                .filter(|p| !p.is_empty())
+                .collect();
+            if self.parent != "All" && !parents.contains(&self.parent) {
+                self.parent = "All".into();
+            }
+            egui::ComboBox::from_id_salt("community_parent")
+                .selected_text(format!("Parent: {}", if self.parent == "All" { "All containers" } else { &self.parent }))
+                .show_ui(ui, |ui| {
+                    ui.selectable_value(&mut self.parent, "All".into(), "All containers");
+                    for p in parents {
+                        ui.selectable_value(&mut self.parent, p.clone(), p);
                     }
                 });
             let kinds: std::collections::BTreeSet<_> =
                 self.entries.iter().map(|e| e.kind.clone()).collect();
             egui::ComboBox::from_id_salt("community_kind")
-                .selected_text(&self.kind)
+                .selected_text(format!("Type: {}", if self.kind == "All" { "All types" } else if self.kind.is_empty() { "Unspecified" } else { &self.kind }))
                 .show_ui(ui, |ui| {
                     ui.selectable_value(&mut self.kind, "All".into(), "All types");
                     for k in kinds {
-                        ui.selectable_value(&mut self.kind, k.clone(), k);
+                        ui.selectable_value(&mut self.kind, k.clone(), if k.is_empty() { "Unspecified" } else { &k });
                     }
                 });
             egui::ComboBox::from_id_salt("community_sort")
-                .selected_text(["Name", "System", "Type", "QT status"][self.sort])
+                .selected_text(format!("Sort by: {}", ["Name", "System", "Type", "QT status", "Parent container"][self.sort]))
                 .show_ui(ui, |ui| {
-                    for (i, s) in ["Name", "System", "Type", "QT status"].iter().enumerate() {
+                    for (i, s) in ["Name", "System", "Type", "QT status", "Parent container"]
+                        .iter()
+                        .enumerate()
+                    {
                         ui.selectable_value(&mut self.sort, i, *s);
                     }
                 });
             ui.checkbox(&mut self.qt_only, "Verified QT markers");
-            ui.checkbox(&mut self.nav_only, "Navigable here");
+            ui.checkbox(&mut self.nav_only, "Has navigation coordinates").on_hover_text("Show entries that can be selected as destinations, even before capture starts.");
         });
         if let Some(i) = self.selected {
             let e = &self.entries[i];
@@ -121,6 +144,16 @@ impl Community {
                 .on_hover_text(&e.notes);
             let t = target(e, catalog);
             ui.horizontal(|ui| {
+                if ui
+                    .add_enabled(t.is_some(), egui::Button::new("Copy link"))
+                    .clicked()
+                {
+                    if let Some(b) = t.clone() {
+                        if let Ok(link) = sc_bookmarks::links::encode(b) {
+                            ui.ctx().copy_text(link);
+                        }
+                    }
+                }
                 if ui
                     .add_enabled(t.is_some(), egui::Button::new("Navigate"))
                     .clicked()
@@ -151,6 +184,7 @@ impl Community {
                 &self.query,
                 &self.system,
                 &self.kind,
+                &self.parent,
                 self.qt_only,
                 self.nav_only,
                 self.sort
@@ -165,6 +199,7 @@ impl Community {
                 .filter(|(_, e)| {
                     (self.system == "All" || self.system == e.system)
                         && (self.kind == "All" || self.kind == e.kind)
+                        && (self.parent == "All" || self.parent == e.parent)
                         && (!self.qt_only || e.qt.starts_with("Yes"))
                         && (!self.nav_only || target(e, catalog).is_some())
                         && (q.is_empty()
@@ -182,6 +217,7 @@ impl Community {
                         1 => &e.system,
                         2 => &e.kind,
                         3 => &e.qt,
+                        4 => &e.parent,
                         _ => &e.name,
                     },
                     e.name
@@ -200,7 +236,18 @@ impl Community {
                 if ui
                     .selectable_label(
                         self.selected == Some(i),
-                        format!("{}  |  {}  |  {}  |  {}", e.name, e.system, e.kind, e.qt),
+                        format!(
+                            "{}  |  {}  |  {}  |  {}  |  {}",
+                            e.name,
+                            e.system,
+                            if e.parent.is_empty() {
+                                "Unspecified parent"
+                            } else {
+                                &e.parent
+                            },
+                            e.kind,
+                            e.qt
+                        ),
                     )
                     .clicked()
                 {

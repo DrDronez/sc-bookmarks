@@ -1,6 +1,6 @@
-# SC Bookmarks 0.0.7-alpha — portable Rust build
+# SC Bookmarks 0.0.8-alpha — portable Rust build
 
-Extract the entire folder to a writable location, then open **SC-Bookmarks.exe**.
+Extract all ZIP contents into a writable folder, then open **SC-Bookmarks.exe**.
 No Python, pip, Rust compiler, model download, or administrator access is required.
 Keep the runtime and licenses folders beside the executable. Windows 10/11 x64,
 Windows Graphics Capture support, and an OpenGL-capable graphics driver are required.
@@ -70,3 +70,5 @@ Desktop overlays are intended for borderless/windowed play. Exclusive-fullscreen
 The Community tab contains 2,901 researched POIs, kept separate from your personal library. Search, sort, or filter by system, type, verified QT status and navigability. Placeholder/uninitialized entries and entries within 1 km in comparable coordinate frames have been removed. Data is a snapshot and may be outdated. Only entries matched to the root-coordinate QT catalog can be navigated to or explicitly copied to your personal library; planet-local coordinates remain reference-only.
 
 Capture starts automatically when the game window becomes available. Capture-dependent buttons are disabled until usable. Settings offers **Hide yellow capture border (if Windows allows)**, applied on the next capture start; unsupported configurations fall back to normal capture.
+
+Portable ZIP layout: `SC-Bookmarks.exe`, runtime libraries, README and notices are at the archive root; `runtime/` and `licenses/` remain required support folders. Extract everything into your chosen application folder. GitHub-generated Source code archives retain GitHub's standard enclosing directory; use the Windows x64 release asset to run the app.

@@ -46,11 +46,15 @@ impl LibraryView {
             self.dirty = true;
         }
         self.dirty |= ui
-            .add(egui::TextEdit::singleline(&mut self.filter.query).hint_text("Search bookmarks"))
+            .add(
+                crate::clear_text::ClearText::singleline(&mut self.filter.query)
+                    .hint_text("Search bookmarks"),
+            )
             .changed();
         egui::CollapsingHeader::new("Filter & sort")
             .default_open(false)
             .show(ui, |ui| {
+                ui.label("Category");
                 egui::ComboBox::from_id_salt("library_category")
                     .selected_text(if self.filter.category.is_empty() {
                         "All categories"
@@ -71,6 +75,7 @@ impl LibraryView {
                                 .changed();
                         }
                     });
+                ui.label("System");
                 egui::ComboBox::from_id_salt("library_system")
                     .selected_text(if self.filter.system.is_empty() {
                         "All systems"
@@ -87,6 +92,7 @@ impl LibraryView {
                                 .changed();
                         }
                     });
+                ui.label("Sort by");
                 egui::ComboBox::from_id_salt("library_sort")
                     .selected_text(self.filter.sort.label())
                     .show_ui(ui, |ui| {
@@ -96,6 +102,7 @@ impl LibraryView {
                                 .changed();
                         }
                     });
+                ui.label("Ore type");
                 egui::ComboBox::from_id_salt("library_ore")
                     .selected_text(if self.filter.ore.is_empty() {
                         "Any ore"
@@ -117,7 +124,10 @@ impl LibraryView {
                 ui.horizontal(|ui| {
                     ui.label("Quality ≥");
                     if ui
-                        .add(egui::TextEdit::singleline(&mut self.quality).desired_width(85.))
+                        .add(
+                            crate::clear_text::ClearText::singleline(&mut self.quality)
+                                .desired_width(85.),
+                        )
                         .changed()
                     {
                         self.error.clear();

@@ -79,6 +79,7 @@ impl ScanningView {
         let old_mode = self.mode;
         let mut changed = false;
         ui.horizontal_wrapped(|ui| {
+            ui.label("Reference chart");
             egui::ComboBox::from_id_salt("scan_chart")
                 .selected_text(self.charts[self.mode].name)
                 .show_ui(ui, |ui| {
@@ -88,11 +89,11 @@ impl ScanningView {
                 });
             ui.label("RS reading");
             changed |= ui
-                .add(egui::TextEdit::singleline(&mut self.rs).desired_width(95.))
+                .add(crate::clear_text::ClearText::singleline(&mut self.rs).desired_width(95.))
                 .changed();
             ui.label("Ore / contact");
             changed |= ui
-                .add(egui::TextEdit::singleline(&mut self.query).desired_width(150.))
+                .add(crate::clear_text::ClearText::singleline(&mut self.query).desired_width(150.))
                 .changed();
             if ui.button("Clear").clicked() {
                 self.rs.clear();

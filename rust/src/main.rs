@@ -1,4 +1,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+mod clear_text;
 mod community_ui;
 use eframe::egui;
 mod capture_ui;
@@ -159,6 +160,9 @@ impl Desktop {
         self.community_target = None;
         self.live.alert.arm(false);
         self.selected = Some(i);
+        if !self.capture.running() {
+            self.status = "Destination queued; guidance starts when capture is running.".into();
+        }
         self.route = match routes::suggest(&self.bookmarks[i], &self.catalog.markers) {
             Ok(Some(r)) => r.label(),
             Ok(None) => "No usable QT pair".into(),
@@ -414,7 +418,9 @@ impl eframe::App for Desktop {
                                 metadata: BTreeMap::new(),
                             });
                         }
-                        ui.text_edit_singleline(&mut self.capture_name);
+                        ui.add(crate::clear_text::ClearText::singleline(
+                            &mut self.capture_name,
+                        ));
                         egui::ComboBox::from_id_salt("capture_category")
                             .selected_text(&self.capture_category)
                             .show_ui(ui, |ui| {
@@ -708,6 +714,9 @@ impl eframe::App for Desktop {
                         .map(|r| r.label())
                         .unwrap_or_else(|| "No usable QT pair".into());
                     self.community_target = Some(b);
+                    if !self.capture.running() {
+                        self.status = "Community destination queued; guidance starts when capture is running.".into();
+                    }
                 }
                 if let Some(b) = copy {
                     let mut all = self.bookmarks.clone();
@@ -741,6 +750,9 @@ impl eframe::App for Desktop {
             if let Some(i) = self.selected.filter(|i| *i < self.bookmarks.len()) {
                 let b = &self.bookmarks[i];
                 ui.heading(&b.name);
+                if !self.capture.running() {
+                    ui.weak("Destination queued · start capture when ready. Copying is available now.");
+                }
                 self.live.show(ui, b, self.capture.running());
                 ui.label(format!("System: {}", b.system));
                 ui.label(format!(
@@ -798,7 +810,7 @@ impl eframe::App for Desktop {
             let mut cancel = false;
             egui::Window::new("Import bookmark links").show(ctx, |ui| {
                 ui.add(
-                    egui::TextEdit::multiline(&mut self.paste)
+                    crate::clear_text::ClearText::multiline(&mut self.paste)
                         .desired_rows(10)
                         .desired_width(550.),
                 );
@@ -855,9 +867,9 @@ impl eframe::App for Desktop {
                 .vscroll(true)
                 .show(ctx, |ui| {
                     ui.label("Name");
-                    ui.text_edit_singleline(&mut b.name);
+                    ui.add(crate::clear_text::ClearText::singleline(&mut b.name));
                     ui.label("System");
-                    ui.text_edit_singleline(&mut b.system);
+                    ui.add(crate::clear_text::ClearText::singleline(&mut b.system));
                     for (axis, v) in ["X", "Y", "Z"].into_iter().zip(b.xyz_km.iter_mut()) {
                         ui.horizontal(|ui| {
                             ui.label(axis);
@@ -871,7 +883,7 @@ impl eframe::App for Desktop {
                         .unwrap_or("Personal")
                         .to_owned();
                     ui.label("Category");
-                    ui.text_edit_singleline(&mut category);
+                    ui.add(crate::clear_text::ClearText::singleline(&mut category));
                     b.metadata.insert("category".into(), category.into());
                     let mut notes = b
                         .metadata
@@ -880,7 +892,7 @@ impl eframe::App for Desktop {
                         .unwrap_or("")
                         .to_owned();
                     ui.label("Notes");
-                    ui.add(egui::TextEdit::multiline(&mut notes).desired_rows(5));
+                    ui.add(crate::clear_text::ClearText::multiline(&mut notes).desired_rows(5));
                     b.metadata.insert("notes".into(), notes.into());
                     if b.metadata
                         .get("category")
@@ -930,7 +942,9 @@ impl eframe::App for Desktop {
             let mut cancel = false;
             egui::Window::new("Import previous SC Bookmarks data").show(ctx, |ui| {
                 ui.label("Path to your previous navigator-data folder. Originals are preserved.");
-                ui.text_edit_singleline(&mut self.migration);
+                ui.add(crate::clear_text::ClearText::singleline(
+                    &mut self.migration,
+                ));
                 ui.horizontal(|ui| {
                     apply = ui.button("Import folder").clicked();
                     cancel = ui.button("Cancel").clicked();
@@ -963,7 +977,7 @@ impl eframe::App for Desktop {
                         if rows[i].0 == "Mining" {
                             ui.label("Mining");
                         } else {
-                            ui.text_edit_singleline(&mut rows[i].1);
+                            ui.add(crate::clear_text::ClearText::singleline(&mut rows[i].1));
                         }
                         if i > 0 && ui.small_button("Up").clicked() {
                             swap = Some((i, i - 1));
