@@ -1,6 +1,6 @@
 # SC Bookmarks
 
-**0.0.5-alpha — Rust portable for Windows x64.** Save and share locations, record mining scans, and receive on-screen navigation and scan-reference guidance from visible game pixels.
+**0.0.6-alpha — Rust portable for Windows x64.** Save and share locations, record mining scans, and receive on-screen navigation and scan-reference guidance from visible game pixels.
 
 **Tested game build: Star Citizen 4.10.2-LIVE.12913470.** Other builds have not been validated; changes to debug text, HUD layout, or scanning values may affect results.
 
@@ -8,7 +8,7 @@
 
 ## Download and run (recommended)
 
-Download **SC-Bookmarks-0.0.5-alpha-windows-x64.zip** from the [0.0.5-alpha release](https://github.com/DrDronez/sc-bookmarks/releases/tag/0.0.5-alpha). Extract the entire folder to a writable location and run **SC-Bookmarks.exe**. No Python, Rust compiler, administrator access, or separate OCR download is needed. Keep the runtime and licenses folders alongside the executable. Requires Windows 10/11 x64, Windows Graphics Capture and an OpenGL-capable driver. Borderless/windowed mode is recommended; desktop overlays are not guaranteed in exclusive fullscreen.
+Download **SC-Bookmarks-0.0.6-alpha-windows-x64.zip** from the [0.0.6-alpha release](https://github.com/DrDronez/sc-bookmarks/releases/tag/0.0.6-alpha). Extract the entire folder to a writable location and run **SC-Bookmarks.exe**. No Python, Rust compiler, administrator access, or separate OCR download is needed. Keep the runtime and licenses folders alongside the executable. Requires Windows 10/11 x64, Windows Graphics Capture and an OpenGL-capable driver. Borderless/windowed mode is recommended; desktop overlays are not guaranteed in exclusive fullscreen.
 
 Enable `r_displayinfo 3` in Star Citizen, then start capture. Read [portable instructions](rust/PORTABLE.md) for migration, controls and limitations. Back up `navigator-data-rust` before updating; the portable download contains no personal bookmarks or settings.
 

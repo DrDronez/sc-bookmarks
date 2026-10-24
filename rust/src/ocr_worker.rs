@@ -155,6 +155,19 @@ impl Worker {
                                 15,
                             ) {
                                 o.shard = ocr_text::shard(&text, score);
+                                if o.shard.is_none() {
+                                    if let Ok((alternate, confidence)) = row(
+                                        &mut reader,
+                                        &im,
+                                        width.saturating_sub(300),
+                                        [68, 81, 94][shard_row],
+                                        width.min(300),
+                                        14,
+                                    ) {
+                                        o.shard = ocr_text::shard(&alternate, confidence);
+                                        o.evidence.push((alternate, confidence));
+                                    }
+                                }
                                 o.evidence.push((text, score));
                             }
                             if o.shard.is_some() && o.shard == previous_shard {

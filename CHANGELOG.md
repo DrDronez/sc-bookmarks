@@ -2,6 +2,14 @@
 
 
 
+## 0.0.6-alpha — 2026-10-24
+
+- Add a bounded alternate shard crop for small debug text.
+- Recover missing/letter-like separator strokes only around intact region and numeric ID fields; keep confidence and repeated-read requirements.
+- Retain a confirmed shard across two-minute refreshes; changed IDs still need confirmation and system changes clear the old shard.
+
+Offline replay reads the shard twice from the affected user's earlier screenshot. Existing bookmarks with unknown creation shards are not retroactively assigned a server.
+
 ## 0.0.5-alpha — 2026-10-24
 
 - Recover coordinate row locations independently when CamDir is readable but fixed coordinate crops fail.

@@ -69,14 +69,19 @@ impl Live {
                 self.position = None;
                 self.camera = None;
                 self.pending_camera = None;
+                self.shard.clear();
+                self.shard_candidate = None;
+                self.shard_time = None;
                 self.alert.arm(false);
             }
             self.system = s.clone();
         }
         if let Some(s) = &o.shard {
-            if self.shard_candidate.as_ref().is_some_and(|(t, v)| {
-                v == s && o.stamp.saturating_duration_since(*t).as_secs() <= 45
-            }) {
+            if self.shard == *s
+                || self.shard_candidate.as_ref().is_some_and(|(t, v)| {
+                    v == s && o.stamp.saturating_duration_since(*t).as_secs() <= 45
+                })
+            {
                 self.shard = s.clone();
                 self.shard_time = Some(o.stamp);
             } else {
@@ -426,6 +431,26 @@ mod tests {
         live.tick(Some(&target));
         assert!(!live.alert.fired);
         assert!(live.guidance(&target).0.contains("paused"));
+    }
+    #[test]
+    fn scheduled_shard_refresh_preserves_confirmation_but_changed_id_needs_two() {
+        let mut live = Live::default();
+        let now = Instant::now();
+        let mut o = observation(now, [1., 2., 3.]);
+        o.shard = Some("pub_use1b_12881860_130".into());
+        live.ingest(&o);
+        o.stamp += Duration::from_secs(1);
+        live.ingest(&o);
+        o.stamp += Duration::from_secs(120);
+        live.ingest(&o);
+        assert_eq!(live.shard, "pub_use1b_12881860_130");
+        o.shard = Some("pub_use1b_12881860_131".into());
+        o.stamp += Duration::from_secs(120);
+        live.ingest(&o);
+        assert!(live.shard.is_empty());
+        o.stamp += Duration::from_secs(1);
+        live.ingest(&o);
+        assert_eq!(live.shard, "pub_use1b_12881860_131");
     }
     #[test]
     fn shard_needs_two_matching_reads() {

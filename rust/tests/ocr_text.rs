@@ -52,3 +52,23 @@ fn camera_and_metadata_confidence_gates() {
         Some(known[0].as_str())
     );
 }
+
+#[test]
+fn shard_boundary_recovery_does_not_guess_identifier_characters() {
+    for s in [
+        "ShardId:publuse1b12881860_130",
+        "ShardId:pub|use1b|12881860 130",
+        "ShardId:pubuse1b12881860_130",
+    ] {
+        assert_eq!(shard(s, 0.90).as_deref(), Some("pub_use1b_12881860_130"));
+    }
+    for s in [
+        "ShardId:publuselb12881860_130",
+        "ShardId:pubuse1b1288186O_130",
+        "ShardId:pubuse1b12881860130",
+        "ShardId:pubuse1b1288_130",
+    ] {
+        assert!(shard(s, 0.99).is_none(), "{s}");
+    }
+    assert!(shard("ShardId:publuse1b12881860_130", 0.84).is_none());
+}

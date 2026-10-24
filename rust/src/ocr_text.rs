@@ -81,13 +81,31 @@ pub fn camera(text: &str, confidence: f64) -> Option<[f64; 3]> {
         .all(|v| (-180. ..=180.).contains(v))
         .then_some(values)
 }
+// OCR can turn underscore strokes into l/I/| or omit them. Only recover
+// boundaries around a fully read region token and two separated numeric fields.
+// Never substitute a digit/letter within the region, build or instance value.
+static SHARD_BOUNDARIES: LazyLock<Regex> = LazyLock::new(|| {
+    Regex::new(
+    r"(?i)^(pub|ptu|eptu)[_\s|lI-]*([a-z]{2,4}[0-9][a-z])[_\s|lI-]*([0-9]{5,})[_\s-]+([0-9]{3,})$"
+).unwrap()
+});
 pub fn shard(text: &str, confidence: f64) -> Option<String> {
     if !confidence.is_finite() || confidence < 0.85 {
         return None;
     }
     let captures = SHARD_LABEL.captures(text)?;
     let value = captures[1].split_whitespace().collect::<Vec<_>>().join("_");
-    SHARD_VALUE.is_match(&value).then_some(value)
+    if SHARD_VALUE.is_match(&value) {
+        return Some(value);
+    }
+    let parts = SHARD_BOUNDARIES.captures(captures[1].trim())?;
+    Some(format!(
+        "{}_{}_{}_{}",
+        parts[1].to_ascii_lowercase(),
+        parts[2].to_ascii_lowercase(),
+        &parts[3],
+        &parts[4]
+    ))
 }
 pub fn system(text: &str, confidence: f64) -> Option<&'static str> {
     if !confidence.is_finite() || confidence < 0.8 || !SYSTEM_LABEL.is_match(text) {
