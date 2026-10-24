@@ -93,3 +93,5 @@ pub mod storage;
 pub mod window_geometry;
 
 pub mod travel_log;
+
+pub mod community_coordinates;

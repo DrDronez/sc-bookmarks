@@ -26,3 +26,5 @@ All map drawing and star backgrounds are generated; no game art is redistributed
 
 Cloud Imperium Games and Roberts Space Industries had no involvement in this
 project. They do not develop, fund, review, sponsor, or endorse it.
+
+Community container centers, rotation periods and phases: starmap.space API snapshot collected 2026-10-21, retained in route-data/community-containers.json. Rotation convention (hours per revolution, phase in degrees, reference 2020-01-01 UTC) cross-checked against https://github.com/Valalol/Star-Citizen-Navigation/blob/main/backend.py. Coordinate math is independently implemented; no source code or game assets are copied. These positions are estimates, not live-verified transforms.

@@ -50,12 +50,39 @@ fn target(e: &Entry, catalog: &Catalog) -> Option<Bookmark> {
     let matches: Vec<_> = catalog
         .markers
         .iter()
-        .filter(|m| m.system == e.system && m.name.eq_ignore_ascii_case(&e.name))
+        .filter(|m| {
+            m.system.eq_ignore_ascii_case(&e.system) && m.name.eq_ignore_ascii_case(&e.name)
+        })
         .collect();
+    let mut local = None;
     let xyz = if matches.len() == 1 {
         matches[0].xyz_km
     } else {
-        return None;
+        let xyz = [
+            e.x.parse::<f64>().ok()?,
+            e.y.parse::<f64>().ok()?,
+            e.z.parse::<f64>().ok()?,
+        ];
+        if xyz.iter().any(|v| !v.is_finite()) {
+            return None;
+        }
+        let frame = e.frame.strip_prefix("Local to ")?;
+        if frame.eq_ignore_ascii_case(&e.system) {
+            xyz
+        } else {
+            let v = sc_bookmarks::community_coordinates::Local {
+                container: frame.into(),
+                xyz_km: xyz,
+            };
+            let root = sc_bookmarks::community_coordinates::position(
+                &e.system,
+                &v,
+                chrono::Utc::now().timestamp_millis() as f64 / 1000.,
+            )
+            .ok()?;
+            local = Some(v);
+            root
+        }
     };
     let mut metadata = std::collections::BTreeMap::new();
     metadata.insert(
@@ -63,6 +90,9 @@ fn target(e: &Entry, catalog: &Catalog) -> Option<Bookmark> {
         format!("Community reference (2026-10-21). {}", e.notes).into(),
     );
     metadata.insert("category".into(), "Personal".into());
+    if let Some(local) = local {
+        metadata.insert("community_local".into(), serde_json::to_value(local).ok()?);
+    }
     Some(Bookmark {
         name: e.name.clone(),
         system: e.system.clone(),
@@ -143,6 +173,11 @@ impl Community {
             ui.add(egui::Label::new(&e.notes).truncate())
                 .on_hover_text(&e.notes);
             let t = target(e, catalog);
+            if t.as_ref()
+                .is_some_and(|b| b.metadata.contains_key("community_local"))
+            {
+                ui.weak("Planet-relative position uses a rotation estimate. Verify in game; system clock and source data affect accuracy.");
+            }
             ui.horizontal(|ui| {
                 if ui
                     .add_enabled(t.is_some(), egui::Button::new("Copy link"))
@@ -167,7 +202,9 @@ impl Community {
                     copy = t.clone();
                 }
                 if t.is_none() {
-                    ui.weak("Reference only: no compatible system coordinates in the QT catalog.");
+                    ui.weak(if e.x.is_empty() || e.y.is_empty() || e.z.is_empty() {
+                        "Coordinates missing from source; navigation and bookmark links need XYZ."
+                    } else { "Coordinate container unavailable or unsupported; cannot safely navigate this entry yet." });
                 }
             });
             ui.collapsing("Sources", |ui| {
@@ -272,13 +309,26 @@ mod tests {
             .iter()
             .filter(|e| target(e, &catalog).is_some())
             .count();
-        assert!(navigable > 20);
-        let local = c
-            .entries
-            .iter()
-            .find(|e| e.frame.starts_with("Local to") && target(e, &catalog).is_none())
-            .unwrap();
-        assert!(target(local, &catalog).is_none());
+        println!(
+            "Community destinations usable: {navigable} / {}",
+            c.entries.len()
+        );
+        assert!(navigable > 1500);
+        let benny = c.entries.iter().find(|e| e.name == "Bennyhenge").unwrap();
+        let b = target(benny, &catalog).expect("Bennyhenge resolves through Yela");
+        assert!(b.metadata.contains_key("community_local"));
+        let link = sc_bookmarks::links::encode(b).unwrap();
+        assert!(
+            sc_bookmarks::links::decode(&link)
+                .unwrap()
+                .metadata
+                .contains_key("community_local")
+        );
+        assert!(
+            c.entries
+                .iter()
+                .any(|e| e.x.is_empty() && target(e, &catalog).is_none())
+        );
         for e in &c.entries {
             if let Some(b) = target(e, &catalog) {
                 assert!(b.validate().is_ok());

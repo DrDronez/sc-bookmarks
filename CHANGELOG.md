@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.0.10-alpha — 2026-10-24
+
+- Fix community actions being restricted to exact matches in the small QT catalog.
+- Resolve source system coordinates and supported container-relative coordinates; enable Navigate, Copy link and Copy to personal without capture.
+- Preserve local coordinates/container in version-3 bookmark links and personal storage; refresh estimated system positions each second. Older apps reject v3 instead of silently freezing a moving target.
+- Explain missing coordinates and unsupported containers in the interface.
+
+Planet-relative positions use the community snapshot rotation period/phase, a 2020-01-01 UTC epoch and the PC clock. This is an estimate requiring live validation; stale source data or clock differences can offset a destination. Tilted containers are not guessed.
+
+
 ## 0.0.9-alpha — 2026-10-24
 
 - Format arrival ETA as hours:minutes:seconds, including durations longer than 24 hours.

@@ -34,6 +34,7 @@ struct Desktop {
     delete_pending: bool,
     route: String,
     current_route: Option<String>,
+    community_refresh: std::time::Instant,
     route_checked: std::time::Instant,
     load_failed: bool,
     scanning: scanning_ui::ScanningView,
@@ -118,6 +119,7 @@ impl Desktop {
             delete_pending: false,
             route: String::new(),
             current_route: None,
+            community_refresh: std::time::Instant::now() - std::time::Duration::from_secs(2),
             route_checked: std::time::Instant::now() - std::time::Duration::from_secs(2),
             load_failed,
             scanning: Default::default(),
@@ -328,6 +330,18 @@ impl eframe::App for Desktop {
             self.library.invalidate();
         }
         self.map.ship = self.live.ship().map(|p| (self.live.system.clone(), p));
+        if self.community_refresh.elapsed().as_secs_f64() >= 1. {
+            self.community_refresh = std::time::Instant::now();
+            for b in self
+                .bookmarks
+                .iter_mut()
+                .chain(self.community_target.iter_mut())
+            {
+                if let Err(e) = sc_bookmarks::community_coordinates::refresh(b) {
+                    self.status = e;
+                }
+            }
+        }
         if !self.capture.running() || !self.live.fresh() {
             self.current_route = None;
         } else if self.route_checked.elapsed().as_secs_f64() >= 1. {
@@ -907,12 +921,17 @@ impl eframe::App for Desktop {
                     ui.add(crate::clear_text::ClearText::singleline(&mut b.name));
                     ui.label("System");
                     ui.add(crate::clear_text::ClearText::singleline(&mut b.system));
+                    if b.metadata.contains_key("community_local") {
+                        ui.weak("Coordinates track the community container. Editing XYZ converts this to a fixed system position.");
+                    }
+                    let before_xyz=b.xyz_km;
                     for (axis, v) in ["X", "Y", "Z"].into_iter().zip(b.xyz_km.iter_mut()) {
                         ui.horizontal(|ui| {
                             ui.label(axis);
                             ui.add(egui::DragValue::new(v).speed(0.001).max_decimals(8));
                         });
                     }
+                    if b.xyz_km != before_xyz {b.metadata.remove("community_local");}
                     let mut category = b
                         .metadata
                         .get("category")

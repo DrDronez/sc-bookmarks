@@ -1,4 +1,4 @@
-# SC Bookmarks 0.0.9-alpha — portable Rust build
+# SC Bookmarks 0.0.10-alpha — portable Rust build
 
 Extract all ZIP contents into a writable folder, then open **SC-Bookmarks.exe**.
 No Python, pip, Rust compiler, model download, or administrator access is required.
@@ -67,7 +67,7 @@ Desktop overlays are intended for borderless/windowed play. Exclusive-fullscreen
 
 ## Community bookmarks and capture controls
 
-The Community tab contains 2,901 researched POIs, kept separate from your personal library. Search, sort, or filter by system, type, verified QT status and navigability. Placeholder/uninitialized entries and entries within 1 km in comparable coordinate frames have been removed. Data is a snapshot and may be outdated. Only entries matched to the root-coordinate QT catalog can be navigated to or explicitly copied to your personal library; planet-local coordinates remain reference-only.
+The Community tab contains 2,901 researched POIs, kept separate from your personal library. Search, sort, or filter by system, type, verified QT status and navigability. Placeholder/uninitialized entries and entries within 1 km in comparable coordinate frames have been removed. Data is a snapshot and may be outdated. Entries with supported coordinates can be navigated to or copied without capture. Planet-local coordinates retain their container and use a clock-based rotation estimate. Entries missing coordinates or using unsupported frames explain why actions are unavailable.
 
 Capture starts automatically when the game window becomes available. Capture-dependent buttons are disabled until usable. Settings offers **Hide yellow capture border (if Windows allows)**, applied on the next capture start; unsupported configurations fall back to normal capture.
 
@@ -76,3 +76,5 @@ Portable ZIP layout: `SC-Bookmarks.exe`, runtime libraries, README and notices a
 Arrival ETA uses `hh:mm:ss`. With fresh current coordinates, the interface also shows **Closest approach via [QT marker] (from here)** when a finite jump leg improves the approach by more than 1 km and catalog uncertainty. The catalog route remains visible; the map shows that catalog route. Suggestions are geometric and do not verify game QT availability, spool-up or minimum jump distance. The title bar identifies the running application version.
 
 In Settings, enable **3D bookmark marker (experimental)** and **Also show beyond 5 km (same system only)** for a distant projected diamond. The extension defaults off. It requires a known matching system and fresh position/camera readings; it is hidden in QT, behind the camera and offscreen. Manual FOV alignment remains experimental. Distance labels switch from meters to kilometers at range.
+
+Community destinations now support source system coordinates and supported container-local positions. Container-local destinations use a clock-based rotation estimate, refreshed once per second; validate them in game because source data and clock accuracy affect alignment. Version-3 links preserve the container and local coordinates and require 0.0.10-alpha or newer. Copy and queue navigation without capture. Missing coordinates and unsupported tilted frames cannot provide valid destinations and display a reason. Editing XYZ of a container-relative bookmark converts it to a fixed system-coordinate bookmark.

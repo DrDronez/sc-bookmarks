@@ -1,6 +1,6 @@
 [package]
 name = "sc-bookmarks"
-version = "0.0.9-alpha"
+version = "0.0.10-alpha"
 edition = "2024"
 publish = false
 

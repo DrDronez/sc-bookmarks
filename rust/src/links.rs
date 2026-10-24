@@ -38,8 +38,18 @@ pub fn normalize(mut b: Bookmark) -> Result<Bookmark, String> {
         let v = mining::clean(v)?;
         m.insert("mining".into(), v);
     }
+    if let Some(v) = m.get("community_local") {
+        let local: crate::community_coordinates::Local =
+            serde_json::from_value(v.clone()).map_err(|_| "Invalid community coordinates")?;
+        crate::community_coordinates::position(
+            &b.system,
+            &local,
+            chrono::Utc::now().timestamp() as f64,
+        )?;
+    }
     m.insert("frame".into(), json!("root"));
     m.insert("units".into(), json!("km"));
+    crate::community_coordinates::refresh(&mut b)?;
     Ok(b)
 }
 pub fn encode(b: Bookmark) -> Result<String, String> {
@@ -47,7 +57,16 @@ pub fn encode(b: Bookmark) -> Result<String, String> {
     let m = &b.metadata;
     let extended = m.contains_key("mining") || m["notes"].as_str() != Some("");
     let mut fields = vec![
-        ("v", if extended { "2".into() } else { "1".into() }),
+        (
+            "v",
+            if m.contains_key("community_local") {
+                "3".into()
+            } else if extended {
+                "2".into()
+            } else {
+                "1".into()
+            },
+        ),
         ("x", b.xyz_km[0].to_string()),
         ("y", b.xyz_km[1].to_string()),
         ("z", b.xyz_km[2].to_string()),
@@ -68,6 +87,9 @@ pub fn encode(b: Bookmark) -> Result<String, String> {
     }
     if let Some(v) = m.get("mining") {
         fields.push(("mining", v.to_string()));
+    }
+    if let Some(v) = m.get("community_local") {
+        fields.push(("local", v.to_string()));
     }
     Ok(format!(
         "scbm://bookmark?{}",
@@ -102,7 +124,7 @@ pub fn decode(link: &str) -> Result<Bookmark, String> {
             .map(String::as_str)
             .ok_or_else(|| format!("Missing {key}"))
     };
-    if !matches!(get("v")?, "1" | "2") || get("units")? != "km" || get("frame")? != "root" {
+    if !matches!(get("v")?, "1" | "2" | "3") || get("units")? != "km" || get("frame")? != "root" {
         return Err("Unsupported version, units or frame".into());
     }
     let mut b = Bookmark {
@@ -137,6 +159,17 @@ pub fn decode(link: &str) -> Result<Bookmark, String> {
             "mining".into(),
             serde_json::from_str(v).map_err(|_| "Invalid mining JSON")?,
         );
+    }
+    if let Some(v) = q.get("local") {
+        if get("v")? != "3" {
+            return Err("Local coordinates require link version 3".into());
+        }
+        b.metadata.insert(
+            "community_local".into(),
+            serde_json::from_str(v).map_err(|_| "Invalid local coordinate JSON")?,
+        );
+    } else if get("v")? == "3" {
+        return Err("Missing local coordinates".into());
     }
     b.metadata.insert("kind".into(), json!("imported bookmark"));
     normalize(b)
