@@ -7,6 +7,8 @@ pub struct Settings {
     #[serde(default)]
     pub bookmark_3d: bool,
     #[serde(default)]
+    pub hide_capture_border: bool,
+    #[serde(default)]
     pub theme: Theme,
     #[serde(default = "default_fov")]
     pub vertical_fov: f64,
@@ -22,6 +24,7 @@ impl Default for Settings {
         Self {
             position: [50.; 2],
             bookmark_3d: false,
+            hide_capture_border: false,
             theme: Theme::default(),
             vertical_fov: default_fov(),
             hotkey: default_hotkey(),

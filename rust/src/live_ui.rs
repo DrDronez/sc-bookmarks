@@ -311,7 +311,7 @@ impl Live {
             }
         }
     }
-    pub fn show(&mut self, ui: &mut eframe::egui::Ui, target: &Bookmark) {
+    pub fn show(&mut self, ui: &mut eframe::egui::Ui, target: &Bookmark, running: bool) {
         let (text, warn) = self.guidance(target);
         if warn {
             ui.weak(text);
@@ -323,11 +323,14 @@ impl Live {
             ui.label("Exit lead (s)");
             ui.add(eframe::egui::DragValue::new(&mut self.lead).range(0. ..=120.));
             if ui
-                .button(if self.alert.armed {
-                    "Disarm exit alert"
-                } else {
-                    "Arm exit alert"
-                })
+                .add_enabled(
+                    self.alert.armed || (running && self.fresh()),
+                    eframe::egui::Button::new(if self.alert.armed {
+                        "Disarm exit alert"
+                    } else {
+                        "Arm exit alert"
+                    }),
+                )
                 .clicked()
             {
                 self.alert.arm(!self.alert.armed);

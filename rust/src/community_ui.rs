@@ -1,0 +1,242 @@
+use eframe::egui;
+use sc_bookmarks::{Bookmark, routes::Catalog};
+#[derive(serde::Deserialize)]
+struct Entry {
+    name: String,
+    system: String,
+    parent: String,
+    kind: String,
+    frame: String,
+    qt: String,
+    notes: String,
+    source: String,
+    coordinate_source: String,
+    x: String,
+    y: String,
+    z: String,
+}
+pub struct Community {
+    entries: Vec<Entry>,
+    query: String,
+    system: String,
+    kind: String,
+    qt_only: bool,
+    nav_only: bool,
+    sort: usize,
+    selected: Option<usize>,
+    cache_key: String,
+    visible: Vec<usize>,
+}
+impl Default for Community {
+    fn default() -> Self {
+        Self {
+            entries: serde_json::from_str(include_str!("../../route-data/community-pois.json"))
+                .expect("Bundled community catalog"),
+            query: String::new(),
+            system: "All".into(),
+            kind: "All".into(),
+            qt_only: false,
+            nav_only: false,
+            sort: 0,
+            selected: None,
+            cache_key: String::new(),
+            visible: Vec::new(),
+        }
+    }
+}
+fn target(e: &Entry, catalog: &Catalog) -> Option<Bookmark> {
+    let matches: Vec<_> = catalog
+        .markers
+        .iter()
+        .filter(|m| m.system == e.system && m.name.eq_ignore_ascii_case(&e.name))
+        .collect();
+    let xyz = if matches.len() == 1 {
+        matches[0].xyz_km
+    } else {
+        return None;
+    };
+    let mut metadata = std::collections::BTreeMap::new();
+    metadata.insert(
+        "notes".into(),
+        format!("Community reference (2026-10-21). {}", e.notes).into(),
+    );
+    metadata.insert("category".into(), "Personal".into());
+    Some(Bookmark {
+        name: e.name.clone(),
+        system: e.system.clone(),
+        xyz_km: xyz,
+        metadata,
+    })
+}
+impl Community {
+    pub fn show(
+        &mut self,
+        ui: &mut egui::Ui,
+        catalog: &Catalog,
+    ) -> (Option<Bookmark>, Option<Bookmark>) {
+        let mut navigate = None;
+        let mut copy = None;
+        ui.heading("COMMUNITY BOOKMARKS");
+        ui.weak("Researched POI catalog · 2026-10-21 · separate from your personal library");
+        ui.horizontal_wrapped(|ui| {
+            ui.label("Search");
+            ui.text_edit_singleline(&mut self.query);
+            egui::ComboBox::from_id_salt("community_system")
+                .selected_text(&self.system)
+                .show_ui(ui, |ui| {
+                    for s in ["All", "Stanton", "Pyro", "Nyx"] {
+                        ui.selectable_value(&mut self.system, s.into(), s);
+                    }
+                });
+            let kinds: std::collections::BTreeSet<_> =
+                self.entries.iter().map(|e| e.kind.clone()).collect();
+            egui::ComboBox::from_id_salt("community_kind")
+                .selected_text(&self.kind)
+                .show_ui(ui, |ui| {
+                    ui.selectable_value(&mut self.kind, "All".into(), "All types");
+                    for k in kinds {
+                        ui.selectable_value(&mut self.kind, k.clone(), k);
+                    }
+                });
+            egui::ComboBox::from_id_salt("community_sort")
+                .selected_text(["Name", "System", "Type", "QT status"][self.sort])
+                .show_ui(ui, |ui| {
+                    for (i, s) in ["Name", "System", "Type", "QT status"].iter().enumerate() {
+                        ui.selectable_value(&mut self.sort, i, *s);
+                    }
+                });
+            ui.checkbox(&mut self.qt_only, "Verified QT markers");
+            ui.checkbox(&mut self.nav_only, "Navigable here");
+        });
+        if let Some(i) = self.selected {
+            let e = &self.entries[i];
+            ui.separator();
+            ui.label(format!("{} · {} · {}", e.name, e.system, e.kind));
+            ui.label(format!("{} · {}", e.qt, e.frame));
+            ui.label(format!(
+                "Parent: {} · Listed XYZ km: {}, {}, {}",
+                e.parent, e.x, e.y, e.z
+            ));
+            ui.add(egui::Label::new(&e.notes).truncate())
+                .on_hover_text(&e.notes);
+            let t = target(e, catalog);
+            ui.horizontal(|ui| {
+                if ui
+                    .add_enabled(t.is_some(), egui::Button::new("Navigate"))
+                    .clicked()
+                {
+                    navigate = t.clone();
+                }
+                if ui
+                    .add_enabled(t.is_some(), egui::Button::new("Copy to personal library"))
+                    .clicked()
+                {
+                    copy = t.clone();
+                }
+                if t.is_none() {
+                    ui.weak("Reference only: no compatible system coordinates in the QT catalog.");
+                }
+            });
+            ui.collapsing("Sources", |ui| {
+                for url in [&e.source, &e.coordinate_source] {
+                    if url.starts_with("https://") {
+                        ui.hyperlink(url);
+                    }
+                }
+            });
+        }
+        let key = format!(
+            "{:?}",
+            (
+                &self.query,
+                &self.system,
+                &self.kind,
+                self.qt_only,
+                self.nav_only,
+                self.sort
+            )
+        );
+        if key != self.cache_key {
+            let q = self.query.trim().to_lowercase();
+            let mut ids: Vec<_> = self
+                .entries
+                .iter()
+                .enumerate()
+                .filter(|(_, e)| {
+                    (self.system == "All" || self.system == e.system)
+                        && (self.kind == "All" || self.kind == e.kind)
+                        && (!self.qt_only || e.qt.starts_with("Yes"))
+                        && (!self.nav_only || target(e, catalog).is_some())
+                        && (q.is_empty()
+                            || format!("{} {} {} {}", e.name, e.parent, e.kind, e.notes)
+                                .to_lowercase()
+                                .contains(&q))
+                })
+                .map(|(i, _)| i)
+                .collect();
+            ids.sort_by_cached_key(|i| {
+                let e = &self.entries[*i];
+                format!(
+                    "{} {}",
+                    match self.sort {
+                        1 => &e.system,
+                        2 => &e.kind,
+                        3 => &e.qt,
+                        _ => &e.name,
+                    },
+                    e.name
+                )
+                .to_lowercase()
+            });
+            self.visible = ids;
+            self.cache_key = key;
+        }
+        let ids = &self.visible;
+        ui.label(format!("{} of {} entries", ids.len(), self.entries.len()));
+        egui::ScrollArea::vertical().show_rows(ui, 28., ids.len(), |ui, range| {
+            for row in range {
+                let i = ids[row];
+                let e = &self.entries[i];
+                if ui
+                    .selectable_label(
+                        self.selected == Some(i),
+                        format!("{}  |  {}  |  {}  |  {}", e.name, e.system, e.kind, e.qt),
+                    )
+                    .clicked()
+                {
+                    self.selected = Some(i);
+                }
+            }
+        });
+        (navigate, copy)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn community_is_separate_and_local_positions_are_not_used_as_root() {
+        let c = Community::default();
+        let catalog = sc_bookmarks::routes::catalog().unwrap();
+        assert_eq!(c.entries.len(), 2901);
+        let navigable = c
+            .entries
+            .iter()
+            .filter(|e| target(e, &catalog).is_some())
+            .count();
+        assert!(navigable > 20);
+        let local = c
+            .entries
+            .iter()
+            .find(|e| e.frame.starts_with("Local to") && target(e, &catalog).is_none())
+            .unwrap();
+        assert!(target(local, &catalog).is_none());
+        for e in &c.entries {
+            if let Some(b) = target(e, &catalog) {
+                assert!(b.validate().is_ok());
+                assert!(!b.metadata.contains_key("utc"));
+            }
+        }
+    }
+}

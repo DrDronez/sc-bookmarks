@@ -6,6 +6,7 @@ use sc_bookmarks::{
 use std::time::{Duration, Instant};
 pub struct CaptureView {
     session: Option<Session>,
+    pub hide_border: bool,
     worker: Option<Worker>,
     texture: Option<egui::TextureHandle>,
     last: Option<Instant>,
@@ -26,6 +27,7 @@ impl Default for CaptureView {
     fn default() -> Self {
         Self {
             session: None,
+            hide_border: false,
             worker: None,
             texture: None,
             last: None,
@@ -45,6 +47,13 @@ impl Default for CaptureView {
     }
 }
 impl CaptureView {
+    pub fn running(&self) -> bool {
+        !self.stopping
+            && self
+                .session
+                .as_ref()
+                .is_some_and(|s| matches!(s.status(), Status::Running) && !s.finished())
+    }
     pub fn start(&mut self) {
         if self.session.as_ref().is_some_and(|s| !s.finished()) {
             return;
@@ -61,7 +70,7 @@ impl CaptureView {
         self.generation = self.generation.wrapping_add(1);
         self.scan = Some(sc_bookmarks::scan_worker::Worker::start(runtime.clone()));
         self.worker = Some(Worker::start(runtime));
-        self.session = Some(Session::start());
+        self.session = Some(Session::start_with_border(self.hide_border));
         self.stopping = false;
         self.last = None;
         self.observation = None;

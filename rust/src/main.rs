@@ -1,4 +1,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+mod community_ui;
 use eframe::egui;
 mod capture_ui;
 mod library_ui;
@@ -40,6 +41,11 @@ struct Desktop {
     show_map: bool,
     capture: capture_ui::CaptureView,
     show_capture: bool,
+    show_community: bool,
+    community: community_ui::Community,
+    community_target: Option<Bookmark>,
+    auto_capture_pending: bool,
+    auto_capture_check: std::time::Instant,
     live: live_ui::Live,
     capture_generation: u64,
     overlays: sc_bookmarks::native_overlay::Overlays,
@@ -117,6 +123,11 @@ impl Desktop {
             show_map: true,
             capture: Default::default(),
             show_capture: false,
+            show_community: false,
+            community: Default::default(),
+            community_target: None,
+            auto_capture_pending: true,
+            auto_capture_check: std::time::Instant::now() - std::time::Duration::from_secs(5),
             live: Default::default(),
             capture_generation: 0,
             overlays: Default::default(),
@@ -145,6 +156,7 @@ impl Desktop {
         }
     }
     fn select(&mut self, i: usize) {
+        self.community_target = None;
         self.live.alert.arm(false);
         self.selected = Some(i);
         self.route = match routes::suggest(&self.bookmarks[i], &self.catalog.markers) {
@@ -163,6 +175,17 @@ impl eframe::App for Desktop {
                     940_f32.min(monitor.y * 0.88),
                 )));
                 self.initial_size = false;
+            }
+        }
+        self.capture.hide_border = self.overlay_settings.saved.hide_capture_border;
+        if self.auto_capture_pending && self.auto_capture_check.elapsed().as_secs() >= 5 {
+            self.auto_capture_check = std::time::Instant::now();
+            if windows_capture::window::Window::from_name("Star Citizen ")
+                .or_else(|_| windows_capture::window::Window::from_name("Star Citizen"))
+                .is_ok()
+            {
+                self.capture.start();
+                self.auto_capture_pending = false;
             }
         }
         if self.capture_generation != self.capture.generation {
@@ -311,25 +334,38 @@ impl eframe::App for Desktop {
                         self.show_map = true;
                         self.show_scanning = false;
                         self.show_capture = false;
+                        self.show_community = false;
                     }
                     if theme::tab(
                         ui,
-                        !self.show_scanning && !self.show_map && !self.show_capture,
+                        !self.show_scanning
+                            && !self.show_map
+                            && !self.show_capture
+                            && !self.show_community,
                         "02  /  BOOKMARKS",
                     ) {
                         self.show_scanning = false;
                         self.show_map = false;
                         self.show_capture = false;
+                        self.show_community = false;
                     }
                     if theme::tab(ui, self.show_scanning, "03  /  SCANNING") {
                         self.show_scanning = true;
                         self.show_map = false;
                         self.show_capture = false;
+                        self.show_community = false;
                     }
                     if theme::tab(ui, self.show_capture, "04  /  CAPTURE") {
                         self.show_capture = true;
+                        self.show_community = false;
                         self.show_map = false;
                         self.show_scanning = false;
+                    }
+                    if theme::tab(ui, self.show_community, "05 / COMMUNITY") {
+                        self.show_community = true;
+                        self.show_map = false;
+                        self.show_scanning = false;
+                        self.show_capture = false;
                     }
                 });
             });
@@ -390,10 +426,22 @@ impl eframe::App for Desktop {
                                     );
                                 }
                             });
-                        if ui.button("Start / resume capture").clicked() {
+                        if ui
+                            .add_enabled(
+                                !self.capture.running(),
+                                egui::Button::new("Start / resume capture"),
+                            )
+                            .clicked()
+                        {
                             self.capture.start();
                         }
-                        if ui.button("Bookmark here").clicked() {
+                        if ui
+                            .add_enabled(
+                                self.capture.running() && self.live.fresh(),
+                                egui::Button::new("Bookmark here"),
+                            )
+                            .clicked()
+                        {
                             match self.live.bookmark() {
                                 Ok(mut b) => {
                                     b.name = self.capture_name.clone();
@@ -412,7 +460,13 @@ impl eframe::App for Desktop {
                             }
                         }
                         ui.horizontal(|ui| {
-                            if ui.button("Capture in 8s").clicked() {
+                            if ui
+                                .add_enabled(
+                                    self.capture.running(),
+                                    egui::Button::new("Capture in 8s"),
+                                )
+                                .clicked()
+                            {
                                 self.timer = Some((
                                     std::time::Instant::now() + std::time::Duration::from_secs(8),
                                     self.capture_name.clone(),
@@ -423,15 +477,22 @@ impl eframe::App for Desktop {
                                 self.timer = None;
                             }
                         });
-                        if ui.button("Bookmark asteroid").clicked() {
+                        if ui
+                            .add_enabled(
+                                self.capture.running(),
+                                egui::Button::new("Bookmark asteroid"),
+                            )
+                            .clicked()
+                        {
                             self.capture
                                 .request_scan(sc_bookmarks::scan_worker::Kind::Asteroid);
                             self.status = "Reading asteroid scan…".into();
                         }
-                        if self.selected.is_some()
+                        if (self.selected.is_some() || self.community_target.is_some())
                             && ui.button("Clear target / hide overlay").clicked()
                         {
                             self.selected = None;
+                            self.community_target = None;
                             self.live.alert.arm(false);
                         }
                         ui.collapsing("Library tools", |ui| {
@@ -542,11 +603,15 @@ impl eframe::App for Desktop {
                             ui.label("Exit lead (s)");
                             ui.add(egui::DragValue::new(&mut self.live.lead).range(0. ..=120.));
                             if ui
-                                .button(if self.live.alert.armed {
-                                    "Disarm alert"
-                                } else {
-                                    "Arm QT alert"
-                                })
+                                .add_enabled(
+                                    self.live.alert.armed
+                                        || (self.capture.running() && self.live.fresh()),
+                                    egui::Button::new(if self.live.alert.armed {
+                                        "Disarm alert"
+                                    } else {
+                                        "Arm QT alert"
+                                    }),
+                                )
                                 .clicked()
                             {
                                 self.live.alert.arm(!self.live.alert.armed);
@@ -560,6 +625,16 @@ impl eframe::App for Desktop {
                                 .truncate(),
                             )
                             .on_hover_text(&self.route);
+                        });
+                    } else if let Some(b) = &self.community_target {
+                        ui.label(format!("Community destination: {} / {}", b.name, b.system));
+                        ui.add(
+                            egui::Label::new(self.live.guidance(b).0.replace('\n', " · "))
+                                .truncate(),
+                        );
+                        ui.horizontal(|ui| {
+                            ui.checkbox(&mut self.live.show_overlay, "Overlay");
+                            ui.label(format!("QT: {}", self.route));
                         });
                     } else {
                         theme::eyebrow(ui, "DESTINATION / QUANTUM APPROACH");
@@ -618,18 +693,46 @@ impl eframe::App for Desktop {
                 self.capture.show(ui, &self.live.system, &self.live.shard);
                 return;
             }
+            if self.show_community {
+                if let Some(b) = &self.community_target {
+                    ui.label(format!("Navigating: {}", b.name));
+                    ui.label(self.live.guidance(b).0.replace('\n', " · "));
+                }
+                let (navigate, copy) = self.community.show(ui, &self.catalog);
+                if let Some(b) = navigate {
+                    self.selected = None;
+                    self.live.alert.arm(false);
+                    self.route = routes::suggest(&b, &self.catalog.markers)
+                        .ok()
+                        .flatten()
+                        .map(|r| r.label())
+                        .unwrap_or_else(|| "No usable QT pair".into());
+                    self.community_target = Some(b);
+                }
+                if let Some(b) = copy {
+                    let mut all = self.bookmarks.clone();
+                    all.push(b);
+                    self.persist(all);
+                }
+                return;
+            }
             if self.show_scanning {
                 self.scanning.show(ui);
                 return;
             }
             if self.show_map {
-                let (pick, edit) = self
-                    .map
-                    .show(ui, &self.catalog, &self.bookmarks, self.selected);
-                if let Some(i) = pick {
+                let mut displayed = self.bookmarks.clone();
+                let map_selected = if let Some(b) = &self.community_target {
+                    displayed.push(b.clone());
+                    Some(displayed.len() - 1)
+                } else {
+                    self.selected
+                };
+                let (pick, edit) = self.map.show(ui, &self.catalog, &displayed, map_selected);
+                if let Some(i) = pick.filter(|i| *i < self.bookmarks.len()) {
                     self.select(i);
                 }
-                if let Some(i) = edit {
+                if let Some(i) = edit.filter(|i| *i < self.bookmarks.len()) {
                     self.editing = Some(i);
                     self.editor = Some(self.bookmarks[i].clone());
                 }
@@ -638,7 +741,7 @@ impl eframe::App for Desktop {
             if let Some(i) = self.selected.filter(|i| *i < self.bookmarks.len()) {
                 let b = &self.bookmarks[i];
                 ui.heading(&b.name);
-                self.live.show(ui, b);
+                self.live.show(ui, b, self.capture.running());
                 ui.label(format!("System: {}", b.system));
                 ui.label(format!(
                     "Root XYZ (km): {:.4}, {:.4}, {:.4}",
@@ -943,8 +1046,11 @@ impl eframe::App for Desktop {
             self.status = hotkey_error;
         }
 
-        self.live
-            .tick(self.selected.and_then(|i| self.bookmarks.get(i)));
+        self.live.tick(
+            self.selected
+                .and_then(|i| self.bookmarks.get(i))
+                .or(self.community_target.as_ref()),
+        );
         let mut panels = Vec::new();
         let game_rect = windows_capture::window::Window::from_name("Star Citizen ")
             .or_else(|_| windows_capture::window::Window::from_name("Star Citizen"))
@@ -954,9 +1060,12 @@ impl eframe::App for Desktop {
         // The selected target owns overlay visibility. OCR freshness only controls
         // guidance/alerts, never whether the user can see the panel.
         if self.live.show_overlay {
-            if let (Some(b), Some(game)) =
-                (self.selected.and_then(|i| self.bookmarks.get(i)), game_rect)
-            {
+            if let (Some(b), Some(game)) = (
+                self.selected
+                    .and_then(|i| self.bookmarks.get(i))
+                    .or(self.community_target.as_ref()),
+                game_rect,
+            ) {
                 match sc_bookmarks::overlay::placement(game, self.overlay_settings.position()) {
                     Ok(rect) => {
                         let (lines, warning) = self.live.guidance(b);
@@ -976,9 +1085,12 @@ impl eframe::App for Desktop {
             }
         }
         if self.live.show_overlay && self.overlay_settings.saved.bookmark_3d {
-            if let (Some(b), Some(game)) =
-                (self.selected.and_then(|i| self.bookmarks.get(i)), game_rect)
-            {
+            if let (Some(b), Some(game)) = (
+                self.selected
+                    .and_then(|i| self.bookmarks.get(i))
+                    .or(self.community_target.as_ref()),
+                game_rect,
+            ) {
                 if let Some([x, y]) = self.live.projected(
                     b,
                     [game.width, game.height],

@@ -188,6 +188,9 @@ pub struct Session {
 }
 impl Session {
     pub fn start() -> Self {
+        Self::start_with_border(false)
+    }
+    pub fn start_with_border(hide_border: bool) -> Self {
         let shared = Arc::new(Shared::new());
         let flags = shared.clone();
         let (stop, rx) = mpsc::channel();
@@ -197,19 +200,28 @@ impl Session {
                 let window = Window::from_name("Star Citizen ")
                     .or_else(|_| Window::from_name("Star Citizen"))?;
                 let handle = window.as_raw_hwnd() as usize;
-                let settings = Settings::new(
-                    window,
-                    CursorCaptureSettings::WithoutCursor,
-                    DrawBorderSettings::Default,
-                    SecondaryWindowSettings::Default,
-                    // Do not set MinUpdateInterval: unavailable on older supported Windows builds.
-                    // Our callback gates work before pixel readback instead.
-                    MinimumUpdateIntervalSettings::Default,
-                    DirtyRegionSettings::Default,
-                    ColorFormat::Rgba8,
-                    (flags.clone(), handle),
-                );
-                let control = Handler::start_free_threaded(settings)?;
+                let settings = |border| {
+                    Settings::new(
+                        window.clone(),
+                        CursorCaptureSettings::WithoutCursor,
+                        border,
+                        SecondaryWindowSettings::Default,
+                        // Do not set MinUpdateInterval: unavailable on older supported Windows builds.
+                        // Our callback gates work before pixel readback instead.
+                        MinimumUpdateIntervalSettings::Default,
+                        DirtyRegionSettings::Default,
+                        ColorFormat::Rgba8,
+                        (flags.clone(), handle),
+                    )
+                };
+                let control = if hide_border {
+                    Handler::start_free_threaded(settings(DrawBorderSettings::WithoutBorder))
+                        .or_else(|_| {
+                            Handler::start_free_threaded(settings(DrawBorderSettings::Default))
+                        })?
+                } else {
+                    Handler::start_free_threaded(settings(DrawBorderSettings::Default))?
+                };
                 loop {
                     if control.is_finished() {
                         control.wait()?;

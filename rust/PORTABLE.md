@@ -1,11 +1,11 @@
-# SC Bookmarks 0.0.6-alpha — portable Rust build
+# SC Bookmarks 0.0.7-alpha — portable Rust build
 
 Extract the entire folder to a writable location, then open **SC-Bookmarks.exe**.
 No Python, pip, Rust compiler, model download, or administrator access is required.
 Keep the runtime and licenses folders beside the executable. Windows 10/11 x64,
 Windows Graphics Capture support, and an OpenGL-capable graphics driver are required.
 
-In Star Citizen enable `r_displayinfo 3`. Start capture in SC Bookmarks. The game
+In Star Citizen enable `r_displayinfo 3`. SC Bookmarks starts capture automatically when the game window is available. The game
 may be in the background; its window must be restored and continue rendering.
 Capture is read-only. This program does not send game keystrokes, inject code,
 read game memory, modify game files, or access game network traffic.
@@ -64,3 +64,9 @@ Settings offers Classic, MISC, Anvil, Drake, Aegis and Argo-inspired visual them
 The optional **3D bookmark test** defaults off and adds a projected diamond within 5 km in the current system outside QT. Set the camera's **vertical FOV** in Settings (initially 60 degrees); changing zoom may require adjustment. Alignment has not yet been verified across cockpit cameras. This indicates a saved estimated point, not an object's silhouette or occlusion. Normal guidance remains available for offscreen targets. The marker hides on stale readings.
 
 Desktop overlays are intended for borderless/windowed play. Exclusive-fullscreen behavior is not guaranteed. No universal OCR accuracy or FPS claim is made.
+
+## Community bookmarks and capture controls
+
+The Community tab contains 2,901 researched POIs, kept separate from your personal library. Search, sort, or filter by system, type, verified QT status and navigability. Placeholder/uninitialized entries and entries within 1 km in comparable coordinate frames have been removed. Data is a snapshot and may be outdated. Only entries matched to the root-coordinate QT catalog can be navigated to or explicitly copied to your personal library; planet-local coordinates remain reference-only.
+
+Capture starts automatically when the game window becomes available. Capture-dependent buttons are disabled until usable. Settings offers **Hide yellow capture border (if Windows allows)**, applied on the next capture start; unsupported configurations fall back to normal capture.

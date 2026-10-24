@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.0.7-alpha — 2026-10-24
+
+- Add a separate Community tab with 2,901 researched POIs, search, system/type filters, sorting and QT/navigable filters.
+- Remove placeholder/uninitialized entries and duplicates within 1 km in comparable coordinate frames.
+- Keep community entries separate from personal bookmarks; navigation and explicit copying require a matching root-coordinate QT catalog entry. Planet-local coordinates remain reference-only.
+- Automatically start capture when the game window becomes available; disable capture-dependent actions while unavailable.
+- Add an optional setting to hide the Windows capture border, with fallback to normal capture if unsupported. Applies on the next capture start.
+
+Community data is a research snapshot, not live-verified. Border suppression and automatic game capture still require testing on other Windows/game configurations.
+
+
 
 
 ## 0.0.6-alpha — 2026-10-24

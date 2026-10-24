@@ -57,6 +57,9 @@ impl OverlaySettingsView {
             .resizable(true)
             .vscroll(true)
             .show(ctx, |ui| {
+                ui.checkbox(&mut draft.hide_capture_border,"Hide yellow capture border (if Windows allows)");
+                ui.weak("Applies on the next capture start. Capture falls back to a border if unsupported.");
+                ui.separator();
                 ui.heading("OVERLAY APPEARANCE");
                 egui::ComboBox::from_id_salt("overlay_theme").selected_text(draft.theme.label()).show_ui(ui, |ui| {
                     for theme in overlay::Theme::ALL {ui.selectable_value(&mut draft.theme,theme,theme.label());}
