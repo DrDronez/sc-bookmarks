@@ -150,7 +150,12 @@ impl CaptureView {
             if let Some(result) = worker.poll() {
                 match result {
                     Ok(value) => {
-                        self.error = value.error.clone().unwrap_or_default();
+                        // Heading-only updates must not erase the last coordinate failure.
+                        if let Some(e) = &value.error {
+                            self.error = e.clone();
+                        } else if value.position.is_some() {
+                            self.error.clear();
+                        }
                         self.observation = Some(value);
                     }
                     Err(e) => self.error = e,

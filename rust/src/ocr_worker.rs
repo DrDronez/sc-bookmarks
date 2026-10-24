@@ -45,10 +45,7 @@ impl Worker {
             let mut metadata_row = 0;
             let mut shard_row = 0;
             let mut auxiliary_system = true;
-            let mut detector = None;
-            let mut discovered: Option<Instant> = None;
-            let mut layout = std::collections::BTreeMap::new();
-            let mut layout_size = [0, 0];
+            let mut coordinate_layout = CoordinateLayout::default();
             while let Ok(pixels) = rx.recv() {
                 if pixels.stamp.elapsed().as_secs_f64() > 8. {
                     continue;
@@ -69,8 +66,52 @@ impl Worker {
                 if read_position {
                     position_at = Some(Instant::now());
                 }
-                let mut result =
-                    read_options_inner(&mut reader, &pixels, false, false, read_position);
+                coordinate_layout.set_size(pixels.size);
+                let mut result = read_options_inner(
+                    &mut reader,
+                    &pixels,
+                    false,
+                    false,
+                    read_position && !coordinate_layout.cached(),
+                );
+                if read_position {
+                    if let Ok(o) = &mut result {
+                        if o.position.is_none() {
+                            let rgba = image::RgbaImage::from_raw(
+                                pixels.size[0],
+                                pixels.size[1],
+                                pixels.rgba.clone(),
+                            );
+                            if let Some(rgba) = rgba {
+                                let im = image::DynamicImage::ImageRgba8(rgba).to_rgb8();
+                                match coordinate_layout.read(&mut reader, &runtime, &im) {
+                                    Ok((p, evidence)) => {
+                                        o.position = Some(p);
+                                        o.error = None;
+                                        o.evidence.extend(evidence);
+                                    }
+                                    Err(e) => {
+                                        o.error = Some(format!("Coordinates: {e}"));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                if let Ok(o) = &mut result {
+                    if o.camera.is_none() && coordinate_layout.camera_bounds.is_some() {
+                        if let Some(rgba) = image::RgbaImage::from_raw(
+                            pixels.size[0],
+                            pixels.size[1],
+                            pixels.rgba.clone(),
+                        ) {
+                            o.camera = coordinate_layout.camera(
+                                &mut reader,
+                                &image::DynamicImage::ImageRgba8(rgba).to_rgb8(),
+                            );
+                        }
+                    }
+                }
                 // At most one auxiliary row per sample. Never put a 10-row
                 // metadata search in front of publishing fresh navigation.
                 if read_position && (read_metadata || read_shard) {
@@ -141,91 +182,6 @@ impl Worker {
                     }
                     if rotation.is_none() && metadata_at.is_some() && shard_at.is_some() {
                         rotation = Some(Instant::now());
-                    }
-                }
-                if layout_size != pixels.size {
-                    layout.clear();
-                    discovered = None;
-                    layout_size = pixels.size;
-                }
-                if read_position
-                    && result
-                        .as_ref()
-                        .is_ok_and(|r| r.position.is_none() && r.camera.is_none())
-                {
-                    if let Some(rgba) = image::RgbaImage::from_raw(
-                        pixels.size[0],
-                        pixels.size[1],
-                        pixels.rgba.clone(),
-                    ) {
-                        let im = image::DynamicImage::ImageRgba8(rgba).to_rgb8();
-                        if discovered.is_none_or(|t| t.elapsed().as_secs() >= 15) {
-                            discovered = Some(Instant::now());
-                            if detector.is_none() {
-                                detector = crate::detector::Detector::load(&runtime).ok();
-                            }
-                            if let Some(det) = &mut detector {
-                                if let Ok(boxes) = det.detect(&im) {
-                                    let mut found = std::collections::BTreeMap::new();
-                                    for b in crate::detector::bands(&boxes).into_iter().take(32) {
-                                        if let Ok((text, score)) =
-                                            crate::detector::read(&mut reader, &im, b)
-                                        {
-                                            if score < 0.65 {
-                                                continue;
-                                            }
-                                            let lower = text.to_lowercase().replace('5', "s");
-                                            let key = if lower.contains("root") {
-                                                "root"
-                                            } else if lower.contains("solar") {
-                                                "solar"
-                                            } else if lower.contains("cam") && lower.contains("ir")
-                                            {
-                                                "camera"
-                                            } else if lower.contains("shard") {
-                                                "shard"
-                                            } else if lower.contains("current player") {
-                                                "system"
-                                            } else {
-                                                continue;
-                                            };
-                                            found.insert(key, b);
-                                        }
-                                    }
-                                    if found.contains_key("root") && found.contains_key("solar") {
-                                        layout = found;
-                                    }
-                                }
-                            }
-                        }
-                        let mut reads = std::collections::BTreeMap::new();
-                        for (key, b) in &layout {
-                            if (*key == "shard" && !read_shard)
-                                || (*key == "system" && !read_metadata)
-                            {
-                                continue;
-                            }
-                            if let Ok(v) = crate::detector::read(&mut reader, &im, *b) {
-                                reads.insert(*key, v);
-                            }
-                        }
-                        let as_row = |key| reads.get(key).map(|(s, c)| (s.as_str(), *c));
-                        if let Ok(p) = ocr_text::coordinates(as_row("solar"), as_row("root"), true)
-                        {
-                            if let Ok(o) = &mut result {
-                                o.position = Some(p);
-                                o.error = None;
-                                if let Some((s, c)) = reads.get("camera") {
-                                    o.camera = ocr_text::camera(s, *c);
-                                }
-                                if let Some((s, c)) = reads.get("shard") {
-                                    o.shard = ocr_text::shard(s, *c);
-                                }
-                                if let Some((s, c)) = reads.get("system") {
-                                    o.system = ocr_text::system(s, *c).map(str::to_owned);
-                                }
-                            }
-                        }
                     }
                 }
                 if tx.send(result).is_err() {
@@ -489,5 +445,145 @@ mod tests {
         assert_eq!(im.get_pixel(85, 7).0, [255; 3]);
         assert_eq!(im.get_pixel(118, 10).0, [0; 3]);
         assert_eq!(im.get_pixel(93, 3).0, [0; 3]);
+    }
+}
+
+/// Coordinates recover independently of CamDir. Discovery is bounded to the
+/// upper-right debug rows, and successful bounds are reused without detection.
+#[derive(Default)]
+pub struct CoordinateLayout {
+    bounds: Option<[crate::detector::Bounds; 2]>,
+    camera_bounds: Option<crate::detector::Bounds>,
+    size: [u32; 2],
+    detector: Option<crate::detector::Detector>,
+    last_discovery: Option<Instant>,
+    failures: u32,
+}
+fn coordinate_label(text: &str) -> Option<usize> {
+    let label = text
+        .split(':')
+        .take(2)
+        .collect::<Vec<_>>()
+        .join(":")
+        .to_lowercase()
+        .replace('0', "o")
+        .replace('5', "s");
+    if label.contains("zone") && label.contains("solarsystem") {
+        Some(0)
+    } else if label.contains("zone") && label.contains("root") {
+        Some(1)
+    } else {
+        None
+    }
+}
+impl CoordinateLayout {
+    pub fn set_size(&mut self, size: [u32; 2]) {
+        if self.size != size {
+            self.bounds = None;
+            self.camera_bounds = None;
+            self.last_discovery = None;
+            self.failures = 0;
+            self.size = size;
+        }
+    }
+    pub fn camera(&self, reader: &mut Recognizer, im: &RgbImage) -> Option<[f64; 3]> {
+        let (s, c) = crate::detector::read(reader, im, self.camera_bounds?).ok()?;
+        ocr_text::camera(&s, c)
+    }
+    pub fn cached(&self) -> bool {
+        self.bounds.is_some()
+    }
+    fn cached_read(
+        &self,
+        reader: &mut Recognizer,
+        im: &RgbImage,
+    ) -> Result<([f64; 3], Vec<(String, f64)>), String> {
+        let b = self.bounds.ok_or("Layout not located")?;
+        let a = crate::detector::read(reader, im, b[0])?;
+        let c = crate::detector::read(reader, im, b[1])?;
+        if coordinate_label(&a.0) != Some(0) || coordinate_label(&c.0) != Some(1) {
+            return Err("Coordinate row labels moved or unreadable".into());
+        }
+        let p = ocr_text::coordinates(Some((&a.0, a.1)), Some((&c.0, c.1)), true)
+            .map_err(str::to_owned)?;
+        Ok((p, vec![a, c]))
+    }
+    pub fn read(
+        &mut self,
+        reader: &mut Recognizer,
+        runtime: &std::path::Path,
+        im: &RgbImage,
+    ) -> Result<([f64; 3], Vec<(String, f64)>), String> {
+        self.set_size([im.width(), im.height()]);
+        if self.bounds.is_some() {
+            match self.cached_read(reader, im) {
+                Ok(v) => {
+                    self.failures = 0;
+                    return Ok(v);
+                }
+                Err(e) => {
+                    self.failures += 1;
+                    if self.failures < 3 {
+                        return Err(e);
+                    }
+                }
+            }
+        }
+        if self
+            .last_discovery
+            .is_some_and(|t| t.elapsed().as_secs() < 15)
+        {
+            return Err("Waiting for bounded layout retry; no confirmed coordinates".into());
+        }
+        self.last_discovery = Some(Instant::now());
+        if self.detector.is_none() {
+            self.detector = Some(crate::detector::Detector::load(runtime)?);
+        }
+        let w = im.width().min(1200);
+        let h = im.height().min(180);
+        let x = im.width() - w;
+        let search = crop_imm(im, x, 0, w, h).to_image();
+        let boxes = self.detector.as_mut().unwrap().detect(&search)?;
+        let mut found = [None, None];
+        let mut reads = [None, None];
+        for b in crate::detector::bands(&boxes).into_iter().take(16) {
+            let b = [b[0] + x, b[1], b[2] + x, b[3]];
+            if let Ok(v) = crate::detector::read(reader, im, b) {
+                if ocr_text::camera(&v.0, v.1).is_some() {
+                    self.camera_bounds = Some(b);
+                }
+                if v.1 >= 0.82 {
+                    if let Some(i) = coordinate_label(&v.0) {
+                        found[i] = Some(b);
+                        reads[i] = Some(v);
+                    }
+                }
+            }
+            if found.iter().all(Option::is_some) {
+                break;
+            }
+        }
+        let row = |i: usize| reads[i].as_ref().map(|(s, c)| (s.as_str(), *c));
+        let p = ocr_text::coordinates(row(0), row(1), true).map_err(str::to_owned)?;
+        self.bounds = Some([found[0].unwrap(), found[1].unwrap()]);
+        self.failures = 0;
+        Ok((p, reads.into_iter().flatten().collect()))
+    }
+}
+#[cfg(test)]
+mod layout_tests {
+    use super::*;
+    #[test]
+    fn labels_require_system_rows_and_size_changes_clear_cache() {
+        assert_eq!(coordinate_label("Zone: 5olar5ystem_123 Pos: 1"), Some(0));
+        assert_eq!(coordinate_label("Zone: R00t Pos: 1"), Some(1));
+        assert_eq!(coordinate_label("Zone: Ship Pos: 1"), None);
+        let mut l = CoordinateLayout::default();
+        l.size = [100, 100];
+        l.bounds = Some([[0, 0, 10, 10], [0, 12, 10, 22]]);
+        l.set_size([100, 100]);
+        assert!(l.cached());
+        l.set_size([200, 100]);
+        assert!(!l.cached());
     }
 }

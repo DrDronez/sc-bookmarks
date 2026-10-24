@@ -1,4 +1,4 @@
-# SC Bookmarks 0.0.4-alpha — portable Rust build
+# SC Bookmarks 0.0.5-alpha — portable Rust build
 
 Extract the entire folder to a writable location, then open **SC-Bookmarks.exe**.
 No Python, pip, Rust compiler, model download, or administrator access is required.

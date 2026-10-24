@@ -2,6 +2,15 @@
 
 
 
+## 0.0.5-alpha — 2026-10-24
+
+- Recover coordinate row locations independently when CamDir is readable but fixed coordinate crops fail.
+- Locate labeled SolarSystem/Root rows and text bounds, require agreement, cache the successful layout, and reset it on capture-size changes.
+- Keep discovery bounded and rate-limited; reuse discovered camera bounds when fixed camera crops fail.
+- Keep coordinate failure diagnostics visible between heading-only samples.
+
+Offline replay recovered the same position from a supplied 2560x1440 game region, shifted coordinate rows with readable CamDir, and 1.5x text scaling. The original screenshot also reads with the old fixed path offline, so this does not claim to reproduce or resolve every live capture failure. Additional machine testing is needed.
+
 ## 0.0.4-alpha — 2026-10-24
 
 - Publish the Rust application and portable Windows x64 build with bundled OCR models/runtime; no Python installation required for the portable app.

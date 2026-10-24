@@ -1940,7 +1940,7 @@ dependencies = [
 
 [[package]]
 name = "sc-bookmarks"
-version = "0.0.4-alpha"
+version = "0.0.5-alpha"
 dependencies = [
  "chrono",
  "csv",
