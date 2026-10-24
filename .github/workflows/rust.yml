@@ -1,0 +1,18 @@
+name: Rust Windows checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo test --manifest-path rust/Cargo.toml --locked --tests
+      - run: cargo build --manifest-path rust/Cargo.toml --locked --release
+      - shell: pwsh
+        run: |
+          ./rust/package.ps1
+          $p = Start-Process -FilePath ./rust/dist/SC-Bookmarks-portable/SC-Bookmarks.exe -ArgumentList '--verify-runtime', "$PWD/runtime-check.json" -Wait -PassThru
+          Get-Content ./runtime-check.json
+          if ($p.ExitCode -ne 0) { throw 'Portable runtime verification failed' }

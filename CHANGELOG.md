@@ -2,6 +2,18 @@
 
 
 
+## 0.0.4-alpha — 2026-10-24
+
+- Publish the Rust application and portable Windows x64 build with bundled OCR models/runtime; no Python installation required for the portable app.
+- Retain compatible bookmarks, mining fields, notes, sharing, categories, scanning, QT routes/alerts, map and overlays, with explicit import from previous data folders.
+- Improve bounded OCR scheduling, cross-row validation and guidance continuity; use 15 Hz arrow animation and alternating system/shard checks.
+- Enlarge the map with a fixed three-row guidance section that does not resize on reading changes.
+- Add configurable global F10 overlay toggle and Classic/MISC/Anvil/Drake/Aegis/Argo visual themes; remove the strafe reminder.
+- Add the off-by-default 3D bookmark projection test with manual vertical FOV. Live alignment remains experimental.
+- Keep Python 0.0.3-alpha source as a reference; preserve independent-project notices and PolyForm Noncommercial licensing.
+
+Known limits: OCR can miss text; projected marker FOV/alignment needs live testing; exclusive fullscreen and other physical display configurations are not guaranteed.
+
 ## 0.0.3-alpha — 2026-10-23
 
 

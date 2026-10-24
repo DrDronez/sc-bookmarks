@@ -1,10 +1,18 @@
 # SC Bookmarks
 
-**0.0.3-alpha — Windows source release.** Save and share locations, record mining scans, and receive on-screen navigation and scan-reference guidance from visible game pixels.
+**0.0.4-alpha — Rust portable for Windows x64.** Save and share locations, record mining scans, and receive on-screen navigation and scan-reference guidance from visible game pixels.
 
 **Tested game build: Star Citizen 4.10.2-LIVE.12913470.** Other builds have not been validated; changes to debug text, HUD layout, or scanning values may affect results.
 
 **Fully independent project:** SC Bookmarks was developed independently by DrDronez. Cloud Imperium Games (CIG), Roberts Space Industries (RSI), and their affiliates had no involvement in this project's development. They do not sponsor, endorse, publish, or support this application. Star Citizen and related names and trademarks belong to their respective owners and are used solely to identify compatibility. No official artwork or logos are included.
+
+## Download and run (recommended)
+
+Download **SC-Bookmarks-0.0.4-alpha-windows-x64.zip** from the [0.0.4-alpha release](https://github.com/DrDronez/sc-bookmarks/releases/tag/0.0.4-alpha). Extract the entire folder to a writable location and run **SC-Bookmarks.exe**. No Python, Rust compiler, administrator access, or separate OCR download is needed. Keep the runtime and licenses folders alongside the executable. Requires Windows 10/11 x64, Windows Graphics Capture and an OpenGL-capable driver. Borderless/windowed mode is recommended; desktop overlays are not guaranteed in exclusive fullscreen.
+
+Enable `r_displayinfo 3` in Star Citizen, then start capture. Read [portable instructions](rust/PORTABLE.md) for migration, controls and limitations. Back up `navigator-data-rust` before updating; the portable download contains no personal bookmarks or settings.
+
+The Rust source is in [rust/](rust/). The original Python 0.0.3-alpha source remains here as a legacy reference. New controls include **F10** to hide/show all overlays, manufacturer-inspired themes (including Argo), and an optional **3D bookmark test**, off by default. The experimental marker uses manually configured vertical FOV and still needs live alignment validation; it is not a verified landing aid.
 
 ## System map
 
@@ -55,9 +63,9 @@ The application captures the rendered Star Citizen window through Windows screen
 
 These are descriptions of the implementation, not claims of approval or guaranteed compatibility with anti-cheat systems. This project does not grant permission under the game's terms. Review the current [RSI terms](https://robertsspaceindustries.com/en/tos). OCR and navigation estimates can be wrong.
 
-## Install
+## Legacy Python installation
 
-Requirements: **64-bit Windows**, **64-bit Python 3.14 with Tcl/Tk and pip**, and an internet connection for the initial dependency installation. Development testing used Windows 11. Other Python versions and Windows configurations have not been validated. This release is Python source, not a standalone executable. Tesseract is not required.
+Requirements: **64-bit Windows**, **64-bit Python 3.14 with Tcl/Tk and pip**, and an internet connection for the initial dependency installation. Development testing used Windows 11. Other Python versions and Windows configurations have not been validated. The legacy 0.0.3-alpha release is Python source; the current Rust portable does not require Python. Tesseract is not required.
 
 1. Install Python from [python.org](https://www.python.org/downloads/windows/), including the Python launcher, pip, and Tcl/Tk.
 2. Download `sc-bookmarks-0.0.3-alpha.zip` from Releases and extract it into a writable folder. Do not run it inside the ZIP or put it in the game's installation directory.

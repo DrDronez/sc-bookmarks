@@ -1,0 +1,2267 @@
+[
+  {
+    "rs": 1,
+    "description": "Scan Results for 1 Indicate:\nSurface: No exact reference match\nSpace  : No exact reference match",
+    "matches": [
+      [],
+      [],
+      []
+    ]
+  },
+  {
+    "rs": 1700,
+    "description": "Scan Results for 1,700 Indicate:\nSurface: No exact reference match\nSpace  : Avenger Titan wreck",
+    "matches": [
+      [],
+      [],
+      [
+        0
+      ]
+    ]
+  },
+  {
+    "rs": 1850,
+    "description": "Scan Results for 1,850 Indicate:\nSurface: No exact reference match\nSpace  : Ares Inferno wreck",
+    "matches": [
+      [],
+      [],
+      [
+        1
+      ]
+    ]
+  },
+  {
+    "rs": 2000,
+    "description": "Scan Results for 2,000 Indicate:\nSurface: No exact reference match\nSpace  : Redeemer wreck / 1 Salvage Scrap Piece",
+    "matches": [
+      [],
+      [],
+      [
+        2
+      ]
+    ]
+  },
+  {
+    "rs": 2400,
+    "description": "Scan Results for 2,400 Indicate:\nSurface: No exact reference match\nSpace  : C2 Hercules wreck",
+    "matches": [
+      [],
+      [],
+      [
+        3
+      ]
+    ]
+  },
+  {
+    "rs": 3000,
+    "description": "Scan Results for 3,000 Indicate:\nSurface: 1 Hand Deposit\nSpace  : 890 Jump wreck",
+    "matches": [
+      [],
+      [
+        0
+      ],
+      [
+        4
+      ]
+    ]
+  },
+  {
+    "rs": 3170,
+    "description": "Scan Results for 3,170 Indicate:\nSurface: 1 Quantainium Rock\nSpace  : 1 Quantainium Rock",
+    "matches": [
+      [
+        0
+      ],
+      [
+        2
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 3185,
+    "description": "Scan Results for 3,185 Indicate:\nSurface: 1 Stileron Rock\nSpace  : 1 Stileron Rock",
+    "matches": [
+      [
+        1
+      ],
+      [
+        3
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 3200,
+    "description": "Scan Results for 3,200 Indicate:\nSurface: 1 Savrilium Rock\nSpace  : 1 Savrilium Rock",
+    "matches": [
+      [
+        2
+      ],
+      [
+        4
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 3370,
+    "description": "Scan Results for 3,370 Indicate:\nSurface: 1 Ouratite Rock\nSpace  : 1 Ouratite Rock",
+    "matches": [
+      [
+        3
+      ],
+      [
+        5
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 3385,
+    "description": "Scan Results for 3,385 Indicate:\nSurface: 1 Riccite Rock\nSpace  : 1 Riccite Rock",
+    "matches": [
+      [
+        4
+      ],
+      [
+        6
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 3400,
+    "description": "Scan Results for 3,400 Indicate:\nSurface: 1 Lindinium Rock\nSpace  : 1 Lindinium Rock",
+    "matches": [
+      [
+        5
+      ],
+      [
+        7
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 3540,
+    "description": "Scan Results for 3,540 Indicate:\nSurface: 1 Beryl Rock\nSpace  : 1 Beryl Rock",
+    "matches": [
+      [
+        6
+      ],
+      [
+        8
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 3555,
+    "description": "Scan Results for 3,555 Indicate:\nSurface: 1 Taranite Rock\nSpace  : 1 Taranite Rock",
+    "matches": [
+      [
+        7
+      ],
+      [
+        9
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 3570,
+    "description": "Scan Results for 3,570 Indicate:\nSurface: 1 Borase Rock\nSpace  : 1 Borase Rock",
+    "matches": [
+      [
+        8
+      ],
+      [
+        10
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 3585,
+    "description": "Scan Results for 3,585 Indicate:\nSurface: 1 Gold Rock\nSpace  : 1 Gold Rock",
+    "matches": [
+      [
+        9
+      ],
+      [
+        11
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 3600,
+    "description": "Scan Results for 3,600 Indicate:\nSurface: 1 Bexalite Rock\nSpace  : 1 Bexalite Rock",
+    "matches": [
+      [
+        10
+      ],
+      [
+        12
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 3825,
+    "description": "Scan Results for 3,825 Indicate:\nSurface: 1 Laranite Rock\nSpace  : 1 Laranite Rock",
+    "matches": [
+      [
+        11
+      ],
+      [
+        13
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 3840,
+    "description": "Scan Results for 3,840 Indicate:\nSurface: 1 Aslarite Rock\nSpace  : 1 Aslarite Rock",
+    "matches": [
+      [
+        12
+      ],
+      [
+        14
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 3855,
+    "description": "Scan Results for 3,855 Indicate:\nSurface: 1 Titanium Rock\nSpace  : 1 Titanium Rock",
+    "matches": [
+      [
+        13
+      ],
+      [
+        15
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 3870,
+    "description": "Scan Results for 3,870 Indicate:\nSurface: 1 Tungsten Rock\nSpace  : 1 Tungsten Rock",
+    "matches": [
+      [
+        14
+      ],
+      [
+        16
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 3885,
+    "description": "Scan Results for 3,885 Indicate:\nSurface: 1 Agricium Rock\nSpace  : 1 Agricium Rock",
+    "matches": [
+      [
+        15
+      ],
+      [
+        17
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 3900,
+    "description": "Scan Results for 3,900 Indicate:\nSurface: 1 Torite Rock\nSpace  : 1 Torite Rock",
+    "matches": [
+      [
+        16
+      ],
+      [
+        18
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 4000,
+    "description": "Scan Results for 4,000 Indicate:\nSurface: 1 ROC Deposit\nSpace  : 2 Salvage Scrap Pieces",
+    "matches": [
+      [],
+      [
+        1
+      ],
+      [
+        5
+      ]
+    ]
+  },
+  {
+    "rs": 4180,
+    "description": "Scan Results for 4,180 Indicate:\nSurface: 1 Hephaestanite Rock\nSpace  : 1 Hephaestanite Rock",
+    "matches": [
+      [
+        17
+      ],
+      [
+        19
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 4195,
+    "description": "Scan Results for 4,195 Indicate:\nSurface: 1 Tin Rock\nSpace  : 1 Tin Rock",
+    "matches": [
+      [
+        18
+      ],
+      [
+        20
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 4210,
+    "description": "Scan Results for 4,210 Indicate:\nSurface: 1 Quartz Rock\nSpace  : 1 Quartz Rock",
+    "matches": [
+      [
+        19
+      ],
+      [
+        21
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 4225,
+    "description": "Scan Results for 4,225 Indicate:\nSurface: 1 Corundum Rock\nSpace  : 1 Corundum Rock",
+    "matches": [
+      [
+        20
+      ],
+      [
+        22
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 4240,
+    "description": "Scan Results for 4,240 Indicate:\nSurface: 1 Copper Rock\nSpace  : 1 Copper Rock",
+    "matches": [
+      [
+        21
+      ],
+      [
+        23
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 4255,
+    "description": "Scan Results for 4,255 Indicate:\nSurface: 1 Silicon Rock\nSpace  : 1 Silicon Rock",
+    "matches": [
+      [
+        22
+      ],
+      [
+        24
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 4270,
+    "description": "Scan Results for 4,270 Indicate:\nSurface: 1 Iron Rock\nSpace  : 1 Iron Rock",
+    "matches": [
+      [
+        23
+      ],
+      [
+        25
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 4285,
+    "description": "Scan Results for 4,285 Indicate:\nSurface: 1 Aluminum Rock\nSpace  : 1 Aluminum Rock",
+    "matches": [
+      [
+        24
+      ],
+      [
+        26
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 4300,
+    "description": "Scan Results for 4,300 Indicate:\nSurface: 1 Ice Rock\nSpace  : 1 Ice Rock",
+    "matches": [
+      [
+        25
+      ],
+      [
+        27
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 6000,
+    "description": "Scan Results for 6,000 Indicate:\nSurface: 2 Hand Deposits\nSpace  : 3 Salvage Scrap Pieces",
+    "matches": [
+      [],
+      [
+        0
+      ],
+      [
+        6
+      ]
+    ]
+  },
+  {
+    "rs": 6340,
+    "description": "Scan Results for 6,340 Indicate:\nSurface: 2 Quantainium Rocks\nSpace  : 2 Quantainium Rocks",
+    "matches": [
+      [
+        0
+      ],
+      [
+        2
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 6370,
+    "description": "Scan Results for 6,370 Indicate:\nSurface: 2 Stileron Rocks\nSpace  : 2 Stileron Rocks",
+    "matches": [
+      [
+        1
+      ],
+      [
+        3
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 6400,
+    "description": "Scan Results for 6,400 Indicate:\nSurface: 2 Savrilium Rocks\nSpace  : 2 Savrilium Rocks",
+    "matches": [
+      [
+        2
+      ],
+      [
+        4
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 6740,
+    "description": "Scan Results for 6,740 Indicate:\nSurface: 2 Ouratite Rocks\nSpace  : 2 Ouratite Rocks",
+    "matches": [
+      [
+        3
+      ],
+      [
+        5
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 6770,
+    "description": "Scan Results for 6,770 Indicate:\nSurface: 2 Riccite Rocks\nSpace  : 2 Riccite Rocks",
+    "matches": [
+      [
+        4
+      ],
+      [
+        6
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 6800,
+    "description": "Scan Results for 6,800 Indicate:\nSurface: 2 Lindinium Rocks\nSpace  : 2 Lindinium Rocks",
+    "matches": [
+      [
+        5
+      ],
+      [
+        7
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 7080,
+    "description": "Scan Results for 7,080 Indicate:\nSurface: 2 Beryl Rocks\nSpace  : 2 Beryl Rocks",
+    "matches": [
+      [
+        6
+      ],
+      [
+        8
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 7110,
+    "description": "Scan Results for 7,110 Indicate:\nSurface: 2 Taranite Rocks\nSpace  : 2 Taranite Rocks",
+    "matches": [
+      [
+        7
+      ],
+      [
+        9
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 7140,
+    "description": "Scan Results for 7,140 Indicate:\nSurface: 2 Borase Rocks\nSpace  : 2 Borase Rocks",
+    "matches": [
+      [
+        8
+      ],
+      [
+        10
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 7170,
+    "description": "Scan Results for 7,170 Indicate:\nSurface: 2 Gold Rocks\nSpace  : 2 Gold Rocks",
+    "matches": [
+      [
+        9
+      ],
+      [
+        11
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 7200,
+    "description": "Scan Results for 7,200 Indicate:\nSurface: 2 Bexalite Rocks\nSpace  : 2 Bexalite Rocks",
+    "matches": [
+      [
+        10
+      ],
+      [
+        12
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 7650,
+    "description": "Scan Results for 7,650 Indicate:\nSurface: 2 Laranite Rocks\nSpace  : 2 Laranite Rocks",
+    "matches": [
+      [
+        11
+      ],
+      [
+        13
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 7680,
+    "description": "Scan Results for 7,680 Indicate:\nSurface: 2 Aslarite Rocks\nSpace  : 2 Aslarite Rocks",
+    "matches": [
+      [
+        12
+      ],
+      [
+        14
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 7710,
+    "description": "Scan Results for 7,710 Indicate:\nSurface: 2 Titanium Rocks\nSpace  : 2 Titanium Rocks",
+    "matches": [
+      [
+        13
+      ],
+      [
+        15
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 7740,
+    "description": "Scan Results for 7,740 Indicate:\nSurface: 2 Tungsten Rocks\nSpace  : 2 Tungsten Rocks",
+    "matches": [
+      [
+        14
+      ],
+      [
+        16
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 7770,
+    "description": "Scan Results for 7,770 Indicate:\nSurface: 2 Agricium Rocks\nSpace  : 2 Agricium Rocks",
+    "matches": [
+      [
+        15
+      ],
+      [
+        17
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 7800,
+    "description": "Scan Results for 7,800 Indicate:\nSurface: 2 Torite Rocks\nSpace  : 2 Torite Rocks",
+    "matches": [
+      [
+        16
+      ],
+      [
+        18
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 8000,
+    "description": "Scan Results for 8,000 Indicate:\nSurface: 2 ROC Deposits\nSpace  : 4 Salvage Scrap Pieces",
+    "matches": [
+      [],
+      [
+        1
+      ],
+      [
+        7
+      ]
+    ]
+  },
+  {
+    "rs": 8360,
+    "description": "Scan Results for 8,360 Indicate:\nSurface: 2 Hephaestanite Rocks\nSpace  : 2 Hephaestanite Rocks",
+    "matches": [
+      [
+        17
+      ],
+      [
+        19
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 8390,
+    "description": "Scan Results for 8,390 Indicate:\nSurface: 2 Tin Rocks\nSpace  : 2 Tin Rocks",
+    "matches": [
+      [
+        18
+      ],
+      [
+        20
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 8420,
+    "description": "Scan Results for 8,420 Indicate:\nSurface: 2 Quartz Rocks\nSpace  : 2 Quartz Rocks",
+    "matches": [
+      [
+        19
+      ],
+      [
+        21
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 8450,
+    "description": "Scan Results for 8,450 Indicate:\nSurface: 2 Corundum Rocks\nSpace  : 2 Corundum Rocks",
+    "matches": [
+      [
+        20
+      ],
+      [
+        22
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 8480,
+    "description": "Scan Results for 8,480 Indicate:\nSurface: 2 Copper Rocks\nSpace  : 2 Copper Rocks",
+    "matches": [
+      [
+        21
+      ],
+      [
+        23
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 8510,
+    "description": "Scan Results for 8,510 Indicate:\nSurface: 2 Silicon Rocks\nSpace  : 2 Silicon Rocks",
+    "matches": [
+      [
+        22
+      ],
+      [
+        24
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 8540,
+    "description": "Scan Results for 8,540 Indicate:\nSurface: 2 Iron Rocks\nSpace  : 2 Iron Rocks",
+    "matches": [
+      [
+        23
+      ],
+      [
+        25
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 8570,
+    "description": "Scan Results for 8,570 Indicate:\nSurface: 2 Aluminum Rocks\nSpace  : 2 Aluminum Rocks",
+    "matches": [
+      [
+        24
+      ],
+      [
+        26
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 8600,
+    "description": "Scan Results for 8,600 Indicate:\nSurface: 2 Ice Rocks\nSpace  : 2 Ice Rocks",
+    "matches": [
+      [
+        25
+      ],
+      [
+        27
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 9000,
+    "description": "Scan Results for 9,000 Indicate:\nSurface: 3 Hand Deposits\nSpace  : No exact reference match",
+    "matches": [
+      [],
+      [
+        0
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 9510,
+    "description": "Scan Results for 9,510 Indicate:\nSurface: 3 Quantainium Rocks\nSpace  : 3 Quantainium Rocks",
+    "matches": [
+      [
+        0
+      ],
+      [
+        2
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 9555,
+    "description": "Scan Results for 9,555 Indicate:\nSurface: 3 Stileron Rocks\nSpace  : 3 Stileron Rocks",
+    "matches": [
+      [
+        1
+      ],
+      [
+        3
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 9600,
+    "description": "Scan Results for 9,600 Indicate:\nSurface: 3 Savrilium Rocks\nSpace  : 3 Savrilium Rocks",
+    "matches": [
+      [
+        2
+      ],
+      [
+        4
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 10000,
+    "description": "Scan Results for 10,000 Indicate:\nSurface: No exact reference match\nSpace  : 5 Salvage Scrap Pieces",
+    "matches": [
+      [],
+      [],
+      [
+        8
+      ]
+    ]
+  },
+  {
+    "rs": 10110,
+    "description": "Scan Results for 10,110 Indicate:\nSurface: 3 Ouratite Rocks\nSpace  : 3 Ouratite Rocks",
+    "matches": [
+      [
+        3
+      ],
+      [
+        5
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 10155,
+    "description": "Scan Results for 10,155 Indicate:\nSurface: 3 Riccite Rocks\nSpace  : 3 Riccite Rocks",
+    "matches": [
+      [
+        4
+      ],
+      [
+        6
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 10200,
+    "description": "Scan Results for 10,200 Indicate:\nSurface: 3 Lindinium Rocks\nSpace  : 3 Lindinium Rocks",
+    "matches": [
+      [
+        5
+      ],
+      [
+        7
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 10620,
+    "description": "Scan Results for 10,620 Indicate:\nSurface: 3 Beryl Rocks\nSpace  : 3 Beryl Rocks",
+    "matches": [
+      [
+        6
+      ],
+      [
+        8
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 10665,
+    "description": "Scan Results for 10,665 Indicate:\nSurface: 3 Taranite Rocks\nSpace  : 3 Taranite Rocks",
+    "matches": [
+      [
+        7
+      ],
+      [
+        9
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 10710,
+    "description": "Scan Results for 10,710 Indicate:\nSurface: 3 Borase Rocks\nSpace  : 3 Borase Rocks",
+    "matches": [
+      [
+        8
+      ],
+      [
+        10
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 10755,
+    "description": "Scan Results for 10,755 Indicate:\nSurface: 3 Gold Rocks\nSpace  : 3 Gold Rocks",
+    "matches": [
+      [
+        9
+      ],
+      [
+        11
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 10800,
+    "description": "Scan Results for 10,800 Indicate:\nSurface: 3 Bexalite Rocks\nSpace  : 3 Bexalite Rocks",
+    "matches": [
+      [
+        10
+      ],
+      [
+        12
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 11475,
+    "description": "Scan Results for 11,475 Indicate:\nSurface: 3 Laranite Rocks\nSpace  : 3 Laranite Rocks",
+    "matches": [
+      [
+        11
+      ],
+      [
+        13
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 11520,
+    "description": "Scan Results for 11,520 Indicate:\nSurface: 3 Aslarite Rocks\nSpace  : 3 Aslarite Rocks",
+    "matches": [
+      [
+        12
+      ],
+      [
+        14
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 11565,
+    "description": "Scan Results for 11,565 Indicate:\nSurface: 3 Titanium Rocks\nSpace  : 3 Titanium Rocks",
+    "matches": [
+      [
+        13
+      ],
+      [
+        15
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 11610,
+    "description": "Scan Results for 11,610 Indicate:\nSurface: 3 Tungsten Rocks\nSpace  : 3 Tungsten Rocks",
+    "matches": [
+      [
+        14
+      ],
+      [
+        16
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 11655,
+    "description": "Scan Results for 11,655 Indicate:\nSurface: 3 Agricium Rocks\nSpace  : 3 Agricium Rocks",
+    "matches": [
+      [
+        15
+      ],
+      [
+        17
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 11700,
+    "description": "Scan Results for 11,700 Indicate:\nSurface: 3 Torite Rocks\nSpace  : 3 Torite Rocks",
+    "matches": [
+      [
+        16
+      ],
+      [
+        18
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 12000,
+    "description": "Scan Results for 12,000 Indicate:\nSurface: 4 Hand Deposits / 3 ROC Deposits\nSpace  : 6 Salvage Scrap Pieces",
+    "matches": [
+      [],
+      [
+        0,
+        1
+      ],
+      [
+        9
+      ]
+    ]
+  },
+  {
+    "rs": 12540,
+    "description": "Scan Results for 12,540 Indicate:\nSurface: 3 Hephaestanite Rocks\nSpace  : 3 Hephaestanite Rocks",
+    "matches": [
+      [
+        17
+      ],
+      [
+        19
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 12585,
+    "description": "Scan Results for 12,585 Indicate:\nSurface: 3 Tin Rocks\nSpace  : 3 Tin Rocks",
+    "matches": [
+      [
+        18
+      ],
+      [
+        20
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 12630,
+    "description": "Scan Results for 12,630 Indicate:\nSurface: 3 Quartz Rocks\nSpace  : 3 Quartz Rocks",
+    "matches": [
+      [
+        19
+      ],
+      [
+        21
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 12675,
+    "description": "Scan Results for 12,675 Indicate:\nSurface: 3 Corundum Rocks\nSpace  : 3 Corundum Rocks",
+    "matches": [
+      [
+        20
+      ],
+      [
+        22
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 12680,
+    "description": "Scan Results for 12,680 Indicate:\nSurface: 4 Quantainium Rocks\nSpace  : 4 Quantainium Rocks",
+    "matches": [
+      [
+        0
+      ],
+      [
+        2
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 12720,
+    "description": "Scan Results for 12,720 Indicate:\nSurface: 3 Copper Rocks\nSpace  : 3 Copper Rocks",
+    "matches": [
+      [
+        21
+      ],
+      [
+        23
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 12740,
+    "description": "Scan Results for 12,740 Indicate:\nSurface: 4 Stileron Rocks\nSpace  : 4 Stileron Rocks",
+    "matches": [
+      [
+        1
+      ],
+      [
+        3
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 12765,
+    "description": "Scan Results for 12,765 Indicate:\nSurface: 3 Silicon Rocks\nSpace  : 3 Silicon Rocks",
+    "matches": [
+      [
+        22
+      ],
+      [
+        24
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 12800,
+    "description": "Scan Results for 12,800 Indicate:\nSurface: 4 Savrilium Rocks\nSpace  : 4 Savrilium Rocks",
+    "matches": [
+      [
+        2
+      ],
+      [
+        4
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 12810,
+    "description": "Scan Results for 12,810 Indicate:\nSurface: 3 Iron Rocks\nSpace  : 3 Iron Rocks",
+    "matches": [
+      [
+        23
+      ],
+      [
+        25
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 12855,
+    "description": "Scan Results for 12,855 Indicate:\nSurface: 3 Aluminum Rocks\nSpace  : 3 Aluminum Rocks",
+    "matches": [
+      [
+        24
+      ],
+      [
+        26
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 12900,
+    "description": "Scan Results for 12,900 Indicate:\nSurface: 3 Ice Rocks\nSpace  : 3 Ice Rocks",
+    "matches": [
+      [
+        25
+      ],
+      [
+        27
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 13480,
+    "description": "Scan Results for 13,480 Indicate:\nSurface: 4 Ouratite Rocks\nSpace  : 4 Ouratite Rocks",
+    "matches": [
+      [
+        3
+      ],
+      [
+        5
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 13540,
+    "description": "Scan Results for 13,540 Indicate:\nSurface: 4 Riccite Rocks\nSpace  : 4 Riccite Rocks",
+    "matches": [
+      [
+        4
+      ],
+      [
+        6
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 13600,
+    "description": "Scan Results for 13,600 Indicate:\nSurface: 4 Lindinium Rocks\nSpace  : 4 Lindinium Rocks",
+    "matches": [
+      [
+        5
+      ],
+      [
+        7
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 14000,
+    "description": "Scan Results for 14,000 Indicate:\nSurface: No exact reference match\nSpace  : 7 Salvage Scrap Pieces",
+    "matches": [
+      [],
+      [],
+      [
+        10
+      ]
+    ]
+  },
+  {
+    "rs": 14160,
+    "description": "Scan Results for 14,160 Indicate:\nSurface: 4 Beryl Rocks\nSpace  : 4 Beryl Rocks",
+    "matches": [
+      [
+        6
+      ],
+      [
+        8
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 14220,
+    "description": "Scan Results for 14,220 Indicate:\nSurface: 4 Taranite Rocks\nSpace  : 4 Taranite Rocks",
+    "matches": [
+      [
+        7
+      ],
+      [
+        9
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 14280,
+    "description": "Scan Results for 14,280 Indicate:\nSurface: 4 Borase Rocks\nSpace  : 4 Borase Rocks",
+    "matches": [
+      [
+        8
+      ],
+      [
+        10
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 14340,
+    "description": "Scan Results for 14,340 Indicate:\nSurface: 4 Gold Rocks\nSpace  : 4 Gold Rocks",
+    "matches": [
+      [
+        9
+      ],
+      [
+        11
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 14400,
+    "description": "Scan Results for 14,400 Indicate:\nSurface: 4 Bexalite Rocks\nSpace  : 4 Bexalite Rocks",
+    "matches": [
+      [
+        10
+      ],
+      [
+        12
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 15000,
+    "description": "Scan Results for 15,000 Indicate:\nSurface: 5 Hand Deposits\nSpace  : No exact reference match",
+    "matches": [
+      [],
+      [
+        0
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 15300,
+    "description": "Scan Results for 15,300 Indicate:\nSurface: 4 Laranite Rocks\nSpace  : 4 Laranite Rocks",
+    "matches": [
+      [
+        11
+      ],
+      [
+        13
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 15360,
+    "description": "Scan Results for 15,360 Indicate:\nSurface: 4 Aslarite Rocks\nSpace  : 4 Aslarite Rocks",
+    "matches": [
+      [
+        12
+      ],
+      [
+        14
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 15420,
+    "description": "Scan Results for 15,420 Indicate:\nSurface: 4 Titanium Rocks\nSpace  : 4 Titanium Rocks",
+    "matches": [
+      [
+        13
+      ],
+      [
+        15
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 15480,
+    "description": "Scan Results for 15,480 Indicate:\nSurface: 4 Tungsten Rocks\nSpace  : 4 Tungsten Rocks",
+    "matches": [
+      [
+        14
+      ],
+      [
+        16
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 15540,
+    "description": "Scan Results for 15,540 Indicate:\nSurface: 4 Agricium Rocks\nSpace  : 4 Agricium Rocks",
+    "matches": [
+      [
+        15
+      ],
+      [
+        17
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 15600,
+    "description": "Scan Results for 15,600 Indicate:\nSurface: 4 Torite Rocks\nSpace  : 4 Torite Rocks",
+    "matches": [
+      [
+        16
+      ],
+      [
+        18
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 15850,
+    "description": "Scan Results for 15,850 Indicate:\nSurface: 5 Quantainium Rocks\nSpace  : 5 Quantainium Rocks",
+    "matches": [
+      [
+        0
+      ],
+      [
+        2
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 15925,
+    "description": "Scan Results for 15,925 Indicate:\nSurface: 5 Stileron Rocks\nSpace  : 5 Stileron Rocks",
+    "matches": [
+      [
+        1
+      ],
+      [
+        3
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 16000,
+    "description": "Scan Results for 16,000 Indicate:\nSurface: 4 ROC Deposits / 5 Savrilium Rocks\nSpace  : 5 Savrilium Rocks / 8 Salvage Scrap Pieces",
+    "matches": [
+      [
+        2
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        11
+      ]
+    ]
+  },
+  {
+    "rs": 16720,
+    "description": "Scan Results for 16,720 Indicate:\nSurface: 4 Hephaestanite Rocks\nSpace  : 4 Hephaestanite Rocks",
+    "matches": [
+      [
+        17
+      ],
+      [
+        19
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 16780,
+    "description": "Scan Results for 16,780 Indicate:\nSurface: 4 Tin Rocks\nSpace  : 4 Tin Rocks",
+    "matches": [
+      [
+        18
+      ],
+      [
+        20
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 16840,
+    "description": "Scan Results for 16,840 Indicate:\nSurface: 4 Quartz Rocks\nSpace  : 4 Quartz Rocks",
+    "matches": [
+      [
+        19
+      ],
+      [
+        21
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 16850,
+    "description": "Scan Results for 16,850 Indicate:\nSurface: 5 Ouratite Rocks\nSpace  : 5 Ouratite Rocks",
+    "matches": [
+      [
+        3
+      ],
+      [
+        5
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 16900,
+    "description": "Scan Results for 16,900 Indicate:\nSurface: 4 Corundum Rocks\nSpace  : 4 Corundum Rocks",
+    "matches": [
+      [
+        20
+      ],
+      [
+        22
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 16925,
+    "description": "Scan Results for 16,925 Indicate:\nSurface: 5 Riccite Rocks\nSpace  : 5 Riccite Rocks",
+    "matches": [
+      [
+        4
+      ],
+      [
+        6
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 16960,
+    "description": "Scan Results for 16,960 Indicate:\nSurface: 4 Copper Rocks\nSpace  : 4 Copper Rocks",
+    "matches": [
+      [
+        21
+      ],
+      [
+        23
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 17000,
+    "description": "Scan Results for 17,000 Indicate:\nSurface: 5 Lindinium Rocks\nSpace  : 5 Lindinium Rocks",
+    "matches": [
+      [
+        5
+      ],
+      [
+        7
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 17020,
+    "description": "Scan Results for 17,020 Indicate:\nSurface: 4 Silicon Rocks\nSpace  : 4 Silicon Rocks",
+    "matches": [
+      [
+        22
+      ],
+      [
+        24
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 17080,
+    "description": "Scan Results for 17,080 Indicate:\nSurface: 4 Iron Rocks\nSpace  : 4 Iron Rocks",
+    "matches": [
+      [
+        23
+      ],
+      [
+        25
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 17140,
+    "description": "Scan Results for 17,140 Indicate:\nSurface: 4 Aluminum Rocks\nSpace  : 4 Aluminum Rocks",
+    "matches": [
+      [
+        24
+      ],
+      [
+        26
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 17200,
+    "description": "Scan Results for 17,200 Indicate:\nSurface: 4 Ice Rocks\nSpace  : 4 Ice Rocks",
+    "matches": [
+      [
+        25
+      ],
+      [
+        27
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 17700,
+    "description": "Scan Results for 17,700 Indicate:\nSurface: 5 Beryl Rocks\nSpace  : 5 Beryl Rocks",
+    "matches": [
+      [
+        6
+      ],
+      [
+        8
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 17775,
+    "description": "Scan Results for 17,775 Indicate:\nSurface: 5 Taranite Rocks\nSpace  : 5 Taranite Rocks",
+    "matches": [
+      [
+        7
+      ],
+      [
+        9
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 17850,
+    "description": "Scan Results for 17,850 Indicate:\nSurface: 5 Borase Rocks\nSpace  : 5 Borase Rocks",
+    "matches": [
+      [
+        8
+      ],
+      [
+        10
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 17925,
+    "description": "Scan Results for 17,925 Indicate:\nSurface: 5 Gold Rocks\nSpace  : 5 Gold Rocks",
+    "matches": [
+      [
+        9
+      ],
+      [
+        11
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 18000,
+    "description": "Scan Results for 18,000 Indicate:\nSurface: 6 Hand Deposits / 5 Bexalite Rocks\nSpace  : 5 Bexalite Rocks / 9 Salvage Scrap Pieces",
+    "matches": [
+      [
+        10
+      ],
+      [
+        0,
+        12
+      ],
+      [
+        12
+      ]
+    ]
+  },
+  {
+    "rs": 19020,
+    "description": "Scan Results for 19,020 Indicate:\nSurface: 6 Quantainium Rocks\nSpace  : 6 Quantainium Rocks",
+    "matches": [
+      [
+        0
+      ],
+      [
+        2
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 19110,
+    "description": "Scan Results for 19,110 Indicate:\nSurface: 6 Stileron Rocks\nSpace  : 6 Stileron Rocks",
+    "matches": [
+      [
+        1
+      ],
+      [
+        3
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 19125,
+    "description": "Scan Results for 19,125 Indicate:\nSurface: 5 Laranite Rocks\nSpace  : 5 Laranite Rocks",
+    "matches": [
+      [
+        11
+      ],
+      [
+        13
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 19200,
+    "description": "Scan Results for 19,200 Indicate:\nSurface: 6 Savrilium Rocks / 5 Aslarite Rocks\nSpace  : 6 Savrilium Rocks / 5 Aslarite Rocks",
+    "matches": [
+      [
+        2,
+        12
+      ],
+      [
+        4,
+        14
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 19275,
+    "description": "Scan Results for 19,275 Indicate:\nSurface: 5 Titanium Rocks\nSpace  : 5 Titanium Rocks",
+    "matches": [
+      [
+        13
+      ],
+      [
+        15
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 19350,
+    "description": "Scan Results for 19,350 Indicate:\nSurface: 5 Tungsten Rocks\nSpace  : 5 Tungsten Rocks",
+    "matches": [
+      [
+        14
+      ],
+      [
+        16
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 19425,
+    "description": "Scan Results for 19,425 Indicate:\nSurface: 5 Agricium Rocks\nSpace  : 5 Agricium Rocks",
+    "matches": [
+      [
+        15
+      ],
+      [
+        17
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 19500,
+    "description": "Scan Results for 19,500 Indicate:\nSurface: 5 Torite Rocks\nSpace  : 5 Torite Rocks",
+    "matches": [
+      [
+        16
+      ],
+      [
+        18
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 20000,
+    "description": "Scan Results for 20,000 Indicate:\nSurface: 5 ROC Deposits\nSpace  : 10 Salvage Scrap Pieces",
+    "matches": [
+      [],
+      [
+        1
+      ],
+      [
+        13
+      ]
+    ]
+  },
+  {
+    "rs": 20220,
+    "description": "Scan Results for 20,220 Indicate:\nSurface: 6 Ouratite Rocks\nSpace  : 6 Ouratite Rocks",
+    "matches": [
+      [
+        3
+      ],
+      [
+        5
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 20310,
+    "description": "Scan Results for 20,310 Indicate:\nSurface: 6 Riccite Rocks\nSpace  : 6 Riccite Rocks",
+    "matches": [
+      [
+        4
+      ],
+      [
+        6
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 20400,
+    "description": "Scan Results for 20,400 Indicate:\nSurface: 6 Lindinium Rocks\nSpace  : 6 Lindinium Rocks",
+    "matches": [
+      [
+        5
+      ],
+      [
+        7
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 20900,
+    "description": "Scan Results for 20,900 Indicate:\nSurface: 5 Hephaestanite Rocks\nSpace  : 5 Hephaestanite Rocks",
+    "matches": [
+      [
+        17
+      ],
+      [
+        19
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 20975,
+    "description": "Scan Results for 20,975 Indicate:\nSurface: 5 Tin Rocks\nSpace  : 5 Tin Rocks",
+    "matches": [
+      [
+        18
+      ],
+      [
+        20
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 21050,
+    "description": "Scan Results for 21,050 Indicate:\nSurface: 5 Quartz Rocks\nSpace  : 5 Quartz Rocks",
+    "matches": [
+      [
+        19
+      ],
+      [
+        21
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 21125,
+    "description": "Scan Results for 21,125 Indicate:\nSurface: 5 Corundum Rocks\nSpace  : 5 Corundum Rocks",
+    "matches": [
+      [
+        20
+      ],
+      [
+        22
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 21200,
+    "description": "Scan Results for 21,200 Indicate:\nSurface: 5 Copper Rocks\nSpace  : 5 Copper Rocks",
+    "matches": [
+      [
+        21
+      ],
+      [
+        23
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 21240,
+    "description": "Scan Results for 21,240 Indicate:\nSurface: 6 Beryl Rocks\nSpace  : 6 Beryl Rocks",
+    "matches": [
+      [
+        6
+      ],
+      [
+        8
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 21275,
+    "description": "Scan Results for 21,275 Indicate:\nSurface: 5 Silicon Rocks\nSpace  : 5 Silicon Rocks",
+    "matches": [
+      [
+        22
+      ],
+      [
+        24
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 21330,
+    "description": "Scan Results for 21,330 Indicate:\nSurface: 6 Taranite Rocks\nSpace  : 6 Taranite Rocks",
+    "matches": [
+      [
+        7
+      ],
+      [
+        9
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 21350,
+    "description": "Scan Results for 21,350 Indicate:\nSurface: 5 Iron Rocks\nSpace  : 5 Iron Rocks",
+    "matches": [
+      [
+        23
+      ],
+      [
+        25
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 21420,
+    "description": "Scan Results for 21,420 Indicate:\nSurface: 6 Borase Rocks\nSpace  : 6 Borase Rocks",
+    "matches": [
+      [
+        8
+      ],
+      [
+        10
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 21425,
+    "description": "Scan Results for 21,425 Indicate:\nSurface: 5 Aluminum Rocks\nSpace  : 5 Aluminum Rocks",
+    "matches": [
+      [
+        24
+      ],
+      [
+        26
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 21500,
+    "description": "Scan Results for 21,500 Indicate:\nSurface: 5 Ice Rocks\nSpace  : 5 Ice Rocks",
+    "matches": [
+      [
+        25
+      ],
+      [
+        27
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 21510,
+    "description": "Scan Results for 21,510 Indicate:\nSurface: 6 Gold Rocks\nSpace  : 6 Gold Rocks",
+    "matches": [
+      [
+        9
+      ],
+      [
+        11
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 21600,
+    "description": "Scan Results for 21,600 Indicate:\nSurface: 6 Bexalite Rocks\nSpace  : 6 Bexalite Rocks",
+    "matches": [
+      [
+        10
+      ],
+      [
+        12
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 22000,
+    "description": "Scan Results for 22,000 Indicate:\nSurface: No exact reference match\nSpace  : 11 Salvage Scrap Pieces",
+    "matches": [
+      [],
+      [],
+      [
+        14
+      ]
+    ]
+  },
+  {
+    "rs": 22950,
+    "description": "Scan Results for 22,950 Indicate:\nSurface: 6 Laranite Rocks\nSpace  : 6 Laranite Rocks",
+    "matches": [
+      [
+        11
+      ],
+      [
+        13
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 23040,
+    "description": "Scan Results for 23,040 Indicate:\nSurface: 6 Aslarite Rocks\nSpace  : 6 Aslarite Rocks",
+    "matches": [
+      [
+        12
+      ],
+      [
+        14
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 23130,
+    "description": "Scan Results for 23,130 Indicate:\nSurface: 6 Titanium Rocks\nSpace  : 6 Titanium Rocks",
+    "matches": [
+      [
+        13
+      ],
+      [
+        15
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 23220,
+    "description": "Scan Results for 23,220 Indicate:\nSurface: 6 Tungsten Rocks\nSpace  : 6 Tungsten Rocks",
+    "matches": [
+      [
+        14
+      ],
+      [
+        16
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 23310,
+    "description": "Scan Results for 23,310 Indicate:\nSurface: 6 Agricium Rocks\nSpace  : 6 Agricium Rocks",
+    "matches": [
+      [
+        15
+      ],
+      [
+        17
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 23400,
+    "description": "Scan Results for 23,400 Indicate:\nSurface: 6 Torite Rocks\nSpace  : 6 Torite Rocks",
+    "matches": [
+      [
+        16
+      ],
+      [
+        18
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 24000,
+    "description": "Scan Results for 24,000 Indicate:\nSurface: 6 ROC Deposits\nSpace  : 12 Salvage Scrap Pieces",
+    "matches": [
+      [],
+      [
+        1
+      ],
+      [
+        15
+      ]
+    ]
+  },
+  {
+    "rs": 25080,
+    "description": "Scan Results for 25,080 Indicate:\nSurface: 6 Hephaestanite Rocks\nSpace  : 6 Hephaestanite Rocks",
+    "matches": [
+      [
+        17
+      ],
+      [
+        19
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 25170,
+    "description": "Scan Results for 25,170 Indicate:\nSurface: 6 Tin Rocks\nSpace  : 6 Tin Rocks",
+    "matches": [
+      [
+        18
+      ],
+      [
+        20
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 25260,
+    "description": "Scan Results for 25,260 Indicate:\nSurface: 6 Quartz Rocks\nSpace  : 6 Quartz Rocks",
+    "matches": [
+      [
+        19
+      ],
+      [
+        21
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 25350,
+    "description": "Scan Results for 25,350 Indicate:\nSurface: 6 Corundum Rocks\nSpace  : 6 Corundum Rocks",
+    "matches": [
+      [
+        20
+      ],
+      [
+        22
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 25440,
+    "description": "Scan Results for 25,440 Indicate:\nSurface: 6 Copper Rocks\nSpace  : 6 Copper Rocks",
+    "matches": [
+      [
+        21
+      ],
+      [
+        23
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 25530,
+    "description": "Scan Results for 25,530 Indicate:\nSurface: 6 Silicon Rocks\nSpace  : 6 Silicon Rocks",
+    "matches": [
+      [
+        22
+      ],
+      [
+        24
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 25620,
+    "description": "Scan Results for 25,620 Indicate:\nSurface: 6 Iron Rocks\nSpace  : 6 Iron Rocks",
+    "matches": [
+      [
+        23
+      ],
+      [
+        25
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 25710,
+    "description": "Scan Results for 25,710 Indicate:\nSurface: 6 Aluminum Rocks\nSpace  : 6 Aluminum Rocks",
+    "matches": [
+      [
+        24
+      ],
+      [
+        26
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 25800,
+    "description": "Scan Results for 25,800 Indicate:\nSurface: 6 Ice Rocks\nSpace  : 6 Ice Rocks",
+    "matches": [
+      [
+        25
+      ],
+      [
+        27
+      ],
+      []
+    ]
+  },
+  {
+    "rs": 26000,
+    "description": "Scan Results for 26,000 Indicate:\nSurface: No exact reference match\nSpace  : 13 Salvage Scrap Pieces",
+    "matches": [
+      [],
+      [],
+      [
+        16
+      ]
+    ]
+  },
+  {
+    "rs": 28000,
+    "description": "Scan Results for 28,000 Indicate:\nSurface: No exact reference match\nSpace  : 14 Salvage Scrap Pieces",
+    "matches": [
+      [],
+      [],
+      [
+        17
+      ]
+    ]
+  },
+  {
+    "rs": 30000,
+    "description": "Scan Results for 30,000 Indicate:\nSurface: No exact reference match\nSpace  : 15 Salvage Scrap Pieces",
+    "matches": [
+      [],
+      [],
+      [
+        18
+      ]
+    ]
+  },
+  {
+    "rs": 999999,
+    "description": "Scan Results for 999,999 Indicate:\nSurface: No exact reference match\nSpace  : No exact reference match",
+    "matches": [
+      [],
+      [],
+      []
+    ]
+  }
+]

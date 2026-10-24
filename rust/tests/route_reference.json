@@ -1,0 +1,2955 @@
+[
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -19955481.71305284,
+        58094604.562897146,
+        -35012.39456397791
+      ]
+    },
+    "result": {
+      "names": [
+        "MIC-L2 Long Forest Station",
+        "MIC-L4 Red Crossroads Station"
+      ],
+      "distance": 19946452.88567628,
+      "fraction": 0.950467241024693
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -26637168.311795823,
+        1952990.4503185824,
+        -23277.127835582112
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L3 Modern Express Station",
+        "MIC-L3 Endless Odyssey Station"
+      ],
+      "distance": 2217315.4121967247,
+      "fraction": 0.23999635768896652
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -21476822.101434402,
+        33476085.057368413,
+        -69943.84655110163
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L3 Modern Express Station",
+        "MIC-L4 Red Crossroads Station"
+      ],
+      "distance": 288355.70093479665,
+      "fraction": 0.8082885378496852
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -49498061.92297655,
+        39892125.68137464,
+        -29175.339037957776
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L3 Modern Express Station",
+        "MIC-L4 Red Crossroads Station"
+      ],
+      "distance": 28424526.12268965,
+      "fraction": 0.8732974597763257
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        43983695.335738674,
+        -20141891.843376085,
+        -2094.579479956432
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L2 Lively Pathway Station",
+        "Terra Gateway"
+      ],
+      "distance": 9240858.473795904,
+      "fraction": 0.6060782422309466
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        37915935.717277214,
+        -44819580.493701935,
+        71129.99220006276
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L2 Lively Pathway Station",
+        "Terra Gateway"
+      ],
+      "distance": 26600947.929902103,
+      "fraction": 0.10942844971743176
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        9049302.52887261,
+        48729257.93359344,
+        14789.938067008872
+      ]
+    },
+    "result": {
+      "names": [
+        "MIC-L2 Long Forest Station",
+        "MIC-L4 Red Crossroads Station"
+      ],
+      "distance": 8787180.993127516,
+      "fraction": 0.3307849203675204
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        6797206.297055721,
+        -22767736.380671404,
+        -69008.3304210434
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L1 Wide Forest Station",
+        "ARC-L5 Yellow Core Station"
+      ],
+      "distance": 143737.76791589297,
+      "fraction": 0.37434900873859195
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        41783495.66082272,
+        28806896.195622355,
+        45791.20294350677
+      ]
+    },
+    "result": {
+      "names": [
+        "MIC-L2 Long Forest Station",
+        "Terra Gateway"
+      ],
+      "distance": 8957257.491357531,
+      "fraction": 0.3543610118826702
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -45791299.224270575,
+        -45982881.23812073,
+        19511.049961781187
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L3 Modern Express Station",
+        "MIC-L3 Endless Odyssey Station"
+      ],
+      "distance": 24936701.35802622,
+      "fraction": 0.9999995358836358
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        43758136.072016865,
+        -59392003.312633395,
+        -84442.91313834622
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L2 Lively Pathway Station",
+        "Terra Gateway"
+      ],
+      "distance": 42053740.11736782,
+      "fraction": 0.03509994237143244
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -27873102.899088036,
+        54635076.189293265,
+        -53834.6796245947
+      ]
+    },
+    "result": {
+      "names": [
+        "MIC-L2 Long Forest Station",
+        "MIC-L4 Red Crossroads Station"
+      ],
+      "distance": 17967838.662272166,
+      "fraction": 0.999999475641173
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -10700174.478985429,
+        -9607887.209502868,
+        -54693.48383538142
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L5 Yellow Core Station",
+        "CRU-L5 Beautiful Glen Station"
+      ],
+      "distance": 58455.04677675383,
+      "fraction": 0.41565386559990025
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -18568259.152331218,
+        -21800143.151181877,
+        2744.0616472463153
+      ]
+    },
+    "result": {
+      "names": [
+        "HUR-L3 Thundering Express Station",
+        "MIC-L3 Endless Odyssey Station"
+      ],
+      "distance": 83456.00867571954,
+      "fraction": 0.5867815652696303
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -8974797.79365439,
+        -6082197.888333932,
+        -39714.932046769194
+      ]
+    },
+    "result": {
+      "names": [
+        "Cellin",
+        "HUR-L5 High Course Station"
+      ],
+      "distance": 66150.66416021116,
+      "fraction": 0.39466080600259695
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        37417098.341770664,
+        31218604.438955948,
+        -28342.7442803422
+      ]
+    },
+    "result": {
+      "names": [
+        "MIC-L2 Long Forest Station",
+        "Terra Gateway"
+      ],
+      "distance": 6331065.201701387,
+      "fraction": 0.2748951862410438
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        4177900.3205412403,
+        40531459.81182669,
+        1293.1593542710325
+      ]
+    },
+    "result": {
+      "names": [
+        "MIC-L2 Long Forest Station",
+        "MIC-L4 Red Crossroads Station"
+      ],
+      "distance": 909750.6122086181,
+      "fraction": 0.44819932835113535
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        58464047.7561425,
+        28166080.79419057,
+        -95817.82362903349
+      ]
+    },
+    "result": {
+      "names": [
+        "MIC-L2 Long Forest Station",
+        "Terra Gateway"
+      ],
+      "distance": 23078555.78357393,
+      "fraction": 0.5196193026305745
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -20654952.281427875,
+        -8754950.055774711,
+        -85063.18401184086
+      ]
+    },
+    "result": {
+      "names": [
+        "Wikelo Emporium Selo Station",
+        "MIC-L3 Endless Odyssey Station"
+      ],
+      "distance": 87062.79694646534,
+      "fraction": 0.20857636773788965
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -35508568.172740236,
+        -50658685.12423569,
+        -14281.362977810946
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L3 Modern Express Station",
+        "MIC-L3 Endless Odyssey Station"
+      ],
+      "distance": 18756588.342516996,
+      "fraction": 0.9999995358836358
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -20214843.684228092,
+        32563821.316045165,
+        61410.13867053736
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L5 Yellow Core Station",
+        "MIC-L4 Red Crossroads Station"
+      ],
+      "distance": 182492.05945518712,
+      "fraction": 0.9163912921091357
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        57704460.64130995,
+        45485643.199122354,
+        -9216.819610231949
+      ]
+    },
+    "result": {
+      "names": [
+        "MIC-L2 Long Forest Station",
+        "Terra Gateway"
+      ],
+      "distance": 30932148.358654376,
+      "fraction": 0.23168227715465156
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -45246032.80118044,
+        -46430965.46836868,
+        45982.24874908451
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L3 Modern Express Station",
+        "MIC-L3 Endless Odyssey Station"
+      ],
+      "distance": 24592160.02137445,
+      "fraction": 0.9999995358836358
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        54327251.36113106,
+        45460268.49596612,
+        18932.494328890083
+      ]
+    },
+    "result": {
+      "names": [
+        "MIC-L2 Long Forest Station",
+        "Terra Gateway"
+      ],
+      "distance": 27986055.604663223,
+      "fraction": 0.20073878962514183
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -5997540.666276671,
+        54398588.06114295,
+        47280.12833072839
+      ]
+    },
+    "result": {
+      "names": [
+        "MIC-L2 Long Forest Station",
+        "MIC-L4 Red Crossroads Station"
+      ],
+      "distance": 15385614.160673019,
+      "fraction": 0.6511513065129911
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        43392341.94047527,
+        48283637.72392897,
+        -57110.4391694351
+      ]
+    },
+    "result": {
+      "names": [
+        "MIC-L2 Long Forest Station",
+        "Terra Gateway"
+      ],
+      "distance": 19882242.935404453,
+      "fraction": 0.053702302815763825
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -47132732.69877189,
+        -36429681.70295286,
+        -40261.634772775935
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L3 Modern Express Station",
+        "MIC-L3 Endless Odyssey Station"
+      ],
+      "distance": 24606807.39898241,
+      "fraction": 0.9614956889524972
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -17380478.760363452,
+        -5635917.915560134,
+        -81025.19335587561
+      ]
+    },
+    "result": {
+      "names": [
+        "CRU-L1 Ambitious Dream Station",
+        "MIC-L3 Endless Odyssey Station"
+      ],
+      "distance": 201941.02408812428,
+      "fraction": 0.09224505939360342
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -16346988.848144725,
+        -53089053.26997738,
+        62898.1439961298
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L2 Lively Pathway Station",
+        "MIC-L3 Endless Odyssey Station"
+      ],
+      "distance": 16985272.051989187,
+      "fraction": 0.9709283827780296
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -58721380.6326531,
+        -47383863.944248036,
+        -34157.151838039004
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L3 Modern Express Station",
+        "MIC-L3 Endless Odyssey Station"
+      ],
+      "distance": 37670387.145685636,
+      "fraction": 0.9999995358836358
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        14333387.186509,
+        2001161.588504,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Wikelo Emporium Dasi Station",
+        "MIC-L5 Modern Icarus Station"
+      ],
+      "distance": 17.999999999194674,
+      "fraction": 6.15567966404903e-07
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        23761435.428584,
+        39225377.300445,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Wikelo Emporium Dasi Station",
+        "Wikelo Emporium Kinga Station"
+      ],
+      "distance": 17.999999996563393,
+      "fraction": 0.9999995312452838
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -20156591.640625,
+        -1263139.6642805,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Wikelo Emporium Selo Station",
+        "HUR-L3 Thundering Express Station"
+      ],
+      "distance": 17.999999998236504,
+      "fraction": 2.427668802956236e-06
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        12905757.636,
+        40955.55,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Aberdeen"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        12892673.308,
+        -31476.128,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Arial"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        22398369.308,
+        37168840.679,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Calliope"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -18987611.119,
+        -2709009.661,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Cellin"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        22476728.221,
+        37091020.074,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Clio"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -18930539.54,
+        -2610158.765,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Daymar"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        22488109.736,
+        37081123.565,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Euterpe"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        12830194.716,
+        114913.608,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Ita"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        18703607.17,
+        -22121650.134,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Lyria"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        12792686.359,
+        -74464.581,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Magda"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        18379649.31,
+        -22000466.768,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Wala"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -19022916.799,
+        -2613996.152,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Yela"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        18587664.74,
+        -22151916.92,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "ArcCorp"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -18962176.0,
+        -2664960.0,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Crusader"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        12850457.093,
+        0.0,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Hurston"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        22462085.252,
+        37185744.964,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "microTech"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        16729134.637,
+        -19937006.925,
+        8.076625
+      ]
+    },
+    "result": {
+      "names": [
+        "Calliope",
+        "ARC-L1 Wide Forest Station"
+      ],
+      "distance": 23.999999994306695,
+      "fraction": 0.999999581783659
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        20446718.5033901,
+        -24367450.990706,
+        8.076625
+      ]
+    },
+    "result": {
+      "names": [
+        "Calliope",
+        "ARC-L2 Lively Pathway Station"
+      ],
+      "distance": 23.99999999541178,
+      "fraction": 0.9999996101822516
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -25043446.8835029,
+        14458841.787628,
+        8.076625
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L2 Lively Pathway Station",
+        "ARC-L3 Modern Express Station"
+      ],
+      "distance": 23.999999994505984,
+      "fraction": 0.9999995987068762
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        28478354.915655702,
+        5021502.48291174,
+        8.076625
+      ]
+    },
+    "result": {
+      "names": [
+        "Calliope",
+        "ARC-L4 Faint Glen Station"
+      ],
+      "distance": 23.99999999659254,
+      "fraction": 0.9999992664417167
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -9890422.516169671,
+        -27173732.225139998,
+        8.076625
+      ]
+    },
+    "result": {
+      "names": [
+        "Calliope",
+        "ARC-L5 Yellow Core Station"
+      ],
+      "distance": 23.999999992798205,
+      "fraction": 0.9999996666194848
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -17065957.376,
+        -2398464.0,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Clio",
+        "CRU-L1 Ambitious Dream Station"
+      ],
+      "distance": 23.999999993117715,
+      "fraction": 0.999999570540478
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -7173168.64,
+        -17754204.16,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Wikelo Emporium Kinga Station",
+        "CRU-L4 Shallow Fields Station"
+      ],
+      "distance": 23.999999992270574,
+      "fraction": 0.9999996298315579
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -11789008.988,
+        15089246.106763799,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L5 Yellow Core Station",
+        "CRU-L5 Beautiful Glen Station"
+      ],
+      "distance": 23.999999991308655,
+      "fraction": 0.9999994326992452
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        11565411.328,
+        0.0,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Hurston",
+        "HUR-L3 Thundering Express Station"
+      ],
+      "distance": 0.05617113777664066,
+      "fraction": 0.050000001180891755
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        14135502.848,
+        0.0,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Cellin",
+        "HUR-L2 Faithful Dream Station"
+      ],
+      "distance": 23.99999999529378,
+      "fraction": 0.9999992778416632
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -12850457.6,
+        -1.1234227289999998,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Lyria",
+        "HUR-L3 Thundering Express Station"
+      ],
+      "distance": 23.999999998636014,
+      "fraction": 0.9999993772063719
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        6425228.288,
+        11128823.808,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Lyria",
+        "HUR-L4 Melodic Fields Station"
+      ],
+      "distance": 23.999999997169013,
+      "fraction": 0.9999993228958598
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        6425227.776,
+        -11128823.808,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Wikelo Emporium Selo Station",
+        "HUR-L5 High Course Station"
+      ],
+      "distance": 23.999999996818335,
+      "fraction": 0.9999991535456995
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        20215824.238,
+        33467065.007,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Yela",
+        "MIC-L1 Shallow Frontier Station"
+      ],
+      "distance": 23.9999999945735,
+      "fraction": 0.9999995497686338
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        24708827.153,
+        40905202.459,
+        -5.0088e-05
+      ]
+    },
+    "result": {
+      "names": [
+        "ARC-L2 Lively Pathway Station",
+        "MIC-L2 Long Forest Station"
+      ],
+      "distance": 23.999999987675587,
+      "fraction": 0.9999996330929205
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -22457170.265,
+        -37187612.395,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Euterpe",
+        "MIC-L3 Endless Odyssey Station"
+      ],
+      "distance": 23.999999983701695,
+      "fraction": 0.9999997235331872
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        -20971933.23,
+        38045504.032,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "CRU-L4 Shallow Fields Station",
+        "MIC-L4 Red Crossroads Station"
+      ],
+      "distance": 23.999999989801115,
+      "fraction": 0.9999995824674425
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        43435204.2882185,
+        -851406.955908429,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "CRU-L1 Ambitious Dream Station",
+        "MIC-L5 Modern Icarus Station"
+      ],
+      "distance": 23.999999986526838,
+      "fraction": 0.9999996034430273
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        3310491.639802189,
+        -27979408.22145688,
+        -2676285.679
+      ]
+    },
+    "result": {
+      "names": [
+        "MIC-L2 Long Forest Station",
+        "Pyro Gateway"
+      ],
+      "distance": 23.99999999455849,
+      "fraction": 0.9999996675039354
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Stanton",
+      "xyz_km": [
+        51118221.61690332,
+        -5269981.303113817,
+        -4339551.619
+      ]
+    },
+    "result": {
+      "names": [
+        "Daymar",
+        "Terra Gateway"
+      ],
+      "distance": 23.99999998922117,
+      "fraction": 0.999999658282409
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -43844953.08989876,
+        -49531103.19387514,
+        37568.14096137922
+      ]
+    },
+    "result": {
+      "names": [
+        "Dudley & Daughters",
+        "Gaslight"
+      ],
+      "distance": 14390703.489488248,
+      "fraction": 0.39083203996638466
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -10098659.650097609,
+        -3060202.027749166,
+        8816.934861908929
+      ]
+    },
+    "result": {
+      "names": [
+        "Pyro I",
+        "Dudley & Daughters"
+      ],
+      "distance": 344463.1230666177,
+      "fraction": 0.03746619499940925
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        50664125.09123185,
+        26308221.531348243,
+        43501.047009095
+      ]
+    },
+    "result": {
+      "names": [
+        "Endgame",
+        "Stanton Gateway"
+      ],
+      "distance": 13160397.446467219,
+      "fraction": 0.7991421970325505
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        47429620.16377948,
+        6436499.0367231,
+        14431.475601035898
+      ]
+    },
+    "result": {
+      "names": [
+        "Endgame",
+        "Stanton Gateway"
+      ],
+      "distance": 5870193.976527351,
+      "fraction": 0.5824479959180697
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -37598782.74273085,
+        -9266989.813104592,
+        -31984.494199693494
+      ]
+    },
+    "result": {
+      "names": [
+        "Bloom",
+        "Dudley & Daughters"
+      ],
+      "distance": 78974.61389431029,
+      "fraction": 0.46699309575276604
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        27113599.130823985,
+        35171998.98116578,
+        -66131.86885142374
+      ]
+    },
+    "result": {
+      "names": [
+        "Dudley & Daughters",
+        "Stanton Gateway"
+      ],
+      "distance": 281717.64627279557,
+      "fraction": 0.924908168394698
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -13141509.97511278,
+        50256757.47096382,
+        22616.35283321797
+      ]
+    },
+    "result": {
+      "names": [
+        "Terminus",
+        "Megumi Refueling"
+      ],
+      "distance": 4207904.745609854,
+      "fraction": 0.4435824156132799
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        50639172.232893765,
+        52939806.719555795,
+        90006.54562349696
+      ]
+    },
+    "result": {
+      "names": [
+        "Megumi Refueling",
+        "Stanton Gateway"
+      ],
+      "distance": 18875130.39928988,
+      "fraction": 0.6242145027242876
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -24582475.465072587,
+        57940260.03239994,
+        66794.83822876055
+      ]
+    },
+    "result": {
+      "names": [
+        "Terminus",
+        "Megumi Refueling"
+      ],
+      "distance": 5306304.59668534,
+      "fraction": 0.31636514085098466
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -28849950.795115985,
+        -16844858.06358598,
+        33754.25069112089
+      ]
+    },
+    "result": {
+      "names": [
+        "Checkmate",
+        "Dudley & Daughters"
+      ],
+      "distance": 803728.7368398398,
+      "fraction": 0.5469081786868392
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        23531726.80625789,
+        26548282.80797963,
+        -52126.88611172185
+      ]
+    },
+    "result": {
+      "names": [
+        "Megumi Refueling",
+        "Patch City"
+      ],
+      "distance": 1512091.0374627202,
+      "fraction": 0.48501334574952215
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -23284871.71255488,
+        38181976.9441421,
+        72949.59235799452
+      ]
+    },
+    "result": {
+      "names": [
+        "Terminus",
+        "Rod's Fuel 'N Supplies"
+      ],
+      "distance": 5205022.455571896,
+      "fraction": 0.2450500136498441
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        36849966.65421373,
+        52313016.753653884,
+        14447.527750231078
+      ]
+    },
+    "result": {
+      "names": [
+        "Megumi Refueling",
+        "Stanton Gateway"
+      ],
+      "distance": 5316165.650913148,
+      "fraction": 0.5055637642484646
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -48406300.794550665,
+        19395907.09828542,
+        94688.1178407078
+      ]
+    },
+    "result": {
+      "names": [
+        "Terminus",
+        "Rat's Nest"
+      ],
+      "distance": 3299568.337626631,
+      "fraction": 0.515615093703822
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -35136632.88403701,
+        -2839474.1474820524,
+        -32941.75547301241
+      ]
+    },
+    "result": {
+      "names": [
+        "Rat's Nest",
+        "Stanton Gateway"
+      ],
+      "distance": 50917.92948499824,
+      "fraction": 0.09356821628277241
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -9026864.05014044,
+        41858160.92336075,
+        -42447.17623335939
+      ]
+    },
+    "result": {
+      "names": [
+        "Terminus",
+        "Stanton Gateway"
+      ],
+      "distance": 2874211.929293309,
+      "fraction": 0.4783460782723441
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -1665437.291776389,
+        21412843.478753954,
+        -80847.71688345994
+      ]
+    },
+    "result": {
+      "names": [
+        "Megumi Refueling",
+        "Starlight Service Station"
+      ],
+      "distance": 941230.0918798168,
+      "fraction": 0.7208081350848116
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        50767397.53238435,
+        4097465.92241963,
+        99843.97001938152
+      ]
+    },
+    "result": {
+      "names": [
+        "Endgame",
+        "Stanton Gateway"
+      ],
+      "distance": 8650111.172174087,
+      "fraction": 0.5480265190807655
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        20923356.86263889,
+        59748528.27764721,
+        61867.078985975124
+      ]
+    },
+    "result": {
+      "names": [
+        "Terminus",
+        "Megumi Refueling"
+      ],
+      "distance": 638041.9504120449,
+      "fraction": 0.8924545910210162
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -35452189.79065934,
+        6097312.596258864,
+        -74234.00669592168
+      ]
+    },
+    "result": {
+      "names": [
+        "Megumi Refueling",
+        "Rat's Nest"
+      ],
+      "distance": 4850183.806577581,
+      "fraction": 0.8567428975070714
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -42370954.44668777,
+        50518486.32503705,
+        -7086.9954910180095
+      ]
+    },
+    "result": {
+      "names": [
+        "Terminus",
+        "Megumi Refueling"
+      ],
+      "distance": 1010745.5683618006,
+      "fraction": 0.07662863119921717
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        49420310.04440448,
+        36261663.95076519,
+        -15053.212440015646
+      ]
+    },
+    "result": {
+      "names": [
+        "Endgame",
+        "Stanton Gateway"
+      ],
+      "distance": 14010346.599811204,
+      "fraction": 0.9145473098050161
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        56508503.5608336,
+        48530394.723329574,
+        71536.77919759479
+      ]
+    },
+    "result": {
+      "names": [
+        "Megumi Refueling",
+        "Stanton Gateway"
+      ],
+      "distance": 23562054.08260551,
+      "fraction": 0.8833087544653886
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -55726989.990252994,
+        -47304177.93896292,
+        43654.400395800796
+      ]
+    },
+    "result": {
+      "names": [
+        "Dudley & Daughters",
+        "Gaslight"
+      ],
+      "distance": 15878738.493829556,
+      "fraction": 0.19284658175787378
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -36609566.763598464,
+        -32861410.303112537,
+        -26355.693700323172
+      ]
+    },
+    "result": {
+      "names": [
+        "Nyx Gateway",
+        "Rat's Nest"
+      ],
+      "distance": 537725.6212686547,
+      "fraction": 0.11536441924953784
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        43982198.88997717,
+        -59294522.33310145,
+        59948.616784694954
+      ]
+    },
+    "result": {
+      "names": [
+        "Endgame",
+        "Gaslight"
+      ],
+      "distance": 14727412.76816793,
+      "fraction": 0.1582648100572576
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -58238387.10011365,
+        -18284709.99996391,
+        10981.644553667036
+      ]
+    },
+    "result": {
+      "names": [
+        "Terminus",
+        "Dudley & Daughters"
+      ],
+      "distance": 1901272.4728327694,
+      "fraction": 0.8615455464369692
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        52702831.86980778,
+        -44354144.090180136,
+        -11859.121300419152
+      ]
+    },
+    "result": {
+      "names": [
+        "Endgame",
+        "Stanton Gateway"
+      ],
+      "distance": 587475.2063495392,
+      "fraction": 2.771170053277831e-07
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -43061996.60416127,
+        -2948153.5988412574,
+        -20960.998274633195
+      ]
+    },
+    "result": {
+      "names": [
+        "Terminus",
+        "Rat's Nest"
+      ],
+      "distance": 295278.40941836854,
+      "fraction": 0.9216917193568557
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        34528732.874344215,
+        -11387539.3085628,
+        -11709.696345539181
+      ]
+    },
+    "result": {
+      "names": [
+        "Patch City",
+        "Rod's Fuel 'N Supplies"
+      ],
+      "distance": 367345.3139707553,
+      "fraction": 0.7438674011821169
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -3815641.3114,
+        -42729093.564,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Adir"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -3946435.0469,
+        -42879838.720199995,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Fairo"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -3780112.3701,
+        -42827196.0649,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Fuego"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -3965335.4047,
+        -42774798.7449,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Ignis"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -3889837.1944,
+        -42688068.4121,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Vatra"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -4049992.2634,
+        -42648947.302300006,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Vuur"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -16103894.5796,
+        7587938.7988,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Bloom"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        6057267.1681,
+        -8724931.116600001,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Monox"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -7920920.853,
+        -2386976.4764,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Pyro I"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -3704137.5437,
+        -43071659.3109,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Pyro IV"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -3912426.7345,
+        -42758732.5976,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Pyro V"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -48118273.944400005,
+        48503131.7708,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Terminus"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        10577229.334369995,
+        -968166.324911032,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Terminus",
+        "Checkmate"
+      ],
+      "distance": 23.99999999714692,
+      "fraction": 0.9999996873497261
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -62036440.80645678,
+        -28625942.535941005,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Monox",
+        "Dudley & Daughters"
+      ],
+      "distance": 23.999999996320614,
+      "fraction": 0.9999996616966781
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        52161403.64224197,
+        -44126491.1356201,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Dudley & Daughters",
+        "Endgame"
+      ],
+      "distance": 23.999999992479935,
+      "fraction": 0.9999997917480516
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -4305013.180344072,
+        -47034474.32937001,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Terminus",
+        "Gaslight"
+      ],
+      "distance": 23.999999988042482,
+      "fraction": 0.9999997716566559
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        29122470.164338723,
+        61804895.10140972,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Gaslight",
+        "Megumi Refueling"
+      ],
+      "distance": 23.999999992079477,
+      "fraction": 0.9999997892091781
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -35275861.98297,
+        -36052313.852533,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Terminus",
+        "Nyx Gateway"
+      ],
+      "distance": 23.99999998770912,
+      "fraction": 0.9999997193807836
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        14541573.612661485,
+        -10269333.167882817,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Endgame",
+        "Patch City"
+      ],
+      "distance": 23.99999999436419,
+      "fraction": 0.9999995258026959
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -42314565.58359934,
+        -7286465.628469063,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Megumi Refueling",
+        "Rat's Nest"
+      ],
+      "distance": 23.999999989510382,
+      "fraction": 0.9999997585086071
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        41429351.31330984,
+        -11279333.42532618,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Dudley & Daughters",
+        "Rod's Fuel 'N Supplies"
+      ],
+      "distance": 23.999999994429338,
+      "fraction": 0.9999997712321409
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        34178643.379001,
+        40591998.389459,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Dudley & Daughters",
+        "Stanton Gateway"
+      ],
+      "distance": 23.999999985075004,
+      "fraction": 0.9999997975131647
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Pyro",
+      "xyz_km": [
+        -14610506.64339,
+        6575346.217757,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Fuego",
+        "Starlight Service Station"
+      ],
+      "distance": 23.999999992985657,
+      "fraction": 0.999999525464477
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -1605460.545904763,
+        -43017762.267763704,
+        23358.7478267415
+      ]
+    },
+    "result": {
+      "names": [
+        "People's Service Station Delta",
+        "People's Service Station Lambda"
+      ],
+      "distance": 1219347.7396690617,
+      "fraction": 0.07721134611338992
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        8123411.686707571,
+        25765613.716070294,
+        3763.7671937423875
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Lambda"
+      ],
+      "distance": 13542725.121529853,
+      "fraction": 0.4395565575773279
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -29999460.727442324,
+        13510037.244748816,
+        -71258.98516092803
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Alpha"
+      ],
+      "distance": 14901235.870522426,
+      "fraction": 0.25935112344089056
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -36339215.49165302,
+        -3180386.209539585,
+        -68941.6373648432
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Alpha"
+      ],
+      "distance": 4284548.408905347,
+      "fraction": 0.6342883544276866
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        43950544.56155506,
+        50935218.09024225,
+        -93816.70538991205
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Lambda"
+      ],
+      "distance": 30284954.252121177,
+      "fraction": 0.9999994888698537
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        53301427.18561725,
+        -27537420.48752253,
+        56339.00246779056
+      ]
+    },
+    "result": {
+      "names": [
+        "People's Service Station Lambda",
+        "People's Service Station Theta"
+      ],
+      "distance": 12945163.542823514,
+      "fraction": 0.9999993555412943
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -20280086.39431244,
+        9478792.623415753,
+        -96049.28426937448
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Alpha"
+      ],
+      "distance": 6257369.568543198,
+      "fraction": 0.10264755279950798
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -35203916.79330107,
+        -54116240.23243363,
+        91548.23163445335
+      ]
+    },
+    "result": {
+      "names": [
+        "People's Service Station Alpha",
+        "People's Service Station Delta"
+      ],
+      "distance": 23558421.807960566,
+      "fraction": 0.6550693287374516
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -12515024.984848082,
+        25640251.962093696,
+        26230.890701431315
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Lambda"
+      ],
+      "distance": 18456027.16788619,
+      "fraction": 0.09802861194056862
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        36200528.2817924,
+        -21719911.353079244,
+        -63763.65452634798
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Charlie",
+        "People's Service Station Theta"
+      ],
+      "distance": 691899.0002439048,
+      "fraction": 0.8786619372348458
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        12371637.926381648,
+        34053047.38870898,
+        -36718.59874506103
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Lambda"
+      ],
+      "distance": 20543420.592400845,
+      "fraction": 0.5441957419851837
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -4549138.622871622,
+        -24977307.092823826,
+        -21691.819872081658
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Charlie",
+        "People's Service Station Delta"
+      ],
+      "distance": 4115080.6802222575,
+      "fraction": 0.635784028216377
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -43614888.72336472,
+        23318299.512690246,
+        -16408.755619723786
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Alpha"
+      ],
+      "distance": 30511764.90490796,
+      "fraction": 0.42013171117757475
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        11333113.652284876,
+        17473388.286418945,
+        -97177.66312964007
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Lambda"
+      ],
+      "distance": 4719013.3428516295,
+      "fraction": 0.45812408091548923
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -17370887.076670125,
+        28802002.04207349,
+        57066.50425499148
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Lambda"
+      ],
+      "distance": 22706916.405926377,
+      "fraction": 0.030937272566581107
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -2609305.0821448267,
+        54667000.84670442,
+        72683.76520191738
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Lambda"
+      ],
+      "distance": 44189262.26957632,
+      "fraction": 0.38234756845908974
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -20638887.22835596,
+        29773139.09784104,
+        85910.55607904421
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Lambda"
+      ],
+      "distance": 24471523.46872347,
+      "fraction": 5.111301463211107e-07
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -14835638.646713376,
+        32390701.09733157,
+        -25980.75044142251
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Lambda"
+      ],
+      "distance": 25568642.07977785,
+      "fraction": 0.08774311986742388
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        45501125.85297969,
+        -9160815.101678878,
+        26545.66440384007
+      ]
+    },
+    "result": {
+      "names": [
+        "People's Service Station Lambda",
+        "People's Service Station Theta"
+      ],
+      "distance": 3998170.7479918683,
+      "fraction": 0.636471766058505
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -11232395.267799973,
+        22411269.10500075,
+        39035.616690251074
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Lambda"
+      ],
+      "distance": 15011731.005033737,
+      "fraction": 0.1058003308584878
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -51608423.60484721,
+        29573619.054500878,
+        56989.15898010225
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Alpha"
+      ],
+      "distance": 40094874.34028675,
+      "fraction": 0.5075100250796032
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -2481811.211190887,
+        23750361.280070662,
+        17473.495543504236
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Lambda"
+      ],
+      "distance": 14175572.243042007,
+      "fraction": 0.25595122827215205
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        17158702.95584975,
+        -8057493.707308143,
+        -67218.66902912459
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Bravo",
+        "People's Service Station Lambda"
+      ],
+      "distance": 2708824.911079954,
+      "fraction": 0.16768813413080808
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        27397749.98961644,
+        26318736.36492598,
+        95314.27077235925
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Lambda"
+      ],
+      "distance": 9377540.905494064,
+      "fraction": 0.7603235974087748
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -54223868.77958126,
+        27485697.584584624,
+        96085.76104124167
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Alpha"
+      ],
+      "distance": 39751631.39561946,
+      "fraction": 0.5944647786399501
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -26936008.51354237,
+        -5781397.293735012,
+        -87315.29446658131
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Charlie",
+        "People's Service Station Alpha"
+      ],
+      "distance": 220774.26207953686,
+      "fraction": 0.6612351657303038
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        29249477.973552227,
+        -40360020.31153366,
+        -2126.986836084412
+      ]
+    },
+    "result": {
+      "names": [
+        "People's Service Station Delta",
+        "People's Service Station Theta"
+      ],
+      "distance": 8478953.293407507,
+      "fraction": 0.6846501377882931
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        2162252.192517936,
+        -1095683.8442541733,
+        24341.615163829396
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Theta"
+      ],
+      "distance": 1661716.329804059,
+      "fraction": 0.27569582848351504
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        109540.8419034034,
+        35359399.52542271,
+        22458.194627659206
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Lambda"
+      ],
+      "distance": 24801685.33191524,
+      "fraction": 0.34702006465156227
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -21985849.67004984,
+        15070713.977778345,
+        35197.51623044888
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Alpha"
+      ],
+      "distance": 11883525.17569309,
+      "fraction": 0.06119994580440862
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -13592383.232413,
+        6338233.6212031,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Alpha",
+        "People's Service Station Lambda"
+      ],
+      "distance": 29.999999999239485,
+      "fraction": 5.111301463211107e-07
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        9640228.7838848,
+        -11488779.774456,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Bravo",
+        "People's Service Station Delta"
+      ],
+      "distance": 29.999999999159446,
+      "fraction": 7.595615895316417e-07
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        9640231.3861308,
+        11488779.851098,
+        0.0
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Charlie",
+        "People's Service Station Lambda"
+      ],
+      "distance": 29.999999999547835,
+      "fraction": 8.592844157711309e-07
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -9641675.714700216,
+        -11490740.30080168,
+        -113.9720625
+      ]
+    },
+    "result": {
+      "names": [
+        "Delamar"
+      ]
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -45804334.38895,
+        -14351323.863111999,
+        6.7627049999999995
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Charlie",
+        "People's Service Station Alpha"
+      ],
+      "distance": 29.999999995889034,
+      "fraction": 0.9999995095662597
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        -6432482.102845,
+        -47567013.484966,
+        6.7627049999999995
+      ]
+    },
+    "result": {
+      "names": [
+        "People's Service Station Delta",
+        "People's Service Station Lambda"
+      ],
+      "distance": 29.999999997520312,
+      "fraction": 3.5527043939504545e-07
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        43327745.191997,
+        20656821.621462002,
+        6.7627049999999995
+      ]
+    },
+    "result": {
+      "names": [
+        "Transit Point Glaciem Charlie",
+        "People's Service Station Lambda"
+      ],
+      "distance": 29.999999997261433,
+      "fraction": 0.9999991407155843
+    }
+  },
+  {
+    "bookmark": {
+      "name": "Fixture",
+      "system": "Nyx",
+      "xyz_km": [
+        40472669.373793,
+        -25806235.238169,
+        6.7627049999999995
+      ]
+    },
+    "result": {
+      "names": [
+        "People's Service Station Lambda",
+        "People's Service Station Theta"
+      ],
+      "distance": 29.9999999942406,
+      "fraction": 0.9999993555412943
+    }
+  }
+]

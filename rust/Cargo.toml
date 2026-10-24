@@ -1,0 +1,29 @@
+[package]
+name = "sc-bookmarks"
+version = "0.0.4-alpha"
+edition = "2024"
+publish = false
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["float_roundtrip"] }
+
+form_urlencoded = "1"
+csv = "1.4"
+regex = "1"
+ort = { version = "=2.0.0-rc.15", default-features = false, features = ["std", "load-dynamic", "api-31"] }
+image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
+chrono = { version = "0.4", default-features = false, features = ["std", "clock"] }
+
+eframe = { version = "=0.33.3", default-features = false, features = ["default_fonts", "glow"] }
+windows-capture = "=2.0.1"
+windows = { version = "=0.62.2", features = ["Win32_Foundation", "Win32_System_Diagnostics_Debug", "Win32_Graphics_Dwm", "Win32_Graphics_Gdi", "Win32_UI_WindowsAndMessaging", "Win32_UI_HiDpi", "Win32_UI_Input_KeyboardAndMouse"] }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true
+
+
+
+
