@@ -5,7 +5,12 @@ use crate::{
     recognizer::Recognizer,
     scan_ocr::{self, Asteroid, Contact},
 };
-use std::{path::PathBuf, sync::mpsc, thread, time::Instant};
+use std::{
+    path::PathBuf,
+    sync::mpsc,
+    thread,
+    time::{Duration, Instant},
+};
 #[derive(Clone, Copy, PartialEq)]
 pub enum Kind {
     Asteroid,
@@ -44,6 +49,7 @@ impl Worker {
             let mut known = Vec::new();
             let mut last_search: Option<Instant> = None;
             let mut size = [0, 0];
+            let mut misses = 0;
             while let Ok((kind, pixels)) = input.recv() {
                 let result = (|| {
                     let rgba =
@@ -78,9 +84,10 @@ impl Worker {
                             known.clear();
                             last_search = None;
                             size = pixels.size;
+                            misses = 0;
                         }
                         let search = last_search.is_none_or(|t| {
-                            t.elapsed().as_secs() >= if known.is_empty() { 5 } else { 10 }
+                            t.elapsed() >= search_interval(known.is_empty(), misses)
                         });
                         if search {
                             last_search = Some(Instant::now());
@@ -90,6 +97,9 @@ impl Worker {
                         if let Ok(v) = &found {
                             if !v.is_empty() {
                                 known = v.clone();
+                                misses = 0;
+                            } else {
+                                misses = misses.saturating_add(1);
                             }
                         }
                         result.contacts = Some(found);
@@ -108,5 +118,21 @@ impl Worker {
     }
     pub fn poll(&self) -> Option<Result<ResultFrame, String>> {
         self.rx.try_recv().ok()
+    }
+}
+
+// Empty/lost badges are rediscovered promptly; stable badges avoid full-frame detection.
+fn search_interval(empty: bool, misses: u32) -> Duration {
+    Duration::from_secs(if empty || misses >= 2 { 2 } else { 10 })
+}
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn lost_badges_reacquire_without_waiting_ten_seconds() {
+        assert_eq!(search_interval(true, 0), Duration::from_secs(2));
+        assert_eq!(search_interval(false, 0), Duration::from_secs(10));
+        assert_eq!(search_interval(false, 1), Duration::from_secs(10));
+        assert_eq!(search_interval(false, 2), Duration::from_secs(2));
     }
 }

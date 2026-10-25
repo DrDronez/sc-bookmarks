@@ -1,12 +1,13 @@
 [package]
 name = "sc-bookmarks"
-version = "0.0.12-alpha"
+version = "0.0.13-alpha"
 edition = "2024"
 publish = false
 
 [dependencies]
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1", features = ["float_roundtrip"] }
+semver = "1"
 
 form_urlencoded = "1"
 csv = "1.4"

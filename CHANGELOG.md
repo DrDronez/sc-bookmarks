@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.13-alpha — 2026-10-24
+
+- Check GitHub releases on launch and show newer versions, including alpha releases, with up to three short change bullets and a repository link. Checks run in the background, time out, and stay quiet when unavailable.
+- Improve RS scan responsiveness with shorter retry/read intervals and earlier reacquisition of lost badges while keeping bounded workers and agreement checks.
+- Make RS cards smaller and translucent, omit unmatched reference contexts, and suppress readings without a catalog match.
+
+Updates are downloaded and installed manually. No bookmarks or settings are sent to GitHub. Faster empty-scene searches can use more CPU; scanning accuracy still depends on visible game pixels.
+
 ## 0.0.12-alpha — 2026-10-24
 
 - Add an all-systems overview for Stanton, Pyro and Nyx with schematic jump connections and system detail navigation.

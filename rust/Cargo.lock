@@ -1940,7 +1940,7 @@ dependencies = [
 
 [[package]]
 name = "sc-bookmarks"
-version = "0.0.12-alpha"
+version = "0.0.13-alpha"
 dependencies = [
  "chrono",
  "csv",
@@ -1949,6 +1949,7 @@ dependencies = [
  "image",
  "ort",
  "regex",
+ "semver",
  "serde",
  "serde_json",
  "windows",

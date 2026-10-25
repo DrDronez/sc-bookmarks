@@ -56,3 +56,29 @@ Argo theme: added orange primary / warm ivory accents and squared industrial bra
 0.0.6-alpha: 46 automated tests passed before version-only release update. Offline shard probe recovered the exact region/build/instance from the private supplied screenshot using the 300x14 alternate crop at confidence 0.855; full Worker produced two matching reads. Parser regression tests reject corrupted region/digits, inseparable numeric fields and low confidence. Live-state test covers confirmed shard retention over 120-second refresh, and two-read confirmation after an ID change. Existing unknown bookmark creation metadata is left unchanged. Private images are not published.
 
 0.0.12-alpha release: all 67 automated tests passed, including persistent work-order timestamps, advance/completion/snooze delivery, reminder processing without UI frames, backup/corruption protection, refinery data validation and map/settings regressions. Release build succeeded. Fresh portable package passed --verify-runtime (confidence 0.9792; six detected regions; exit 0). ZIP has 336 entries, executable at root, and no personal data/cache/work-order files. Live UI inspection checked refinery selection, job-editor layout, local completion-time controls, 10 SCU at 80% manual recovery producing 8 SCU, quote-mode reset and cancellation without saving. Full in-game refinery pickup accuracy remains dependent on community data and user-entered terminal values.
+
+Local RS responsiveness revision after 0.0.12-alpha: shorten unsuccessful scan cooldown from 5s to 2s and tracked reads from 1s to 500ms; rediscover after two misses instead of waiting for the stable 10s search interval. Preserve detector bounds for repeated reads. Stop variant OCR early only for two >=0.90-confidence agreeing reads with no competing value and the existing icon check. Keep bounded single-thread workers and no queued scan backlog. All 69 tests passed. Offline comparison on the private 8,000-RS screenshot: correct interpretation in both versions; old/new discovery 2.112/2.125 seconds, cached reads 141/128 ms on this machine. Main gain is scheduling latency, not faster full-frame inference; more frequent empty-scene searches can use more CPU. No live-game latency guarantee or publication.
+
+Local RS card cleanup: 340px compact card, 13px text, reduced padding and subdued border, darker background retaining full opacity. Compact overlay descriptions omit unmatched Surface/Space rows and suppress entirely unmatched readings without fabricating results. All three scanning tests pass, including 2,000 RS space-only, 8,000 RS both contexts and unknown-value suppression; full chart/reference descriptions remain compatible.
+
+RS card translucency correction: background fill now uses premultiplied alpha 140/255 (about 55% opacity), with text and border remaining opaque. Floating guidance and projected markers retain their existing alpha behavior.
+
+Startup update notice: one background HTTPS request to public GitHub releases,
+including alpha prereleases, with a 5-second connect / 15-second total timeout.
+Semantic version comparison excludes drafts and malformed tags; notice contains
+up to three release-note bullets (120 characters each), repository link and dismiss.
+No update installation or user-data upload. All 77 automated tests passed,
+including seven release-selection/summary tests. Locked release build succeeded.
+The exact curl request succeeded against GitHub and returned 0.0.12-alpha as the
+newest published release, matching the current app version. Newer-release behavior
+was tested with fixtures; the notice has not been inspected in a live app window.
+No version bump, publication, or replacement of the running portable executable.
+
+0.0.13-alpha release validation: all 77 Rust tests and 31 legacy Python tests
+passed; Python compilation and the locked release build passed. Fresh portable
+package passed --verify-runtime (confidence 0.9792; six detected regions; exit 0).
+ZIP integrity, every per-file manifest hash, archive-root executable/runtime,
+and absence of personal data verified. Includes startup update notice, local RS
+responsiveness improvements, and compact translucent RS cards described above.
+Release notice behavior is covered by fixtures; live notice visual inspection
+remains pending. Running portable installation was left in place.

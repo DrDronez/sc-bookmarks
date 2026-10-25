@@ -37,3 +37,18 @@ fn parses_filters_and_sorts_numeric_values() {
         "Scan Results for 8,000 Indicate:\nSurface: 2 ROC Deposits\nSpace  : 4 Salvage Scrap Pieces"
     );
 }
+
+#[test]
+fn overlay_omits_unmatched_contexts_without_inventing_matches() {
+    let charts = charts().unwrap();
+    let text = overlay_description(&charts, 2000);
+    assert!(text.starts_with("Scan results · 2,000 RS\nSpace"));
+    assert!(!text.contains("Surface"));
+    assert!(!text.contains("No exact"));
+    assert!(text.contains("Redeemer wreck"));
+    assert!(
+        overlay_description(&charts, 8000)
+            .contains("Surface: 2 ROC Deposits\nSpace  : 4 Salvage Scrap Pieces")
+    );
+    assert!(overlay_description(&charts, 1).is_empty());
+}

@@ -222,3 +222,19 @@ pub fn description(charts: &[Chart], rs: u64) -> String {
         }
     )
 }
+
+/// Compact overlay copy omits contexts without a catalog match.
+/// Keep the full reference description for chart/parity consumers.
+pub fn overlay_description(charts: &[Chart], rs: u64) -> String {
+    let full = description(charts, rs);
+    let rows: Vec<_> = full
+        .lines()
+        .skip(1)
+        .filter(|line| !line.ends_with("No exact reference match"))
+        .collect();
+    if rows.is_empty() {
+        String::new()
+    } else {
+        format!("Scan results · {} RS\n{}", grouped(rs), rows.join("\n"))
+    }
+}

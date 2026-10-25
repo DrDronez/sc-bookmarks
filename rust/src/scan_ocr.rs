@@ -290,9 +290,13 @@ pub fn contacts(
     };
     let re = Regex::new(r"^\s*(\d{1,3},\d{3})\s*$").unwrap();
     let charts = scanning::charts()?;
+    let candidate_pattern = Regex::new(r"\d[,.]\d{2}").unwrap();
     let mut found = Vec::new();
     let start = Instant::now();
     for b in boxes {
+        if found.len() >= 8 || start.elapsed().as_secs_f32() >= 8.0 {
+            break;
+        }
         let h = b[3] - b[1];
         let w = b[2] - b[0];
         if h < 5 || h > 60.max(im.height() / 20) || !(1.3..=7.).contains(&(w as f64 / h as f64)) {
@@ -316,11 +320,12 @@ pub fn contacts(
             continue;
         };
 
-        if !Regex::new(r"\d[,.]\d{2}").unwrap().is_match(&candidate) {
+        if !candidate_pattern.is_match(&candidate) {
             continue;
         }
         let mut votes: BTreeMap<u64, (usize, Bounds)> = BTreeMap::new();
-        for trim in [0., 0.5, 0.75, 1.] {
+        let mut confident = None;
+        'variants: for trim in [0., 0.5, 0.75, 1.] {
             for inset in [0., 0.16] {
                 let bb = [
                     b[0] + (h as f64 * trim) as u32,
@@ -332,6 +337,9 @@ pub fn contacts(
                     continue;
                 }
                 for gray in [false, true] {
+                    if start.elapsed().as_secs_f32() >= 8.0 {
+                        break 'variants;
+                    }
                     let crop =
                         image::imageops::crop_imm(im, bb[0], bb[1], bb[2] - bb[0], bb[3] - bb[1])
                             .to_image();
@@ -359,6 +367,16 @@ pub fn contacts(
                                 if let Ok(value) = c[1].replace(',', "").parse::<u64>() {
                                     let v = votes.entry(value).or_insert((0, bb));
                                     v.0 += 1;
+                                    // Two independent preprocessing reads must agree; never
+                                    // fast-accept a conflict or drop the badge icon check.
+                                    if s >= 0.90 {
+                                        if fast_agreement(confident, value, s, votes.len())
+                                            && icon(im, bb)
+                                        {
+                                            break 'variants;
+                                        }
+                                        confident = Some(value);
+                                    }
                                 }
                             }
                         }
@@ -369,24 +387,34 @@ pub fn contacts(
 
         let mut ordered: Vec<_> = votes.into_iter().collect();
         ordered.sort_by_key(|(_, v)| std::cmp::Reverse(v.0));
-        if let Some((rs, (n, b))) = ordered.first() {
-            if *n >= 2 && ordered.get(1).is_none_or(|(_, v)| v.0 < *n) && icon(im, *b) {
+        if let Some((rs, (n, read_bounds))) = ordered.first() {
+            if *n >= 2 && ordered.get(1).is_none_or(|(_, v)| v.0 < *n) && icon(im, *read_bounds) {
                 found.push(Contact {
-                    bounds: *b,
+                    bounds: b,
                     rs: *rs,
-                    text: scanning::description(&charts, *rs),
+                    text: scanning::overlay_description(&charts, *rs),
                 });
             }
-        }
-        if found.len() >= 8 || start.elapsed().as_secs() > 8 {
-            break;
         }
     }
     Ok(found)
 }
+
+fn fast_agreement(previous: Option<u64>, value: u64, confidence: f64, alternatives: usize) -> bool {
+    confidence >= 0.90 && previous == Some(value) && alternatives == 1
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn quick_rs_requires_confident_uncontested_agreement() {
+        assert!(fast_agreement(Some(8000), 8000, 0.95, 1));
+        assert!(!fast_agreement(None, 8000, 0.95, 1));
+        assert!(!fast_agreement(Some(8000), 9000, 0.95, 1));
+        assert!(!fast_agreement(Some(8000), 8000, 0.8, 1));
+        assert!(!fast_agreement(Some(8000), 8000, 0.95, 2));
+    }
     #[test]
     fn rock_repeated_ores_and_inert() {
         let lines = [

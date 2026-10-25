@@ -40,7 +40,7 @@ impl Default for CaptureView {
             pending: None,
             busy: false,
             last_scan: None,
-            scan_delay: 5,
+            scan_delay: 2000,
             scans_enabled: true,
             scan_result: None,
         }
@@ -78,6 +78,8 @@ impl CaptureView {
         self.pending = None;
         self.busy = false;
         self.scan_result = None;
+        self.last_scan = None;
+        self.scan_delay = 2000;
     }
     pub fn poll(&mut self, ctx: &egui::Context, preview: bool) {
         if let Some(session) = &self.session {
@@ -134,9 +136,9 @@ impl CaptureView {
                             .as_ref()
                             .is_some_and(|r| r.as_ref().is_ok_and(|c| !c.is_empty()))
                         {
-                            1
+                            500
                         } else {
-                            5
+                            2000
                         };
                         self.last_scan = Some(Instant::now());
                         self.scan_result = Some(v);
@@ -151,7 +153,7 @@ impl CaptureView {
             && self.pending.is_none()
             && self
                 .last_scan
-                .is_none_or(|t| t.elapsed().as_secs() >= self.scan_delay.max(1))
+                .is_none_or(|t| t.elapsed() >= Duration::from_millis(self.scan_delay))
         {
             self.request_scan(sc_bookmarks::scan_worker::Kind::Contacts);
         }

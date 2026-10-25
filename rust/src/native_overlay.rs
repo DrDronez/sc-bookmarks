@@ -317,19 +317,21 @@ unsafe fn draw(dc: HDC, p: &Panel) {
             draw_floating(dc, p);
             return;
         }
-        let bg = CreateSolidBrush(COLORREF(0x21170b));
+        let bg = CreateSolidBrush(COLORREF(0x120d08));
         FillRect(dc, &r, bg);
         let _ = DeleteObject(bg.into());
-        let edge = CreateSolidBrush(COLORREF(p.theme.colors().1));
+        let accent = p.theme.colors().1;
+        let subdued = ((accent & 0xfefefe) >> 1) + 0x202020;
+        let edge = CreateSolidBrush(COLORREF(subdued));
         FrameRect(dc, &r, edge);
         let _ = DeleteObject(edge.into());
         SetBkMode(dc, TRANSPARENT);
         let font = CreateFontW(
-            -15,
+            -13,
             0,
             0,
             0,
-            600,
+            500,
             0,
             0,
             0,
@@ -342,10 +344,10 @@ unsafe fn draw(dc: HDC, p: &Panel) {
         );
         let old = SelectObject(dc, font.into());
         SetTextColor(dc, COLORREF(p.theme.colors().1));
-        r.left = 10;
-        r.right -= 10;
-        r.top = 10;
-        r.bottom = 35;
+        r.left = 8;
+        r.right -= 8;
+        r.top = 6;
+        r.bottom = 24;
         let mut title: Vec<u16> = p.title.encode_utf16().collect();
         DrawTextW(
             dc,
@@ -353,8 +355,8 @@ unsafe fn draw(dc: HDC, p: &Panel) {
             &mut r,
             DT_CENTER | DT_SINGLELINE | DT_END_ELLIPSIS,
         );
-        r.top = 40;
-        r.bottom = p.rect.height as i32 - 10;
+        r.top = 28;
+        r.bottom = p.rect.height as i32 - 6;
         SetTextColor(
             dc,
             COLORREF(if p.warning {
@@ -643,9 +645,16 @@ unsafe fn present(hwnd: HWND, p: &Panel) -> Result<(), String> {
         draw(dc, p);
         let _ = GdiFlush();
         let pixels = std::slice::from_raw_parts_mut(bits as *mut u8, (width * height * 4) as usize);
-        // GDI text writes RGB but leaves alpha zero. Supply opaque premultiplied
-        // alpha explicitly before sending the complete surface to the compositor.
+        // GDI leaves alpha zero. Make only the RS card fill translucent;
+        // keep glyphs/borders opaque and premultiply the background for Windows.
         for pixel in pixels.chunks_exact_mut(4) {
+            if !p.floating && !p.projected && pixel[..3] == [0x12, 0x0d, 0x08] {
+                for channel in &mut pixel[..3] {
+                    *channel = (u16::from(*channel) * 140 / 255) as u8;
+                }
+                pixel[3] = 140;
+                continue;
+            }
             pixel[3] = if p.floating && pixel[..3] == [0, 0, 0] {
                 0
             } else {

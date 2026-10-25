@@ -70,6 +70,7 @@ mod tests {
     }
 }
 pub mod capture;
+pub mod update_check;
 pub mod detector;
 pub mod guidance;
 pub mod library;

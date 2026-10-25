@@ -1,6 +1,6 @@
 # SC Bookmarks
 
-**0.0.12-alpha — Rust portable for Windows x64.** Save and share locations, record mining scans, and receive on-screen navigation and scan-reference guidance from visible game pixels.
+**0.0.13-alpha — Rust portable for Windows x64.** Save and share locations, record mining scans, and receive on-screen navigation and scan-reference guidance from visible game pixels.
 
 **Tested game build: Star Citizen 4.10.2-LIVE.12913470.** Other builds have not been validated; changes to debug text, HUD layout, or scanning values may affect results.
 
@@ -8,11 +8,17 @@
 
 ## Download and run (recommended)
 
-Download **SC-Bookmarks-0.0.12-alpha-windows-x64.zip** from the [0.0.12-alpha release](https://github.com/DrDronez/sc-bookmarks/releases/tag/0.0.12-alpha). Extract all ZIP contents into a writable folder and run **SC-Bookmarks.exe**. No Python, Rust compiler, administrator access, or separate OCR download is needed. Keep the runtime and licenses folders alongside the executable. Requires Windows 10/11 x64, Windows Graphics Capture and an OpenGL-capable driver. Borderless/windowed mode is recommended; desktop overlays are not guaranteed in exclusive fullscreen.
+Download **SC-Bookmarks-0.0.13-alpha-windows-x64.zip** from the [0.0.13-alpha release](https://github.com/DrDronez/sc-bookmarks/releases/tag/0.0.13-alpha). Extract all ZIP contents into a writable folder and run **SC-Bookmarks.exe**. No Python, Rust compiler, administrator access, or separate OCR download is needed. Keep the runtime and licenses folders alongside the executable. Requires Windows 10/11 x64, Windows Graphics Capture and an OpenGL-capable driver. Borderless/windowed mode is recommended; desktop overlays are not guaranteed in exclusive fullscreen.
 
 Enable `r_displayinfo 3` in Star Citizen, capture starts automatically when the game window is available. Read [portable instructions](rust/PORTABLE.md) for migration, controls and limitations. Back up `navigator-data-rust` before updating; the portable download contains no personal bookmarks or settings.
 
 The Rust source is in [rust/](rust/). The original Python 0.0.3-alpha source remains here as a legacy reference. New controls include **F10** to hide/show all overlays, manufacturer-inspired themes (including Argo), and an optional **3D bookmark test**, off by default. The experimental marker uses manually configured vertical FOV and still needs live alignment validation; it is not a verified landing aid.
+
+On launch, the Rust app checks public GitHub releases in the background, including
+alpha releases. A newer version shows a dismissible notice with up to three short
+release-note bullets and a link to the repository. The check sends no bookmarks
+or settings, times out after 15 seconds, and stays quiet if unavailable. Updates
+are downloaded and installed manually; dismissal lasts until the next launch.
 
 ## System map
 

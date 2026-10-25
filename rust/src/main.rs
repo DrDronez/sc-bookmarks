@@ -12,9 +12,11 @@ mod mining_editor;
 mod overlay_ui;
 mod scanning_ui;
 mod theme;
+mod update_ui;
 use sc_bookmarks::{Bookmark, links, routes, storage};
 use std::{collections::BTreeMap, path::PathBuf};
 struct Desktop {
+    update_notice: update_ui::UpdateNotice,
     organization: sc_bookmarks::organization::Organization,
     category_editor: Option<Vec<(String, String)>>,
     organization_blocked: bool,
@@ -102,6 +104,7 @@ impl Desktop {
             .find(|s| s.label() == organization.sort)
             .unwrap_or_default();
         Self {
+            update_notice: update_ui::UpdateNotice::start(),
             organization,
             category_editor: None,
             organization_blocked,
@@ -197,6 +200,7 @@ impl Desktop {
 }
 impl eframe::App for Desktop {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
+        self.update_notice.show(ctx);
         if self.refineries.orders.tick(ctx) {
             self.refineries.queue_tab = true;
             self.show_refineries = true;
@@ -1289,13 +1293,13 @@ impl eframe::App for Desktop {
                         .is_some_and(|r| r.width == desktop.width && r.height == desktop.height)
                 {
                     let desktop = game_rect.as_ref().unwrap();
-                    for c in contacts {
-                        let width = 380.min(desktop.width);
-                        let height = (65
+                    for c in contacts.iter().filter(|c| !c.text.is_empty()) {
+                        let width = 340.min(desktop.width);
+                        let height = (36
                             + c.text
                                 .lines()
                                 .skip(1)
-                                .map(|l| 20 * (1 + l.chars().count() as u32 / 44))
+                                .map(|l| 18 * (l.chars().count() as u32).div_ceil(42).max(1))
                                 .sum::<u32>())
                         .min(desktop.height);
                         let x = ((c.bounds[0] + c.bounds[2]) / 2)

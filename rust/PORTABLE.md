@@ -1,9 +1,14 @@
-# SC Bookmarks 0.0.12-alpha — portable Rust build
+# SC Bookmarks 0.0.13-alpha — portable Rust build
 
 Extract all ZIP contents into a writable folder, then open **SC-Bookmarks.exe**.
 No Python, pip, Rust compiler, model download, or administrator access is required.
 Keep the runtime and licenses folders beside the executable. Windows 10/11 x64,
 Windows Graphics Capture support, and an OpenGL-capable graphics driver are required.
+
+Startup checks public GitHub releases in the background, including alpha releases.
+If an update is available, a dismissible notice shows up to three short change
+bullets and a repository link. Offline/failed checks stay quiet and time out after
+15 seconds. No bookmarks or settings are sent. Download and install updates manually.
 
 In Star Citizen enable `r_displayinfo 3`. SC Bookmarks starts capture automatically when the game window is available. The game
 may be in the background; its window must be restored and continue rendering.
